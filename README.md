@@ -2,13 +2,13 @@
 
 ## Title: Identifying signatures of human epigenetic modifications among tissues.
 
-##### Main Supervisor:
+##### Main Supervisor: Thomas Bataillon
 
-##### Main Supervisor email:
+##### Main Supervisor email: [tbata@birc.au.dk](mailto:tbata@birc.au.dk)
 
 ##### Start date: 01-02-2019
 
-##### End date: 01-06-2019
+##### End date: 14-06-2019
 
 ## Project description
 
