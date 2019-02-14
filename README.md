@@ -2,6 +2,8 @@
 
 ## Title: Identifying signatures of human epigenetic modifications among tissues.
 
+##### Alejandro Roca Arroyo [alekss.ro@gmail.com](mailto:alekss.ro@gmail.com)
+
 ##### Main Supervisor: Thomas Bataillon
 
 ##### Main Supervisor email: [tbata@birc.au.dk](mailto:tbata@birc.au.dk)
