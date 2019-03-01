@@ -1,0 +1,1 @@
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/scripts/13072_2017_131_MOESM3_ESM/genomic_survey/IMR90/H3K27ac/GSM469966.rawCounts.bed
