@@ -18,11 +18,11 @@ Non-negative Matrix Factorization (NMF) reveals as an ideal method for the task 
 
 - Get Arabidopsis data from https://datadryad.org/resource/doi:10.5061/dryad.80442
 
-  Arabidopsis data includes Single Methylation Polymorfisms (SMPs) for Arabidopsis located in different locations, with following information: chr, position, strand, class, gclass, *locations.
+  Arabidopsis data includes Single Methylation Polymorfisms (SMPs) for Arabidopsis located in different locations, with following information: chr, position, strand, class, gclass, locations.
 
 - Get alternative data
 
-#### Plan A: 
+#### Plan A:
 
 The one specified in the project description but it needs: define properly the elements in the V matrix and the final objective of the analysis.
 
@@ -44,13 +44,13 @@ In this paper they try to highlight functional relationships between chromatin s
 
 [Combinatorial epigenetic patterns as quantitative predictors of chromatin biology](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-76 ) :
 
-In this paper they applied NMF to 7 histone modifications and one histone variant in the A549 adenocarcinomic alveolar basal epithelial cell line (histone modifications = columns). The rows of the V matrix in this case are multiple loci; regions of TSS-proximal gene bodies since they contain epigenetic traces of transcription initiation and elongation. From this analysis they performed some case studies: 
+In this paper they applied NMF to 7 histone modifications and one histone variant in the A549 adenocarcinomic alveolar basal epithelial cell line (histone modifications = columns). The rows of the V matrix in this case are multiple loci; regions of TSS-proximal gene bodies since they contain epigenetic traces of transcription initiation and elongation. From this analysis they performed some case studies:
 
-- Regression Pol2 binding: they try to predict levels of Pol2 binding at promoters of protein-coding genes in human embryonic stem cells (H1ESC). They used ridge regression comparing the performance of individual marks and combinatory patterns derived from NMF. 
+- Regression Pol2 binding: they try to predict levels of Pol2 binding at promoters of protein-coding genes in human embryonic stem cells (H1ESC). They used ridge regression comparing the performance of individual marks and combinatory patterns derived from NMF.
 - Classification of Pol-2 bound enhancers vs promoters
 - Gene set enrichment analysis.
 
-[Intratumor heterogeneity in epigenetic patterns](https://www.sciencedirect.com/science/article/pii/S1044579X17302262) 
+[Intratumor heterogeneity in epigenetic patterns](https://www.sciencedirect.com/science/article/pii/S1044579X17302262)
 
 
 
