@@ -10,9 +10,9 @@
 #NB (Task); Convert processed BED files into Normalized (TPM or RPKM) Coverage signal tracks.
 args <- commandArgs(trailingOnly = TRUE)
 options("scipen"=10, "digits"=4)
-require(GenomicRanges);
-require(IRanges);
-library(rtracklayer);
+require(GenomicRanges, quietly = T);
+require(IRanges, quietly = T);
+require(rtracklayer, quietly = T);
 
 
 input.datafile <- args[1];
@@ -21,10 +21,11 @@ mappabilitytrack.file <- args[3];
 binnedgenome.file <- args[4];
 binsize <- args[5];
 totMappedAllExpFile <- args[6];
+project.path <- args[7]
+print(project.path)
 # Retrieve the number of informative reads mapped for each sample Bi in the group P  (cell-linX/Signal-trackY)
 totMappedAllExp <- scan(totMappedAllExpFile, what="character")
 totMappedAllExp <- as.numeric(unlist(strsplit(totMappedAllExp, split=" ")))
-
 
 
 
@@ -37,8 +38,6 @@ colnames(mappabilitytrack) <- c("chrom" , "chromStart", "chromEnd", "score" )
 
 
 
-
-
 ######################################
 # 1. Import datasheet samples file ###
 ######################################
@@ -47,52 +46,43 @@ datasheetsamples = read.table(datasheetsamples.file, header=F, sep="\t", strings
 colnames(datasheetsamples) <- c("cell_line" , "data_type", "assay", "sampleID", "alignfile", "map_type" ,"replicate" ,"rawfile" ,"lab")
 
 
-
-
-
-
 ###############################
 # 2. Import mapping files ####  >>> to count the number of mapped reads in each  'processed.bed' (sample) of the group (Bi)
 ###############################
 input.data <- scan(input.datafile, what="character" , sep="\t" )
-
+print(input.data)
 totMappedSamples = NULL;
 
 for (filepath in input.data) {
-cat("import", filepath, "to count nr. of mapped sequencing tags", "\n", sep=" ")
-pathsections <- unlist(strsplit(filepath, split="[/]"))
-sampleid <- unlist(strsplit(pathsections[length(pathsections)], split="[.]"))[1]
-alignfilename <- datasheetsamples[match( sampleid, datasheetsamples$sampleID), "alignfile"]
-processedfilename <- gsub("bed", "processed.bed", alignfilename)
-processedfilename <- gsub("bam", "processed.bed", processedfilename)
-# Reconstruct the whole filepath for the 'processed.bed' file
-processedfilepath <- paste( c(  pathsections[2],
-								pathsections[3],
-								pathsections[4],
-								pathsections[5],
-								"data",
-								pathsections[7],
-								pathsections[8],
-								sampleid,
-								processedfilename),
-								collapse="/")
-processedfilepath <- paste("/",processedfilepath, sep="");
-# NB: function 'import.bed' directly imports a bed file in R as a GRanges object!
-# processedbed <- import.bed(con=processedfilepath, asRangedData=FALSE)		# gives unused argument
-processedbed <- import(con=processedfilepath, format = "bed")
-# Save the total number of informative mapped reads in each sample
-totMappedSamples = c(totMappedSamples, length(processedbed ))   # vector containing total number of tags in each sample in the group
-rm(processedbed);
- }
+    
+    cat("import", filepath, "to count nr. of mapped sequencing tags", "\n", sep=" ")
+    pathsections <- unlist(strsplit(filepath, split="[/]"))
+    sampleid <- unlist(strsplit(pathsections[length(pathsections)], split="[.]"))[1] # get las element (filename) and get first part
+    alignfilename <- datasheetsamples[match( sampleid, datasheetsamples$sampleID), "alignfile"]
+    processedfilename <- gsub("bed", "processed.bed", alignfilename)
+    processedfilename <- gsub("bam", "processed.bed", processedfilename)
+    # Reconstruct the whole filepath for the 'processed.bed' file
+    processedfilepath <- paste( c(  project.path,
+    								"data",
+    								pathsections[length(pathsections) - 2],
+    								pathsections[length(pathsections) - 1],
+    								sampleid,
+    								processedfilename),
+    								collapse="/")
+    # processedfilepath <- paste("/",processedfilepath, sep="")
+    print(processedfilepath)
+    # NB: function 'import.bed' directly imports a bed file in R as a GRanges object!
+    # processedbed <- import.bed(con=processedfilepath, asRangedData=FALSE)		# gives unused argument
+    processedbed <- import(con=processedfilepath, format = "bed")
+    # Save the total number of informative mapped reads in each sample
+    totMappedSamples = c(totMappedSamples, length(processedbed ))   # vector containing total number of tags in each sample in the group
+    rm(processedbed);
+}
 
 
 # Regenerate the common directory and export txt file with the read totals per sample:
  samplegroup.path <- paste(pathsections[c(1:(length(pathsections)-1))], collapse="/")  # 'samplegroup.path' corresponds to >>> ./genomic_survey/cell.line/signaltrack
  write(totMappedSamples, file=file.path(samplegroup.path, "sample_tag_totals.txt"), sep="\n",  append=FALSE)
-
-
-
-
 
 
 
@@ -103,12 +93,6 @@ binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFacto
 colnames(binned.genome) <- c("chrom" , "chromStart" ,"chromEnd")
 binned.genome <- data.frame(binned.genome, counts=rep(0, nrow(binned.genome)), stringsAsFactors=FALSE)
 binned.genome <- data.frame(binned.genome, name=paste(binned.genome$chrom, binned.genome$chromStart, sep="_"), stringsAsFactors=F)
-
-
-
-
-
-
 
 
 
@@ -161,10 +145,10 @@ for (i in c(1:length(input.data))) {
 
 	# 5.5 Find overlap between bins and uniqueness mappability frames
 	cat("examine overlap between genomic bins and mappability regions", "\n", sep=" ")
-	bin2mapHits <- findOverlaps( query=grbins, subject=grmap, maxgap = 0L, minoverlap = 1L,ignore.strand = TRUE)
+	bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
 
 	# Determine sizes of overlap regions for each query with any match
-	w <- width(ranges(bin2mapHits, ranges(grbins), ranges(grmap)))
+	w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
 
 
 	# Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
@@ -226,7 +210,8 @@ for (i in c(1:length(input.data))) {
   							 stringsAsFactors=FALSE),
 			file=filepathexportObs, quote=FALSE, sep="\t", col.names=FALSE, row.names=FALSE);
 
-	};
+}
+
+# End of script
 
 
-### End of script ####
