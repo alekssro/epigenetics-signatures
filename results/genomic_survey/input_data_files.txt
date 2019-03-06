@@ -1,0 +1,8 @@
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed
+/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed
