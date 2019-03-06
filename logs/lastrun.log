@@ -1,0 +1,96 @@
+cell line -> A549	signal track -> H3K4me3
+A549	histonemod	H3K4me3	ENCFF661XHM	ENCFF661XHM.bam	raw	1	ENCODE	https://www.encodeproject.org/files/ENCFF661XHM/@@download/ENCFF661XHM.bam
+A549	histonemod	H3K4me3	ENCFF810JVM	ENCFF810JVM.bam	raw	2	ENCODE	https://www.encodeproject.org/files/ENCFF810JVM/@@download/ENCFF810JVM.bam
+A549	histonemod	H3K4me3	ENCFF661XHM	ENCFF661XHM.bam	raw	1	ENCODE	https://www.encodeproject.org/files/ENCFF661XHM/@@download/ENCFF661XHM.bam
+A549	histonemod	H3K4me3	ENCFF810JVM	ENCFF810JVM.bam	raw	2	ENCODE	https://www.encodeproject.org/files/ENCFF810JVM/@@download/ENCFF810JVM.bam
+Increase the total count of informative reads across all ChIP-seq assay samples in A549: H3K4me3
+Increase the total count of informative reads across all ChIP-seq assay samples in A549: H3K4me3
+intersect genomic bins with processed bed /mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/data/A549/H3K4me3/ENCFF661XHM/*processed.bed to estimate rawCounts
+intersect genomic bins with processed bed /mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/data/A549/H3K4me3/ENCFF810JVM/*processed.bed to estimate rawCounts
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+[1] "/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis"
+Read 2 items
+import uniqueness mappability track
+import datasheet samples file
+Read 2 items
+[1] "/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed"
+[2] "/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed"
+import /mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed to count nr. of mapped sequencing tags
+[1] "/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/data/A549/H3K4me3/ENCFF661XHM/ENCFF661XHM.processed.bed"
+import /mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF810JVM.rawCounts.bed to count nr. of mapped sequencing tags
+[1] "/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/data/A549/H3K4me3/ENCFF810JVM/ENCFF810JVM.processed.bed"
+import binned genome file
+import /mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/results/genomic_survey/A549/H3K4me3/ENCFF661XHM.rawCounts.bed for estimating normalized signal, observed score,expected score
+examine overlap between genomic bins and mappability regions
+./scripts/bedToNormalizedSignal.sh: line 119: 13817 Killed                  /usr/bin/Rscript ${SCRIPT_DIR}/binCount2normalizedSignal.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${MAPPABILITY_TRACK} ${BINNED_GENOME} ${GENOME_BINSIZE} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${PROJECT_DIR}
+Error: Only a single BedGraph file was specified. Nothing to combine, exiting.
+Error: Only a single BedGraph file was specified. Nothing to combine, exiting.
+Loading required package: GenomicRanges
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomeInfoDb
+Error in read.table(sum.expected.file, header = F, sep = "\t", stringsAsFactors = F,  :
+  no lines available in input
+Execution halted
