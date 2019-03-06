@@ -121,8 +121,8 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 2.1 Regenerate OUTPUT directory:
         OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
 
-        # 2.2 Create an empty the list of files
-        touch ${ANALYSIS_DIR}/input_data_files.txt
+        # 2.2 Create an empty file with the list of files
+        :>${ANALYSIS_DIR}/input_data_files.txt
 
         # 2.3 Select from the full-datasheet file only raw corresponding to CELL_LINE and SIGNAL_TRACK
         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
@@ -149,7 +149,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
             # 2.3.4 Get the raw counts in each genomic bin;
             echo "intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to estimate rawCounts"
-            /usr/bin/bedtools intersect -a ${ANALYSIS_DIR}/hg19binned.200bp.bed -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+            /usr/bin/bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
 
             # 2.3.5 Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
             awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
@@ -171,7 +171,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 3) Mappability track file
         # 4) genomic bin sizes
         # 5) total read counts per cell type.txt
-        /usr/bin/Rscript ${SCRIPT_DIR}/binCount2normalizedSignal.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${MAPPABILITY_TRACK} ${BINNED_GENOME} ${GENOME_BINSIZE} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt;
+        /usr/bin/Rscript ${SCRIPT_DIR}/binCount2normalizedSignal.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${MAPPABILITY_TRACK} ${BINNED_GENOME} ${GENOME_BINSIZE} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${PROJECT_DIR};
         # 2.5. Estimate normalizedSignal values from all samples (replicates/experiments from different labs) pooled together
         cd ${OUT_DIR} || exit;
         BEDG_EXPECTED_FILES=*expectedScore.bg
