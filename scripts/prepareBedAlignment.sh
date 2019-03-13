@@ -3,7 +3,7 @@
 ####################################################################################################
 ### Script to prepare the BAM or BED files into processed BED files ready for further analysis #####
 ####################################################################################################
-## Script done based on the processing pipeline done in “A computational approach for the functional
+## Script done based on the processing pipeline used in “A computational approach for the functional
 ## classification of the epigenome” by Francesco Gandolfi and Anna Tramontano
 ## (https://doi.org/10.1186/s13072-017-0131-7)
 ####################################################################################################
