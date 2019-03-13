@@ -163,24 +163,24 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
 
 
-        # 2.4 Process rawCounts; the R script takes the list of rawCount files just generated.
-        #INPUT: rawCounts files for a given group (cell-lineX/signaltrackY) /// OUTPUT: normalizedSignal files for the group (cell-lineX/signalrackY)
-
-        # arguments are: 1) datafile with raw counts
-        # 2) datasheet_samples_file.tsv
-        # 3) Mappability track file
-        # 4) genomic bin sizes
-        # 5) total read counts per cell type.txt
-        /usr/bin/Rscript ${SCRIPT_DIR}/binCount2normalizedSignal.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${MAPPABILITY_TRACK} ${BINNED_GENOME} ${GENOME_BINSIZE} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${PROJECT_DIR};
-        # 2.5. Estimate normalizedSignal values from all samples (replicates/experiments from different labs) pooled together
-        cd ${OUT_DIR} || exit;
-        BEDG_EXPECTED_FILES=*expectedScore.bg
-        /usr/bin/bedtools unionbedg -i "${BEDG_EXPECTED_FILES[@]}" > ${OUT_DIR}/expectedScoreSum.bg;
-        BEDG_OBSERVED_FILES=*observedScore.bg
-        /usr/bin/bedtools unionbedg -i "${BEDG_OBSERVED_FILES[@]}" > ${OUT_DIR}/observedScoreSum.bg;
-
-        /usr/bin/Rscript ${SCRIPT_DIR}/getPooledNormalizedSignal.R ${OUT_DIR}/expectedScoreSum.bg ${OUT_DIR}/observedScoreSum.bg;
-        # Remove intermediate files:
+        # # 2.4 Process rawCounts; the R script takes the list of rawCount files just generated.
+        # #INPUT: rawCounts files for a given group (cell-lineX/signaltrackY) /// OUTPUT: normalizedSignal files for the group (cell-lineX/signalrackY)
+        #
+        # # arguments are: 1) datafile with raw counts
+        # # 2) datasheet_samples_file.tsv
+        # # 3) Mappability track file
+        # # 4) genomic bin sizes
+        # # 5) total read counts per cell type.txt
+        # /usr/bin/Rscript ${SCRIPT_DIR}/binCount2normalizedSignal.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${MAPPABILITY_TRACK} ${BINNED_GENOME} ${GENOME_BINSIZE} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${PROJECT_DIR};
+        # # 2.5. Estimate normalizedSignal values from all samples (replicates/experiments from different labs) pooled together
+        # cd ${OUT_DIR} || exit;
+        # BEDG_EXPECTED_FILES=*expectedScore.bg
+        # /usr/bin/bedtools unionbedg -i "${BEDG_EXPECTED_FILES[@]}" > ${OUT_DIR}/expectedScoreSum.bg;
+        # BEDG_OBSERVED_FILES=*observedScore.bg
+        # /usr/bin/bedtools unionbedg -i "${BEDG_OBSERVED_FILES[@]}" > ${OUT_DIR}/observedScoreSum.bg;
+        #
+        # /usr/bin/Rscript ${SCRIPT_DIR}/getPooledNormalizedSignal.R ${OUT_DIR}/expectedScoreSum.bg ${OUT_DIR}/observedScoreSum.bg;
+        # # Remove intermediate files:
 
     done
 done
