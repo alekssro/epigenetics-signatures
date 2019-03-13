@@ -1,10 +1,20 @@
+#!/usr/bin/Rscript
+
+###################################################################################################
+# Script used to read the bed files with the counts for each bin and merge them into a V matrix ###
+# which can be used to perform a V matrix analysis. Takes the processed bed files path as input ###
+# and outputs a file with the V matrix in csv format                                            ###
+###################################################################################################
+# Done by Alejandro Roca (alekss.ro@gmail.com)                                                  ###
+###################################################################################################
+
 # source("https://bioconductor.org/biocLite.R")
 # biocLite("rtracklayer")
 library(rtracklayer)
 
 # H3K4me1 modification for H1 cells
 hist_mod <- import("../data/GSM409307_UCSD.H1.H3K4me1.LL228.bed.gz", format="bed")
-hist_mod <- reduce(unique(hist_mod))
+
 # hist_mod
 
 # All human genes
@@ -26,11 +36,6 @@ brca1_GRCh37 <- import("../data/brca1_gene_GRCh37.txt", format = "bed")
 sum(countOverlaps(brca1_GRCh37, hist_mod)) # counts for H3K4me1 modifications in brca1 gene in H1 cells
 # sum(countOverlaps(brca1_GRCh37, hist_mod)) 
 
-# # H3K4me1 modification for liver Cells
-# hist_mod <- import("../data/GSE18927_RAW/GSM1027296_UW.CD19_Primary_Cells.H3K4me1.RO_01679.Histone.DS22584.bed.gz", format="bed")
-# hist_mod <- reduce(unique(hist_mod))
-# hist_mod
-# sum(countOverlaps(brca1_GRCh37, hist_mod)) # counts for H3K4me1 modifications in brca1 gene in H1 cells
 
 # H3K4me3 modification for H1 cells
 hist_mod <- import("../data/GSM409308_UCSD.H1.H3K4me3.LL227.bed.gz", format="bed")
