@@ -59,3 +59,29 @@ Taking this into account I think it would be interesting to perform an NMF analy
 #### Plan B:
 
 - Perform a SMPs analysis combined with the environmental and genetic features such as in https://datadryad.org/resource/doi:10.5061/dryad.80442
+
+
+
+
+
+# Pipeline for processing files:
+
+### prepareBedAlignment.sh
+
+Process raw BAM files into filtered BED files
+
+- duplicates removal
+
+- quality alignment filtering
+- 200bp-tag extension7
+
+### bedToNormalizedSignal.sh
+Convert processed BED files into Normalized Signal tracks.
+- human genome segmentation into 200bp genomic intervals.
+- assignment of filtered reads to the segmented genome (obtain read count distribution).
+- estimate both observed and expected read count distribution for each sample in a given epigenetic mark.
+- Estimation of the normalized coverage signal for each chromatin mark.
+
+
+#### TODO:
+Next week: Try with fractions of the data, see how it scales, look at the paper, try NMF into the small data
