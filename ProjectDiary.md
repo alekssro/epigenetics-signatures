@@ -70,18 +70,34 @@ Taking this into account I think it would be interesting to perform an NMF analy
 
 Process raw BAM files into filtered BED files
 
-- duplicates removal
+1. Remove duplicates using `PicardCommandLine MarkDuplicates`
+2. Filter by quality using `samtools view -q 20`
+3. For TFs and HistMod signals apply tag extension of 200bp
+   1. split by strand +/-
+   2. apply tag extension of 200bp
+   3. merge extended bed files
 
-- quality alignment filtering
-- 200bp-tag extension7
+At the end we get "processed.bed" files as output.
+
+
 
 ### bedToNormalizedSignal.sh
 Convert processed BED files into Normalized Signal tracks.
-- human genome segmentation into 200bp genomic intervals.
-- assignment of filtered reads to the segmented genome (obtain read count distribution).
+
+1. Calculate the total number of informative reads mapped across all the datasets: Take note of the number of informative reads in that sample to estimate total number of tags over all experiments in a cell line
+2. Once the cell-type and the signal-type are defined, extract all samples from the cell-type X and signal-type Y from the ENCODE_project_datasheet_samples.tsv then loop row by row on the subset
+3. Identify and retrieve processed.bed file and its path
+4. Get the raw counts for each signal process file in each genomic bin (bins with no tags are discarted)
+5. Add the rawCount full path name into a file (input_data_files.txt) for next steps.
+
+
+
 - estimate both observed and expected read count distribution for each sample in a given epigenetic mark.
 - Estimation of the normalized coverage signal for each chromatin mark.
 
 
 #### TODO:
 Next week: Try with fractions of the data, see how it scales, look at the paper, try NMF into the small data
+
+***Combine biological replicates by using the average counts for a given epigenetic mark**
+
