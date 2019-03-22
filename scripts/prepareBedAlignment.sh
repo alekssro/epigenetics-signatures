@@ -123,7 +123,8 @@ while read LINE; do
 
 	# remove duplicate reads;
 	echo "mark and remove duplicates in ${BAM_NAME}";
-    PicardCommandLine MarkDuplicates INPUT=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam OUTPUT=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam ASSUME_SORTED=True REMOVE_DUPLICATES=True METRICS_FILE=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.metrics.log VALIDATION_STRINGENCY=SILENT
+	samtools rmdup ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam
+    # PicardCommandLine MarkDuplicates INPUT=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam OUTPUT=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam ASSUME_SORTED=True REMOVE_DUPLICATES=True METRICS_FILE=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.metrics.log VALIDATION_STRINGENCY=SILENT
 
 	# Skip "remove duplicate reads"
 	# mv ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup
