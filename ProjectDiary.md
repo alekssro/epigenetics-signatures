@@ -66,6 +66,12 @@ Taking this into account I think it would be interesting to perform an NMF analy
 
 # Pipeline for processing files:
 
+### create_conda_env.sh
+
+Creates a conda environment with an input name and required packages for the analysis
+
+
+
 ### prepareBedAlignment.sh
 
 Process raw BAM files into filtered BED files
