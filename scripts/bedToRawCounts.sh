@@ -55,9 +55,9 @@ BINNED_GENOME=${DATA_DIR}/hg19binned.200bp.bed
 
 # Take note of the number of informative reads in that sample to estimate total number of tags over all experiments in a cell line
 # Define cell types
-CELL_LINES=(A549);
+CELL_LINES=(HepG2);
 # Define signal-types
-SIGNAL_TRACKS=(H3K4me3 CTCF) #(H3K27ac H3K9me3 H3K79me1 Pol2);
+SIGNAL_TRACKS=(H3K36me3 H3K27ac H3K27me3 H3K4me1 CTCF POLR2A EP300 H3K4me3) #(H3K27ac H3K9me3 H3K79me1 Pol2);
 
 TAG_TOTALS=();  # should be the vector of totals across all ChIPseq experiments for each cell line.
 #sep=' ';
