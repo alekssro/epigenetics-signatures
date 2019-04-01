@@ -91,7 +91,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
             SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}');
             # 1.3.3 Identify and retrieve processed.bed file and its path
             PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
-            cd ${PROCESSED_FILEDIR} || break;
+            cd ${PROCESSED_FILEDIR} || continue;
             PROCESSED_FILE=*.processed.bed
             filelines=$(wc -l ${PROCESSED_FILE})
             N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
@@ -145,7 +145,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
             # 2.3.3 Identify and retrieve processed.bed file and its path
             PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
-            cd ${PROCESSED_FILEDIR} || break;
+            cd ${PROCESSED_FILEDIR} || continue;
             PROCESSED_FILE=*processed.bed
             PROCESSED_FILEPATH=${PROCESSED_FILEDIR}/${PROCESSED_FILE};
 
@@ -173,7 +173,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 3) Mappability track file
         # 4) genomic bin sizes
         # 5) total read counts per cell type.txt
-        Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
+        Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt
         # 2.5. Estimate normalizedSignal values from all samples (replicates/experiments from different labs) pooled together
         # cd ${OUT_DIR} || exit;
         # BEDG_EXPECTED_FILES=*expectedScore.bg
