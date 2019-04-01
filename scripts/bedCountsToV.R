@@ -23,12 +23,13 @@ suppressPackageStartupMessages(require(rtracklayer, quietly = T, warn.conflicts 
 # require(IRanges, verbose = F, warn.conflicts = F)
 # require(rtracklayer, verbose = F, warn.conflicts = F)
 
-input.datafile <-  args[1] #  #    "results/genomic_survey/input_data_files.txt" #        # path for raw counts files
-datasheetsamples.file <- args[2]  # "data/DatasetInfoFile.tsv" # args[2]  "data/DatasetInfoFile.tsv" #   # datasets used in the analysis (used to get names/structure)
-binnedgenome.file <- args[3] # "data/hg19binned.200bp.bed" # args[3]    "data/hg19binned.200bp.bed" #     # binned genome bed file
-mappabilitytrack.file <- args[4] # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" #  "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]
-outputVfile <- args[5] # "results/genomic_survey/A549/V_matrix.csv"
-totMappedAllExpFile <- args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
+input.datafile <-  "results/genomic_survey/input_data_files.txt" # args[1] #  #    "results/genomic_survey/input_data_files.txt" #        # path for raw counts files
+datasheetsamples.file <- "data/DatasetInfoFile.tsv" # args[2]  "data/DatasetInfoFile.tsv" #   # datasets used in the analysis (used to get names/structure)
+binnedgenome.file <- "data/hg19binned.200bp.bed" # args[3]    "data/hg19binned.200bp.bed" #     # binned genome bed file
+mappabilitytrack.file <- "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4] # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" #  "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]
+outputVfile <- "results/genomic_survey/A549/V_matrix.csv" # args[5] # "results/genomic_survey/A549/V_matrix.csv"
+totMappedAllExpFile <- "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
+intersect.file <- "results/genomic_survey/A549/CTCF/ENCFF292MAD.intersect.bed" # args[7]
 
 print(c(outputVfile, totMappedAllExpFile))
 # Retrieve the number of informative reads mapped for each sample Bi in the group P  (cell-linX/Signal-trackY)
@@ -64,7 +65,7 @@ mappabilityGenomeSize <- sum(as.numeric(mappabilityIntervalSizes));
 ##############################
 cat("Import binned genome file", "\n", sep=" ")
 # binned.genome <- import.bed(binnedgenome.file)
-binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE)
+binned.genome <- read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE)
 colnames(binned.genome) <- c("chrom" , "chromStart" ,"chromEnd")
 binned.genome <- data.frame(binned.genome, counts=rep(0, nrow(binned.genome)), stringsAsFactors=FALSE)
 binned.genome.id <- paste(binned.genome$chrom, binned.genome$chromStart, sep="_")
@@ -74,12 +75,11 @@ binned.genome.id <- paste(binned.genome$chrom, binned.genome$chromStart, sep="_"
 ### Import raw-counts and save their counts into the V matrix ###
 #################################################################
 
+# Create list to store counts for the different replicates
+bincountslist <- list()
 
 # Import raw counts files and get average counts
 for (i in c(1:length(input.data))) {
-    
-    # Create data frame to store counts for the different replicates
-    bincountsmatrix <- matrix(0, nrow = dim(binned.genome)[1], ncol = length(input.data))
     
     filepath <- input.data[i]
     cat("import", basename(filepath), "for estimating normalized signal, observed score, expected score ", "\n", sep=" ")
@@ -93,7 +93,8 @@ for (i in c(1:length(input.data))) {
     # Add empty bins to the bincounts table (genomic bins with no tags)
     binned.genome2 <- binned.genome
     binned.genome2[binned.genome.id %in% bincounts.id, "counts"] <- bincounts$counts
-    # bincountsmatrix[, i] <- binned.genome2$counts
+    bincounts <- binned.genome2
+
     rm(binned.genome2)
     
     # 5.4 Convert bincounts in GRanges object!
@@ -111,9 +112,16 @@ for (i in c(1:length(input.data))) {
     bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
     
     # Determine sizes of overlap regions for each query with any match
-    w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
+    overlaps <- pintersect(grbins[queryHits(bin2mapHits)], grmap[subjectHits(bin2mapHits)])
+    w <- width(overlaps)
+    # intersect.ranges <- import.bed(intersect.file)
+    # w <- width(intersect.ranges)
+    # overlaps <- overlapsRanges(ranges(grbins), ranges(grmap))
+    # w <- width(overlaps)
     
-    
+    length(bin2mapHits)
+    length(w)
+
     # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
     queryToSubject <- cbind( queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
     colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
@@ -127,8 +135,10 @@ for (i in c(1:length(input.data))) {
     # Estimate the normalized observed count in each bin
     obsCounts= round ( (score(grbins)[unique(queryHits(bin2mapHits))] ) , 3)
     NormalizedSignals <- round((obsCounts/expCounts), 3)
+    length(NormalizedSignals)
+    head(NormalizedSignals)
     
-    bincountsmatrix[, i] <- NormalizedSignals
+    bincountslist[[i]] <- NormalizedSignals
     
     
     # # 5.6 Export:
@@ -174,6 +184,9 @@ for (i in c(1:length(input.data))) {
     #              file=filepathexportObs, quote=FALSE, sep="\t", col.names=FALSE, row.names=FALSE);
     
 }
+
+# List to matrix
+bincountsmatrix <- do.call(cbind, bincountslist)
 
 cat("Appending combined counts for the epigenetic mark to the V matrix file \n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
