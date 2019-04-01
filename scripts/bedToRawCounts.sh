@@ -123,44 +123,44 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 2.1 Regenerate OUTPUT directory:
         OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
 
-        # 2.2 Create an empty file with the list of files
-        :>${ANALYSIS_DIR}/input_data_files.txt
-
-        # 2.3 Select from the full-datasheet file only raw corresponding to CELL_LINE and SIGNAL_TRACK
-        awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
-
-
-        # Read through the datasheet subset (foreach sample Bi belonging to the group X...)
-        while read LINE;do
-
-            # 2.3.1 get values in single fields;
-            SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}')
-            ALIGN_FILENAME=$(echo ${LINE} | awk '{split($0,a," ");print a[5]}')
-
-            # 2.3.2 check if the alignment file is available or not
-            if [ -z "$ALIGN_FILENAME" ]
-            then
-                continue
-            fi
-
-            # 2.3.3 Identify and retrieve processed.bed file and its path
-            PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
-            cd ${PROCESSED_FILEDIR} || continue;
-            PROCESSED_FILE=*processed.bed
-            PROCESSED_FILEPATH=${PROCESSED_FILEDIR}/${PROCESSED_FILE};
-
-            # 2.3.4 Get the raw counts in each genomic bin;
-            echo "intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to estimate rawCounts"
-            bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
-
-            # 2.3.5 Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
-            awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
-            mv ${OUT_DIR}/temp.bed ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
-
-            # 2.3.6 Put the rawCount file name in a list for normalized signal estimation step
-            echo "${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed" >> ${ANALYSIS_DIR}/input_data_files.txt
-
-        done < ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
+        # # 2.2 Create an empty file with the list of files
+        # :>${ANALYSIS_DIR}/input_data_files.txt
+        #
+        # # 2.3 Select from the full-datasheet file only raw corresponding to CELL_LINE and SIGNAL_TRACK
+        # awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
+        #
+        #
+        # # Read through the datasheet subset (foreach sample Bi belonging to the group X...)
+        # while read LINE;do
+        #
+        #     # 2.3.1 get values in single fields;
+        #     SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}')
+        #     ALIGN_FILENAME=$(echo ${LINE} | awk '{split($0,a," ");print a[5]}')
+        #
+        #     # 2.3.2 check if the alignment file is available or not
+        #     if [ -z "$ALIGN_FILENAME" ]
+        #     then
+        #         continue
+        #     fi
+        #
+        #     # 2.3.3 Identify and retrieve processed.bed file and its path
+        #     PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
+        #     cd ${PROCESSED_FILEDIR} || continue;
+        #     PROCESSED_FILE=*processed.bed
+        #     PROCESSED_FILEPATH=${PROCESSED_FILEDIR}/${PROCESSED_FILE};
+        #
+        #     # 2.3.4 Get the raw counts in each genomic bin;
+        #     echo "intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to estimate rawCounts"
+        #     bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+        #
+        #     # 2.3.5 Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
+        #     awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
+        #     mv ${OUT_DIR}/temp.bed ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+        #
+        #     # 2.3.6 Put the rawCount file name in a list for normalized signal estimation step
+        #     echo "${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed" >> ${ANALYSIS_DIR}/input_data_files.txt
+        #
+        # done < ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
 
 
 

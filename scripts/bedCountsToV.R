@@ -27,10 +27,10 @@ input.datafile <-  args[1] #  #    "results/genomic_survey/input_data_files.txt"
 datasheetsamples.file <- args[2]  # "data/DatasetInfoFile.tsv" # args[2]  "data/DatasetInfoFile.tsv" #   # datasets used in the analysis (used to get names/structure)
 binnedgenome.file <- args[3] # "data/hg19binned.200bp.bed" # args[3]    "data/hg19binned.200bp.bed" #     # binned genome bed file
 mappabilitytrack.file <- args[4] # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" #  "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]
-outputVfile <- args[5] # "results/genomic_survey/A549/V_matrix.csv"
-totMappedAllExpFile <- args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
+outputVfile <- 1 #args[5] # "results/genomic_survey/A549/V_matrix.csv"
+totMappedAllExpFile <- 2 #args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
 
-print(outputVfile, totMappedAllExpFile)
+print(c(outputVfile, totMappedAllExpFile))
 # Retrieve the number of informative reads mapped for each sample Bi in the group P  (cell-linX/Signal-trackY)
 totMappedAllExp <- scan(totMappedAllExpFile, what="character")
 totMappedAllExp <- as.numeric(unlist(strsplit(totMappedAllExp, split=" ")))
