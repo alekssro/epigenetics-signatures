@@ -11,7 +11,7 @@
 # TODO (Maybe): add an option to normalize data
 
 # set working directory
-setwd("/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis/")
+setwd("/home/alekssro/mscthesis")
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
@@ -28,6 +28,11 @@ datasheetsamples.file <- args[2]  # "data/DatasetInfoFile.tsv" # args[2]  "data/
 binnedgenome.file <- args[3] # "data/hg19binned.200bp.bed" # args[3]    "data/hg19binned.200bp.bed" #     # binned genome bed file
 mappabilitytrack.file <- args[4] # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" #  "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]
 outputVfile <- args[5] # "results/genomic_survey/A549/V_matrix.csv"
+totMappedAllExpFile <- args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
+
+# Retrieve the number of informative reads mapped for each sample Bi in the group P  (cell-linX/Signal-trackY)
+totMappedAllExp <- scan(totMappedAllExpFile, what="character")
+totMappedAllExp <- as.numeric(unlist(strsplit(totMappedAllExp, split=" ")))
 
 ###################################
 # Import datasheet samples file ###
@@ -37,9 +42,9 @@ datasheetsamples <- read.table(datasheetsamples.file, header = F, sep = "\t", st
 colnames(datasheetsamples) <- c("cell_line" , "data_type", "assay", "sampleID", "alignfile", "map_type" ,
                                 "replicate" ,"lab" ,"dwnld_link")
 
-#########################################
-# Import counts per bin files path ######
-#########################################
+#################################
+# Get epigenetic mark name ######
+#################################
 input.data <- scan(input.datafile, what = "character", sep = "\t")
 path.sections <- unlist(strsplit(input.data[1], split="[/]"))
 epigen.mark <- path.sections[length(path.sections) - 1]
@@ -47,27 +52,26 @@ epigen.mark <- path.sections[length(path.sections) - 1]
 ##############################
 # Import mappability track ###
 ##############################
-# cat("Import uniqueness mappability track", "\n", sep=" ")
-# mappabilitytrack <- import.bed(mappabilitytrack.file)
-# grmap <- mappabilitytrack
+cat("Import uniqueness mappability track", "\n", sep=" ")
+grmap <- import.bed(mappabilitytrack.file)
+# Calculate mappable genome size:
+mappabilityIntervalSizes <- width(ranges(grmap));
+mappabilityGenomeSize <- sum(as.numeric(mappabilityIntervalSizes));
 
 ##############################
 # Import genomic bins file ###
 ##############################
 cat("Import binned genome file", "\n", sep=" ")
 # binned.genome <- import.bed(binnedgenome.file)
-binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE)
+binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE, nrows = 100000)
 colnames(binned.genome) <- c("chrom" , "chromStart" ,"chromEnd")
 binned.genome <- data.frame(binned.genome, counts=rep(0, nrow(binned.genome)), stringsAsFactors=FALSE)
-binned.genome <- data.frame(binned.genome, name=paste(binned.genome$chrom, binned.genome$chromStart, sep="_"), stringsAsFactors=F)
+binned.genome.id <- paste(binned.genome$chrom, binned.genome$chromStart, sep="_")
+# binned.genome <- data.frame(binned.genome, name=paste(binned.genome$chrom, binned.genome$chromStart, sep="_"), stringsAsFactors=F)
 
 #################################################################
 ### Import raw-counts and save their counts into the V matrix ###
 #################################################################
-
-# # Calculate mappable genome size:
-# mappabilityIntervalSizes <- width(ranges(mappabilitytrack));
-# mappabilityGenomeSize <- sum(as.numeric(mappabilityIntervalSizes));
 
 
 # Import raw counts files and get average counts
@@ -80,49 +84,51 @@ for (i in c(1:length(input.data))) {
     cat("import", basename(filepath), "for estimating normalized signal, observed score, expected score ", "\n", sep=" ")
     
     # Import single rawCount file (only bins with >= 1 tag)
-    bincounts <- read.table(file=filepath, header=FALSE, sep="\t", stringsAsFactors=FALSE)
-    colnames(bincounts) <- c("chrom", "chromStart", "chromEnd", "counts" )
-    bincounts <- data.frame(bincounts, name=paste(bincounts$chrom, bincounts$chromStart, sep="_"), stringsAsFactors=F)
+    bincounts <- read.table(file=filepath, header=FALSE, sep="\t", stringsAsFactors=FALSE, nrows = 100000)
+    colnames(bincounts) <- c("chrom", "chromStart", "chromEnd", "counts")
+    bincounts.id <- paste(bincounts$chrom, bincounts$chromStart, sep="_")
+    # bincounts <- data.frame(bincounts, name=paste(bincounts$chrom, bincounts$chromStart, sep="_"), stringsAsFactors=F)
     
     # Add empty bins to the bincounts table (genomic bins with no tags)
     binned.genome2 <- binned.genome
-    binned.genome2[match(bincounts$name, binned.genome2$name), "counts"] <- bincounts$counts
-    bincountsmatrix[, i] <- binned.genome2$counts
+    binned.genome2[match(bincounts.id, binned.genome.id), "counts"] <- bincounts$counts
+    # bincountsmatrix[, i] <- binned.genome2$counts
     rm(binned.genome2)
     
     # 5.4 Convert bincounts in GRanges object!
-    ### NB: this 'GRanges' command is good for all inputs that are already sorted by chromosome.
-    # grbins <- GRanges(
-    #     seqnames=( Rle(names(table(bincounts$chrom)[unique(bincounts$chrom)]), as.numeric(table(bincounts$chrom)[unique(bincounts$chrom)]) ) ),
-    #     ranges=IRanges(bincounts$chromStart, bincounts$chromEnd),
-    #     strand=Rle('*', nrow(bincounts)),
-    #     score=bincounts$counts
-    # )
+    ## NB: this 'GRanges' command is good for all inputs that are already sorted by chromosome.
+    grbins <- GRanges(
+        seqnames=( Rle(names(table(bincounts$chrom)[unique(bincounts$chrom)]), as.numeric(table(bincounts$chrom)[unique(bincounts$chrom)]) ) ),
+        ranges=IRanges(bincounts$chromStart, bincounts$chromEnd),
+        strand=Rle('*', nrow(bincounts)),
+        score=bincounts$counts
+    )
     
     
-    # # 5.5 Find overlap between bins and uniqueness mappability frames
-    # cat("examine overlap between genomic bins and mappability regions", "\n", sep=" ")
-    # bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
-    # 
-    # # Determine sizes of overlap regions for each query with any match
-    # w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
-    # 
-    # 
-    # # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
-    # queryToSubject <- cbind( bin2mapHits@queryHits, bin2mapHits@subjectHits, w)
-    # colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
-    # # Estiamte number of unique-mappability positions within each genomic bin
-    # queryToSubject <- as.data.frame(queryToSubject, stringsAsFactors=F)
-    # uqmapp <- as.numeric(tapply(queryToSubject$size, queryToSubject$queryidx, sum) )
-    # # Estimate the saling factor on sample size
-    # ScalingFactorLibrarySize = round( (totMappedSamples[i]/mean(totMappedAllExp)), 3) # totMappedSamples[i] = tot.mapped tags in sample [i]
-    # # Estimate the normalized expected fragment count in each bin
-    # expCounts= round( (uqmapp * (totMappedSamples[i] /mappabilityGenomeSize ) )* ScalingFactorLibrarySize, 3)
-    # # Estimate the normalized observed count in each bin
-    # obsCounts= round ( (score(grbins)[unique(bin2mapHits@queryHits)] ) , 3)
-    # NormalizedSignals <- round((obsCounts/expCounts), 3)
+    # 5.5 Find overlap between bins and uniqueness mappability frames
+    cat("examine overlap between genomic bins and mappability regions", "\n", sep=" ")
+    bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
     
+    gc()
+    # Determine sizes of overlap regions for each query with any match
+    w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
+
+
+    # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
+    queryToSubject <- cbind( queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
+    colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
+    # Estimate number of unique-mappability positions within each genomic bin
+    queryToSubject <- as.data.frame(queryToSubject, stringsAsFactors=F)
+    uqmapp <- as.numeric(tapply(queryToSubject$size, queryToSubject$queryidx, sum) )
+    # Estimate the scaling factor on sample size
+    ScalingFactorLibrarySize = round((length(bincounts.id)/mean(totMappedAllExp)), 3) 
+    # Estimate the normalized expected fragment count in each bin
+    expCounts= round( (uqmapp * (length(bincounts.id) / mappabilityGenomeSize ) ) * ScalingFactorLibrarySize, 3)
+    # Estimate the normalized observed count in each bin
+    obsCounts= round ( (score(grbins)[unique(queryHits(bin2mapHits))] ) , 3)
+    NormalizedSignals <- round((obsCounts/expCounts), 3)
     
+    bincountsmatrix[, i] <- NormalizedSignals
     
     
     # # 5.6 Export:
@@ -173,32 +179,3 @@ cat("Appending combined counts for the epigenetic mark to the V matrix file \n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
 write(x = count2V, file = outputVfile, append = T)
 
-# # H3K4me1 modification for H1 cells
-# hist_mod <- import("../data/GSM409307_UCSD.H1.H3K4me1.LL228.bed.gz", format="bed")
-# 
-# # hist_mod
-# 
-# # All human genes
-# # human_genes <- import("../data/hg.bed", format="bed")
-# # chrom_names <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11",
-# #                  "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22",
-# #                  "chrX", "chrY")
-# # human_genes <- human_genes[seqnames(human_genes) %in% chrom_names, ]    # get only 'normal' chromosome genes
-# # human_genes <- reduce(unique(human_genes))      # merge overlapping transcripts
-# # human_genes <- flank(human_genes, width = 1000)
-# # human_genes
-# 
-# # brca1 gene (chr17:43044295-43125483) GRCh38 assembly
-# # brca1_GRCh38 <- import("Data/brca1_gene_GRCh38.txt", format = "bed")
-# 
-# # brca1 gene (chr17:41196312-41277500) GRCh37 assembly
-# brca1_GRCh37 <- import("../data/brca1_gene_GRCh37.txt", format = "bed")
-# 
-# sum(countOverlaps(brca1_GRCh37, hist_mod)) # counts for H3K4me1 modifications in brca1 gene in H1 cells
-# # sum(countOverlaps(brca1_GRCh37, hist_mod)) 
-# 
-# 
-# # H3K4me3 modification for H1 cells
-# hist_mod <- import("../data/GSM409308_UCSD.H1.H3K4me3.LL227.bed.gz", format="bed")
-# hist_mod <- reduce(unique(hist_mod))
-# sum(countOverlaps(brca1_GRCh37, hist_mod))
