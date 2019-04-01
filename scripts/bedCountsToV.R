@@ -30,6 +30,7 @@ mappabilitytrack.file <- args[4] # "data/wgEncodeDukeMapabilityUniqueness35bp.un
 outputVfile <- args[5] # "results/genomic_survey/A549/V_matrix.csv"
 totMappedAllExpFile <- args[6]  # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
 
+print(outputVfile, totMappedAllExpFile)
 # Retrieve the number of informative reads mapped for each sample Bi in the group P  (cell-linX/Signal-trackY)
 totMappedAllExp <- scan(totMappedAllExpFile, what="character")
 totMappedAllExp <- as.numeric(unlist(strsplit(totMappedAllExp, split=" ")))
@@ -109,7 +110,6 @@ for (i in c(1:length(input.data))) {
     cat("examine overlap between genomic bins and mappability regions", "\n", sep=" ")
     bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
     
-    gc()
     # Determine sizes of overlap regions for each query with any match
     w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
 
