@@ -64,7 +64,7 @@ mappabilityGenomeSize <- sum(as.numeric(mappabilityIntervalSizes));
 ##############################
 cat("Import binned genome file", "\n", sep=" ")
 # binned.genome <- import.bed(binnedgenome.file)
-binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE, nrows = 100000)
+binned.genome = read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE)
 colnames(binned.genome) <- c("chrom" , "chromStart" ,"chromEnd")
 binned.genome <- data.frame(binned.genome, counts=rep(0, nrow(binned.genome)), stringsAsFactors=FALSE)
 binned.genome.id <- paste(binned.genome$chrom, binned.genome$chromStart, sep="_")
@@ -85,14 +85,14 @@ for (i in c(1:length(input.data))) {
     cat("import", basename(filepath), "for estimating normalized signal, observed score, expected score ", "\n", sep=" ")
     
     # Import single rawCount file (only bins with >= 1 tag)
-    bincounts <- read.table(file=filepath, header=FALSE, sep="\t", stringsAsFactors=FALSE, nrows = 100000)
+    bincounts <- read.table(file=filepath, header=FALSE, sep="\t", stringsAsFactors=FALSE)
     colnames(bincounts) <- c("chrom", "chromStart", "chromEnd", "counts")
     bincounts.id <- paste(bincounts$chrom, bincounts$chromStart, sep="_")
     # bincounts <- data.frame(bincounts, name=paste(bincounts$chrom, bincounts$chromStart, sep="_"), stringsAsFactors=F)
     
     # Add empty bins to the bincounts table (genomic bins with no tags)
     binned.genome2 <- binned.genome
-    binned.genome2[match(bincounts.id, binned.genome.id), "counts"] <- bincounts$counts
+    binned.genome2[binned.genome.id %in% bincounts.id, "counts"] <- bincounts$counts
     # bincountsmatrix[, i] <- binned.genome2$counts
     rm(binned.genome2)
     
@@ -112,8 +112,8 @@ for (i in c(1:length(input.data))) {
     
     # Determine sizes of overlap regions for each query with any match
     w <- width(overlapsRanges(ranges(grbins), ranges(grmap)))
-
-
+    
+    
     # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
     queryToSubject <- cbind( queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
     colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
@@ -178,4 +178,5 @@ for (i in c(1:length(input.data))) {
 cat("Appending combined counts for the epigenetic mark to the V matrix file \n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
 write(x = count2V, file = outputVfile, append = T)
+
 
