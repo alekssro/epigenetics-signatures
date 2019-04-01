@@ -17,7 +17,7 @@
 
 
 # 0.1 define root directorties
-PROJECT_DIR=/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis
+PROJECT_DIR=`pwd`   # should be run from project folder
 DATA_DIR=${PROJECT_DIR}/data;
 SCRIPT_DIR=${PROJECT_DIR}/scripts;
 
@@ -59,53 +59,53 @@ CELL_LINES=(A549);
 # Define signal-types
 SIGNAL_TRACKS=(H3K4me3 CTCF) #(H3K27ac H3K9me3 H3K79me1 Pol2);
 
-# TAG_TOTALS=();  # should be the vector of totals across all ChIPseq experiments for each cell line.
-# #sep=' ';
-#
-# for CELL_LINE in "${CELL_LINES[@]}";do
-#
-#     mkdir -p ${ANALYSIS_DIR}/${CELL_LINE}
-#
-#     for SIGNAL_TRACK in "${SIGNAL_TRACKS[@]}";do
-#         echo $SIGNAL_TRACK
-#
-# 		# DEBUG
-# 		echo "cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
-#
-#         # 2.1 Define the output directory
-#         OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
-#         echo $OUT_DIR
-#         mkdir -p ${OUT_DIR};
-#
-# 		awk -F "\t" '$1 == "'${CELL_LINE}'" && $3 == "'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE}
-#
-#         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
-# 		# cat ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
-#
-#         TAG_TOTALS=();  # should be the total of informative reads across all ChIP-seq samples in a given sample group (cell line/signal-track)
-#         sep=' ';
-#
-#
-#         while read LINE;do
-#
-#             SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}');
-#             # 1.3.3 Identify and retrieve processed.bed file and its path
-#             PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
-#             cd ${PROCESSED_FILEDIR} || break;
-#             PROCESSED_FILE=*.processed.bed
-#             filelines=$(wc -l ${PROCESSED_FILE})
-#             N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
-#             echo "Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
-#             TAG_TOTALS+=($N_INFORMATIVE_TAGS);
-#             TAG_TOTALS+=($sep);
-#
-#         done < ${DATASHEET_SAMPLES_FILE};
-#
-#         echo ${TAG_TOTALS[*]} > ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt;  # txt file contains the total read counts for all samples Bi in the group P.
-#     done;
-#
-#
-# done;
+TAG_TOTALS=();  # should be the vector of totals across all ChIPseq experiments for each cell line.
+#sep=' ';
+
+for CELL_LINE in "${CELL_LINES[@]}";do
+
+    mkdir -p ${ANALYSIS_DIR}/${CELL_LINE}
+
+    for SIGNAL_TRACK in "${SIGNAL_TRACKS[@]}";do
+        echo $SIGNAL_TRACK
+
+		# DEBUG
+		echo "cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
+
+        # 2.1 Define the output directory
+        OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
+        echo $OUT_DIR
+        mkdir -p ${OUT_DIR};
+
+		awk -F "\t" '$1 == "'${CELL_LINE}'" && $3 == "'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE}
+
+        awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
+		# cat ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
+
+        TAG_TOTALS=();  # should be the total of informative reads across all ChIP-seq samples in a given sample group (cell line/signal-track)
+        sep=' ';
+
+
+        while read LINE;do
+
+            SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}');
+            # 1.3.3 Identify and retrieve processed.bed file and its path
+            PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
+            cd ${PROCESSED_FILEDIR} || break;
+            PROCESSED_FILE=*.processed.bed
+            filelines=$(wc -l ${PROCESSED_FILE})
+            N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
+            echo "Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
+            TAG_TOTALS+=($N_INFORMATIVE_TAGS);
+            TAG_TOTALS+=($sep);
+
+        done < ${DATASHEET_SAMPLES_FILE};
+
+        echo ${TAG_TOTALS[*]} > ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt;  # txt file contains the total read counts for all samples Bi in the group P.
+    done;
+
+
+done;
 
 
 ##############################
@@ -151,7 +151,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
             # 2.3.4 Get the raw counts in each genomic bin;
             echo "intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to estimate rawCounts"
-            /usr/bin/bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+            bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
 
             # 2.3.5 Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
             awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
@@ -173,7 +173,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 3) Mappability track file
         # 4) genomic bin sizes
         # 5) total read counts per cell type.txt
-        /usr/bin/Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
+        Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
         # 2.5. Estimate normalizedSignal values from all samples (replicates/experiments from different labs) pooled together
         # cd ${OUT_DIR} || exit;
         # BEDG_EXPECTED_FILES=*expectedScore.bg
