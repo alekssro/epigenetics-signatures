@@ -50,3 +50,5 @@ vignettes/*.pdf
 data/
 
 oldData/
+
+results/
