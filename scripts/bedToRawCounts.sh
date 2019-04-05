@@ -185,9 +185,9 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # # Remove intermediate files:
 
     done
-    # Transpose V matrix
-    ${SCRIPT_DIR}/transposeCSV.sh ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
-    mv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
+    # # Transpose V matrix
+    # ${SCRIPT_DIR}/transposeCSV.lowMem.sh ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
+    # mv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
 done
 
 
