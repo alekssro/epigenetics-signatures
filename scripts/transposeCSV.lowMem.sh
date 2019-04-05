@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Script to transpose a csv file. Uses less memory, slower
+# Gets the file to be transposed as argument
 
 numc=$(($(head -n 1 "$1" | grep -o , | wc -l)+1))
 for ((i=1; i<="$numc"; i++))
