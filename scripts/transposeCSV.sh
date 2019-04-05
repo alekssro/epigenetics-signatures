@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Script to transpose a csv file uses more memory, faster
+# Input:
+#   - First argument: file to be transposed
+#   - Second argument: name of the output file
 
 awk '
 BEGIN { FS=OFS="," }
