@@ -87,10 +87,10 @@ for CELL_LINE in "${CELL_LINES[@]}";do
             else
                 continue
             fi
-            PROCESSED_FILE=*.processed.bed
+            PROCESSED_FILE="*.processed.bed"
             filelines=$(wc -l ${PROCESSED_FILE})
             N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
-            echo "Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
+            echo "\tIncrease the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
             TAG_TOTALS+=($N_INFORMATIVE_TAGS);
             TAG_TOTALS+=($sep);
 
@@ -124,6 +124,8 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 2.3 Select from the full-datasheet file only raw corresponding to CELL_LINE and SIGNAL_TRACK
         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
 
+        # Progress
+        echo "Calculating counts per genomic bin for Cell line ${CELL_LINE}, Mark ${SIGNAL_TRACK}."
 
         # Read through the datasheet subset (foreach replicate Bi belonging to the signal-type Y...)
         while read LINE;do
@@ -138,14 +140,14 @@ for CELL_LINE in "${CELL_LINES[@]}";do
                 continue
             fi
 
-            # Identify and retrieve processed.bed file and its path
+            # Reconstruct path and retrieve processed.bed file
             PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
             cd ${PROCESSED_FILEDIR} || continue;
-            PROCESSED_FILE=*processed.bed
+            PROCESSED_FILE="*processed.bed"
             PROCESSED_FILEPATH=${PROCESSED_FILEDIR}/${PROCESSED_FILE};
 
             # Get the raw counts in each genomic bin
-            echo "Intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to get rawCounts"
+            echo "\tIntersect genomic bins with processed bed ${PROCESSED_FILEPATH} to get rawCounts"
             bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
 
             # Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
@@ -178,7 +180,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
     # # Transpose V matrix
     # ${SCRIPT_DIR}/transposeCSV.lowMem.sh ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
     # mv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
-    
+
 done
 
 
