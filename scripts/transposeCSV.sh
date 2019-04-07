@@ -3,7 +3,8 @@
 # Script to transpose a csv file uses more memory, faster
 # Input:
 #   - First argument: file to be transposed
-#   - Second argument: name of the output file
+#   - Second argument: output file
+# Warning: reads whole file into memory. Use lowMem if file is too big.
 
 awk '
 BEGIN { FS=OFS="," }
