@@ -10,6 +10,8 @@ DATASHEET_SAMPLES_FILE=${DATA_DIR}/DatasetInfoFile.tsv;
 
 # Every line contains:
 # CELL_LINE MOD_TYPE    SIGNAL_TRACK    SAMPLE_ID   FILENAME    raw REPLICATE_NUM   LAB DOWNLOAD_LINK
+
+# 3 Download every file into a correspondent directory
 while read LINE;do
 
     CELL_LINE=$(echo ${LINE} | awk '{split($0,a," ");print a[1]}');
