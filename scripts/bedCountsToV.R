@@ -11,8 +11,8 @@
 # Beginning of the script
 cat("Initiating normalization of counts for each bin to add a column in the V matrix\n")
 
-# # set working directory
-# setwd("/home/alekssro/mscthesis")
+# set working directory
+setwd("/home/alekssro/mscthesis")
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
