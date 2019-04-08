@@ -1,8 +1,20 @@
 #!/bin/bash
 
-# Script to transpose a csv file. Uses less memory, slower
+# Script to transpose a csv file. Uses less memory, slower.
+# Input:
+#   - First argument: file to be transposed
+#   - Second argument: output file
+# Gets the file to be transposed as argument
 
-numc=$(($(head -n 1 "$1" | grep -o , | wc -l)+1))
-for ((i=1; i<="$numc"; i++))
-do cut -d,  -f"$i" "$1" | paste -s -d,
-done
+awk '
+BEGIN { FS=OFS="," }
+{ printf "%s%s", (FNR>1 ? OFS : ""), $ARGIND }
+ENDFILE {
+    print ""
+    if (ARGIND < NF) {
+        ARGV[ARGC] = FILENAME
+        ARGC++
+    }
+}' $1 > $1.temp
+
+mv $1.temp $2

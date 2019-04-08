@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# author: github.com/ruxi
 # reproducibly create conda env
 
 read -p "Create new conda env (y/n)?" CONT
 
 if [ "$CONT" == "n" ]; then
     echo "exit";
-else
+elif [ "$CONT" == "y" ]; then
     # user chooses to create conda env
     # prompt user for conda env name
     echo "Creating new conda environment, choose name"
@@ -16,7 +15,7 @@ else
     # Create environment.yml or not
     if [ ! -f environment.yml ]; then
         echo "File 'environment.yml' not available. Installing base packages."
-        conda create --name $input_variable python=3 bedtools samtools picard
+        conda create --name $input_variable python=3 bedtools samtools
         conda install -n $input_variable -c r r
         conda install -n $input_variable -c bioconda bioconductor-rtracklayer
     else
@@ -25,4 +24,7 @@ else
 
     fi
     echo "to exit: source deactivate"
+
+else
+    echo "exit";
 fi
