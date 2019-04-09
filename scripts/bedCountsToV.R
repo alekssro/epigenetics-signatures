@@ -134,7 +134,7 @@ for (i in c(1:length(input.data))) {
     obsCounts= round ( (score(grbins)[unique(queryHits(bin2mapHits))] ) , 3)
     NormalizedSignals <- round((obsCounts/expCounts), 3)
 
-    cat("    Normalized counts for ", basename(filepath), " calculated")
+    cat("    Normalized counts for ", basename(filepath), " calculated\n")
     bincountslist[[i]] <- NormalizedSignals
 }
 
