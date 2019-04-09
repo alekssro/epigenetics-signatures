@@ -55,7 +55,7 @@ CELL_LINES=(HepG2);
 # Define signal-types
 SIGNAL_TRACKS=(H3K36me3 H3K27ac H3K27me3 H3K4me1 CTCF POLR2A EP300 H3K4me3)
 
-
+echo "Counting reads:"
 for CELL_LINE in "${CELL_LINES[@]}";do
 
     mkdir -p ${ANALYSIS_DIR}/${CELL_LINE}
@@ -63,7 +63,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
     for SIGNAL_TRACK in "${SIGNAL_TRACKS[@]}";do
 
         # Progress
-        echo "Counting reads: cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
+        echo "  cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
 
         # Define the output directory (and create if needed)
         OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
@@ -90,7 +90,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
             PROCESSED_FILE="*.processed.bed"
             filelines=$(wc -l ${PROCESSED_FILE})
             N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
-            echo "  Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
+            echo "      Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
             TAG_TOTALS+=($N_INFORMATIVE_TAGS);
             TAG_TOTALS+=($sep);
 
