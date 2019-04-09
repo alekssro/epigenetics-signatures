@@ -141,6 +141,6 @@ for (i in c(1:length(input.data))) {
 # List to matrix
 bincountsmatrix <- do.call(cbind, bincountslist)
 
-cat("  Appending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n")
+cat("  Appending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n\n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
 write(x = count2V, file = outputVfile, append = T)
