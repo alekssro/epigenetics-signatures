@@ -55,7 +55,7 @@ totMappedAllExp <- as.numeric(unlist(strsplit(totMappedAllExp, split=" ")))
 ##############################
 # Import mappability track ###
 ##############################
-cat("\tLoading uniqueness mappability track and calculating mappable genome size...", "\n", sep=" ")
+cat("  Loading uniqueness mappability track and calculating mappable genome size...", "\n", sep=" ")
 grmap <- import.bed(mappabilitytrack.file)
 # Calculate mappable genome size:
 mappabilityIntervalSizes <- width(ranges(grmap));
@@ -65,7 +65,7 @@ mappabilityGenomeSize <- sum(as.numeric(mappabilityIntervalSizes));
 ##############################
 # Import genomic bins file ###
 ##############################
-cat("\tLoading 200-bp binned genome file...", "\n", sep=" ")
+cat("  Loading 200-bp binned genome file...", "\n", sep=" ")
 # binned.genome <- import.bed(binnedgenome.file)
 binned.genome <- read.table(binnedgenome.file, header=F, sep="\t", stringsAsFactors=F, fill=TRUE)
 colnames(binned.genome) <- c("chrom" , "chromStart" ,"chromEnd")
@@ -84,7 +84,7 @@ bincountslist <- list()
 for (i in c(1:length(input.data))) {
 
     filepath <- input.data[i]
-    cat("\tLoading", basename(filepath), "for estimating normalized signal...", "\n", sep=" ")
+    cat("  Loading", basename(filepath), "for estimating normalized signal...", "\n", sep=" ")
 
     # Import single rawCount file (only bins with >= 1 tag)
     bincounts <- read.table(file=filepath, header=FALSE, sep="\t", stringsAsFactors=FALSE)
@@ -109,7 +109,7 @@ for (i in c(1:length(input.data))) {
 
 
     # 5.5 Find overlap between bins and uniqueness mappability frames
-    cat("\t\tEstimate expected counts by finding overlaps between bins and mappability regions", "\n", sep=" ")
+    cat("    Estimate expected counts by finding overlaps between bins and mappability regions", "\n", sep=" ")
     bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
 
     # Determine sizes of overlap regions for each query with any match
@@ -134,13 +134,13 @@ for (i in c(1:length(input.data))) {
     obsCounts= round ( (score(grbins)[unique(queryHits(bin2mapHits))] ) , 3)
     NormalizedSignals <- round((obsCounts/expCounts), 3)
 
-    cat("\t\tNormalized counts for ", basename(filepath), " calculated")
+    cat("    Normalized counts for ", basename(filepath), " calculated")
     bincountslist[[i]] <- NormalizedSignals
 }
 
 # List to matrix
 bincountsmatrix <- do.call(cbind, bincountslist)
 
-cat("\tAppending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n")
+cat("  Appending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
 write(x = count2V, file = outputVfile, append = T)
