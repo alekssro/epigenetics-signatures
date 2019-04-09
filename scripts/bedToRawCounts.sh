@@ -147,7 +147,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
             PROCESSED_FILEPATH=${PROCESSED_FILEDIR}/${PROCESSED_FILE};
 
             # Get the raw counts in each genomic bin
-            echo "  Intersect genomic bins with processed bed ${PROCESSED_FILEPATH} to get rawCounts"
+            echo "  Intersect genomic bins with processed bed ${SAMPLE_ID}.processed.bed to get rawCounts"
             bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
 
             # Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
