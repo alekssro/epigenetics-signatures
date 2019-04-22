@@ -179,7 +179,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
     done
 
     # # Transpose V matrix
-    Rscript transposeVmatrix.R ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
+    Rscript ${SCRIPT_DIR}/transposeVmatrix.R ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
     # ${SCRIPT_DIR}/transposeCSV.lowMem.sh ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv
     # mv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix_transpose.csv ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
 
