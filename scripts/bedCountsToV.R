@@ -22,12 +22,12 @@ args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only argume
 # biocLite("rtracklayer")
 suppressPackageStartupMessages(require(rtracklayer, quietly = T, warn.conflicts = F))
 
-input.datafile <- "results/genomic_survey/input_data_files.txt" # raw counts files #  args[1]          # 
-datasheetsamples.file <- "data/DatasetInfoFile.tsv" # datasets (used to get names/structure) #  args[2]    # 
-binnedgenome.file <- "data/hg19binned.200bp.bed" # binned genome bed file #  args[3]        # 
-mappabilitytrack.file <- "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]    # 
-totMappedAllExpFile <- "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # args[5]      # 
-outputVfile <- "results/genomic_survey/A549/V_matrix.csv" # args[6]              # 
+input.datafile <- args[1]           # "results/genomic_survey/input_data_files.txt" # raw counts files #  
+datasheetsamples.file <- args[2]    # "data/DatasetInfoFile.tsv" # datasets (used to get names/structure) #  
+binnedgenome.file <- args[3]        # "data/hg19binned.200bp.bed" # binned genome bed file #  
+mappabilitytrack.file <- args[4]    # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # 
+totMappedAllExpFile <- args[5]      # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # 
+outputVfile <- args[6]              # "results/genomic_survey/A549/V_matrix.csv" # 
 
 
 #################################
@@ -84,7 +84,6 @@ bincountslist <- list()
 for (i in c(1:length(input.data))) {
 
     filepath <- input.data[i]
-    filepath <- "results/genomic_survey/HepG2/H3K4me3/ENCFF833HZR.rawCounts.bed"
     cat("  Loading", basename(filepath), "for estimating normalized signal...", "\n", sep=" ")
 
     # Import single rawCount file (only bins with >= 1 tag)
