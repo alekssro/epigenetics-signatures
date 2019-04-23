@@ -96,8 +96,6 @@ for (i in c(1:length(input.data))) {
     binned.genome2[binned.genome.id %in% bincounts.id, "counts"] <- bincounts$counts
     bincounts <- binned.genome2
     rm(binned.genome2)
-    
-    cat("    Number of bins:", dim(bincounts), "\n")
 
     # Convert bincounts in GRanges object!
     grbins <- GRanges(
@@ -120,7 +118,6 @@ for (i in c(1:length(input.data))) {
     # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
     queryToSubject <- cbind(queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
     colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
-    cat("    Dimension of queryToSubject", dim(queryToSubject), "\n", sep=" ")
 
     # Estimate number of unique-mappability positions within each genomic bin
     queryToSubject <- as.data.frame(queryToSubject, stringsAsFactors=F)
@@ -143,7 +140,6 @@ for (i in c(1:length(input.data))) {
 
     cat("    Normalized counts for ", basename(filepath), " calculated\n")
     bincountslist[[i]] <- NormalizedSignals
-    cat("    Number of normalized counts", length(NormalizedSignals), "\n", sep=" ")
 }
 
 # List to matrix
@@ -151,6 +147,5 @@ bincountsmatrix <- do.call(cbind, bincountslist)
 
 cat("  Appending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n\n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
-cat("    Length of count2V", length(ceiling(rowMeans(bincountsmatrix))), "\n\n")
 write(x = count2V, file = outputVfile, append = T)
 # write(binned.genome.id, file = "results/genomic_survey/HepG2/bin_names.txt", sep = ",")
