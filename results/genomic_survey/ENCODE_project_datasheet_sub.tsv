@@ -1,2 +1,2 @@
-A549	TFBS	CTCF	ENCFF292MAD	ENCFF292MAD.bam	raw	1	ENCODE	https://www.encodeproject.org/files/ENCFF292MAD/@@download/ENCFF292MAD.bam
-A549	TFBS	CTCF	ENCFF378FXS	ENCFF378FXS.bam	raw	2	ENCODE	https://www.encodeproject.org/files/ENCFF378FXS/@@download/ENCFF378FXS.bam
+HepG2	histonemod	H3K4me3	ENCFF833HZR	ENCFF833HZR.bam	raw	1	ENCODE	https://www.encodeproject.org/files/ENCFF833HZR/@@download/ENCFF833HZR.bam
+HepG2	histonemod	H3K4me3	ENCFF447EJD	ENCFF447EJD.bam	raw	2	ENCODE	https://www.encodeproject.org/files/ENCFF447EJD/@@download/ENCFF447EJD.bam
