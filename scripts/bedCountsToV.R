@@ -148,6 +148,6 @@ bincountsmatrix <- do.call(cbind, bincountslist)
 
 cat("  Appending combined counts for the epigenetic mark", epigen.mark, " to the V matrix file \n\n")
 count2V <- paste(c(epigen.mark, ceiling(rowMeans(bincountsmatrix))), collapse = ",")
-cat("    Length of count2V", ceiling(rowMeans(bincountsmatrix)), "\n\n")
+cat("    Length of count2V", length(ceiling(rowMeans(bincountsmatrix))), "\n\n")
 write(x = count2V, file = outputVfile, append = T)
 write(binned.genome.id, file = "results/genomic_survey/HepG2/bin_names.txt", sep = ",")
