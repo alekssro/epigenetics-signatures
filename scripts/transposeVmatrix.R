@@ -5,6 +5,7 @@ args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only argume
 
 V <- fread(args[1], sep = ",", header = F)
 
+cat("Transposing V matrix...\n")
 if (nrow(V) < ncol(V)) {
     V_mat <- t(V)
     
