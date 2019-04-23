@@ -12,7 +12,7 @@ if (nrow(V) < ncol(V)) {
     
     colnames(V_matrix) <- V_mat[1, ]
     
-    write.csv(V_matrix, file = args[2], sep = ",", quote = F, row.names = F)
+    write.csv(V_matrix, file = args[2], quote = F, row.names = F)
 }
 
 
