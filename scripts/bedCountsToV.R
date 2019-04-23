@@ -84,6 +84,7 @@ bincountslist <- list()
 for (i in c(1:length(input.data))) {
 
     filepath <- input.data[i]
+    filepath <- "results/genomic_survey/HepG2/H3K4me3/ENCFF833HZR.rawCounts.bed"
     cat("  Loading", basename(filepath), "for estimating normalized signal...", "\n", sep=" ")
 
     # Import single rawCount file (only bins with >= 1 tag)
@@ -111,30 +112,35 @@ for (i in c(1:length(input.data))) {
 
     # 5.5 Find overlap between bins and uniqueness mappability frames
     cat("    Estimate expected counts by finding overlaps between bins and mappability regions", "\n", sep=" ")
-    bin2mapHits <- findOverlaps( query=grbins, subject=grmap, ignore.strand = TRUE)
+    bin2mapHits <- findOverlaps(query=grbins, subject=grmap, ignore.strand = TRUE)
 
     # Determine sizes of overlap regions for each query with any match
     overlaps <- pintersect(grbins[queryHits(bin2mapHits)], grmap[subjectHits(bin2mapHits)])
     w <- width(overlaps)
 
     # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
-    queryToSubject <- cbind( queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
+    queryToSubject <- cbind(queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
     colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
     cat("    Dimension of queryToSubject", dim(queryToSubject), "\n", sep=" ")
 
     # Estimate number of unique-mappability positions within each genomic bin
     queryToSubject <- as.data.frame(queryToSubject, stringsAsFactors=F)
-    uqmapp <- as.numeric(tapply(queryToSubject$size, queryToSubject$queryidx, sum) )
+    uniqPos <- tapply(queryToSubject$size, queryToSubject$queryidx, sum)
+    allPos <- rep(0, length(bincounts.id))
+    allPos[as.numeric(names(uniqPos))] <- uniqPos
+    uqmapp <- allPos
+    # uqmapp <- as.numeric(tapply(queryToSubject$size, queryToSubject$queryidx, sum))
 
     # Estimate the scaling factor on sample size
-    ScalingFactorLibrarySize = round((length(bincounts.id)/mean(totMappedAllExp)), 3)
+    ScalingFactorLibrarySize <- round((length(bincounts.id)/mean(totMappedAllExp)), 3)
 
     # Estimate the normalized expected fragment count in each bin
-    expCounts= round( (uqmapp * (length(bincounts.id) / mappabilityGenomeSize ) ) * ScalingFactorLibrarySize, 3)
+    expCounts <- (uqmapp * (length(bincounts.id) / mappabilityGenomeSize ) ) * ScalingFactorLibrarySize
 
     # Estimate the normalized observed count in each bin
-    obsCounts= round ( (score(grbins)[unique(queryHits(bin2mapHits))] ) , 3)
-    NormalizedSignals <- round((obsCounts/expCounts), 3)
+    obsCounts= score(grbins)
+    NormalizedSignals <- obsCounts/expCounts
+    NormalizedSignals[!is.numeric(NormalizedSignals) | is.na(NormalizedSignals) | is.infinite(NormalizedSignals)] <- 0
 
     cat("    Normalized counts for ", basename(filepath), " calculated\n")
     bincountslist[[i]] <- NormalizedSignals
