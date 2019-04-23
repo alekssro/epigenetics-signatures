@@ -22,12 +22,12 @@ args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only argume
 # biocLite("rtracklayer")
 suppressPackageStartupMessages(require(rtracklayer, quietly = T, warn.conflicts = F))
 
-input.datafile <-  args[1]          # "results/genomic_survey/input_data_files.txt" # raw counts files
-datasheetsamples.file <- args[2]    # "data/DatasetInfoFile.tsv" # datasets (used to get names/structure)
-binnedgenome.file <- args[3]        # "data/hg19binned.200bp.bed" # binned genome bed file
-mappabilitytrack.file <- args[4]    # "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph"
-totMappedAllExpFile <- args[5]      # "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt"
-outputVfile <- args[6]              # "results/genomic_survey/A549/V_matrix.csv"
+input.datafile <- "results/genomic_survey/input_data_files.txt" # raw counts files #  args[1]          # 
+datasheetsamples.file <- "data/DatasetInfoFile.tsv" # datasets (used to get names/structure) #  args[2]    # 
+binnedgenome.file <- "data/hg19binned.200bp.bed" # binned genome bed file #  args[3]        # 
+mappabilitytrack.file <- "data/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegions.bedGraph" # args[4]    # 
+totMappedAllExpFile <- "results/genomic_survey/A549/CTCF/A549_CTCF_allExp_totals.txt" # args[5]      # 
+outputVfile <- "results/genomic_survey/A549/V_matrix.csv" # args[6]              # 
 
 
 #################################
@@ -95,10 +95,9 @@ for (i in c(1:length(input.data))) {
     binned.genome2 <- binned.genome
     binned.genome2[binned.genome.id %in% bincounts.id, "counts"] <- bincounts$counts
     bincounts <- binned.genome2
+    rm(binned.genome2)
     
     cat("    Number of bins:", dim(bincounts), "\n")
-
-    rm(binned.genome2)
 
     # Convert bincounts in GRanges object!
     grbins <- GRanges(
@@ -120,9 +119,8 @@ for (i in c(1:length(input.data))) {
 
     # Build a three-column table; queryIndexes, subjectIndexes, subjectItemSizes
     queryToSubject <- cbind( queryHits(bin2mapHits), subjectHits(bin2mapHits), w)
-    cat("    Dimension of queryToSubject", dim(queryToSubject), "\n", sep=" ")
-    
     colnames(queryToSubject) <- c("queryidx", "subjectidx", "size")
+    cat("    Dimension of queryToSubject", dim(queryToSubject), "\n", sep=" ")
 
     # Estimate number of unique-mappability positions within each genomic bin
     queryToSubject <- as.data.frame(queryToSubject, stringsAsFactors=F)
