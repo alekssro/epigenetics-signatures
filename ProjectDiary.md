@@ -103,13 +103,7 @@ Convert processed BED files into Normalized Signal tracks.
 
 
 #### TODO:
-Next week: Try with fractions of the data, see how it scales, look at the paper, try NMF into the small data
-
-***Combine biological replicates by using the average counts for a given epigenetic mark**
-
-DONE
-
-
+https://app.clickup.com/1701348/d/l?p=2259421&c=2661775&s=-1
 
 ## Selection of appropiate N:
 
@@ -151,3 +145,34 @@ Run 3:
 [1] "N: 7 sum(V - W * H)^2 = 3740776225.74354"
 [1] "N: 8 sum(V - W * H)^2 = 3266565144.27729"
 ```
+
+
+
+**Filter the data**
+
+https://app.clickup.com/t/vrd4r
+
+![1557239241626](/home/alekssro/.config/Typora/typora-user-images/1557239241626.png)
+
+<https://probabilityandstats.wordpress.com/tag/poisson-gamma-mixture/>
+
+**Initiation of W and H**
+
+A general rule of thumb for the stochastic initialization approach is to perform several runs of the NMF (i.e., several random initializations for matrices W and H) and keep the factorization that minimizes the reconstruction error across
+multiple runs.
+$$
+min[δ = V − WH ]
+$$
+
+where δ is the difference between the real and the model output values of the epigenetic mark levels.
+
+
+
+**Choosing of n**
+
+A common strategy is to perform NMF in a pre-defined ranged of r values, estimate a quality measure of the results, and select the best value of r according to this quality criteria. 
+
+Different strategies have been proposed to select the best factorization rank. The most common approach is based on the *cophenetic correlation coefficient*, which reflects the overall cluster stability obtained after the factorization process.
+
+A more robust approach suggests to take the smallest value of r at which the decrease in the residual sum of squares (RSS) between V(j, k) and the NMF model is larger than the decrease observed in the random data.
+
