@@ -82,53 +82,54 @@ coef.sparseness.v <- NULL
 
 
 for (k in c(1:length(ranks))) {
-
-rank.factor <- ranks[k];
-cat("extract", "nmf results", "for factorization rank", rank.factor, "\n", sep=" ")
-singlerank.results <- estimates[[k]]
-# Extract the three elements from the list:
-nmfobject <- unlist(singlerank.results[[1]]);
-# get cophenetic coefficient
-cophcoef <- as.numeric(unlist(singlerank.results[[3]]));
-# get sparseness of H
-coef.sparseness <- as.numeric( sparseness(nmfobject))[2];
-# get sparseness of W
-basis.sparseness <- as.numeric( sparseness(nmfobject))[1];
-# get residual Sum of squares
-rss <- rss(nmfobject, mx);
-
-# Collect quality measurement:
-cophcoef.v <- c(cophcoef.v, cophcoef)
-rss.v <- c(rss.v, rss)
-coef.sparseness.v <- c(coef.sparseness.v, coef.sparseness)
-basis.sparseness.v <- c(basis.sparseness.v, basis.sparseness)  }
-
-
-# Generate Quality Plots PDF
-pdf(file=file.path(plots.dir, paste( transform.method, distribtype, "quality.test.NMF.pdf", sep=".")), width=15, height=4)
-
-# Build the main dataframe
-dat <- data.frame(ranks=ranks,
-                 coph=cophcoef.v,
-                 rss=rss.v,
-                 stringsAsFactors=F)
-                  
-# Build the 'sparseness' dataframe           
-sparseness <- data.frame( ranks=rep(ranks,times=2),
-						spar=c(coef.sparseness.v, basis.sparseness.v),
-						class=rep(c('coef', 'basis'), each=length(ranks)),
-						stringsAsFactors=F)                  
-						     
-# Cophenetic correlation coefficient
-plot1 <- ggplot(dat, aes(ranks, coph, color="green3")) + geom_line(color="yellowgreen", size=1.1) + geom_point(color="darkgreen", size=3) + ggtitle("Cophenetic coeff.");
-# Sparseness
-plot2 <- ggplot(sparseness, aes(ranks, spar, group=class, color=factor(class)) ) + geom_line(size=1.1) + geom_point(size=3) + ggtitle("Sparseness of W and H matrixes");
-# RSS
-plot3 <- ggplot(dat, aes(ranks, rss) ) + geom_line(color="red2", size=1.1) + geom_point(color="red4", size=3) +  ggtitle("Residual sum of squares(RSS)");
-# Call the 'multiplot' function;
-multiplot(plot1,plot2,plot3,cols=3);
-
-dev.off();   }
+    
+    rank.factor <- ranks[k];
+    cat("extract", "nmf results", "for factorization rank", rank.factor, "\n", sep=" ")
+    singlerank.results <- estimates[[k]]
+    # Extract the three elements from the list:
+    nmfobject <- unlist(singlerank.results[[1]]);
+    # get cophenetic coefficient
+    cophcoef <- as.numeric(unlist(singlerank.results[[3]]));
+    # get sparseness of H
+    coef.sparseness <- as.numeric( sparseness(nmfobject))[2];
+    # get sparseness of W
+    basis.sparseness <- as.numeric( sparseness(nmfobject))[1];
+    # get residual Sum of squares
+    rss <- rss(nmfobject, mx);
+    
+    # Collect quality measurement:
+    cophcoef.v <- c(cophcoef.v, cophcoef)
+    rss.v <- c(rss.v, rss)
+    coef.sparseness.v <- c(coef.sparseness.v, coef.sparseness)
+    basis.sparseness.v <- c(basis.sparseness.v, basis.sparseness)  }
+    
+    
+    # Generate Quality Plots PDF
+    pdf(file=file.path(plots.dir, paste( transform.method, distribtype, "quality.test.NMF.pdf", sep=".")), width=15, height=4)
+    
+    # Build the main dataframe
+    dat <- data.frame(ranks=ranks,
+                     coph=cophcoef.v,
+                     rss=rss.v,
+                     stringsAsFactors=F)
+                      
+    # Build the 'sparseness' dataframe           
+    sparseness <- data.frame( ranks=rep(ranks,times=2),
+    						spar=c(coef.sparseness.v, basis.sparseness.v),
+    						class=rep(c('coef', 'basis'), each=length(ranks)),
+    						stringsAsFactors=F)                  
+    						     
+    # Cophenetic correlation coefficient
+    plot1 <- ggplot(dat, aes(ranks, coph, color="green3")) + geom_line(color="yellowgreen", size=1.1) + geom_point(color="darkgreen", size=3) + ggtitle("Cophenetic coeff.");
+    # Sparseness
+    plot2 <- ggplot(sparseness, aes(ranks, spar, group=class, color=factor(class)) ) + geom_line(size=1.1) + geom_point(size=3) + ggtitle("Sparseness of W and H matrixes");
+    # RSS
+    plot3 <- ggplot(dat, aes(ranks, rss) ) + geom_line(color="red2", size=1.1) + geom_point(color="red4", size=3) +  ggtitle("Residual sum of squares(RSS)");
+    # Call the 'multiplot' function;
+    multiplot(plot1,plot2,plot3,cols=3);
+    
+    dev.off();   
+}
 
 
 
