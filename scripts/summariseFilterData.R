@@ -23,6 +23,7 @@
 # Load necessary packages (tidyverse, reshape2)
 suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(MASS, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
@@ -53,7 +54,37 @@ for (i in 1:length(chrmsL[,1])) {
 V$chr <- chrmsNames
 V$binStart <- binNames
 
-# Filter bins in V matrix
+
+## Filter bins in V matrix
+# combination function
+comb = function(n, x) {
+    factorial(n) / factorial(n-x) / factorial(x)
+}
+
+# Fit gamma distribution parameters for each epigenetic mark
+pars <- matrix(0, ncol = 2, nrow = 8)
+for (j in 1:8) {
+    subEpigMark <- sample(V[,i] + 1, size = length(V$H3K36me3)*0.1)     # pseudocount and 10% sample
+    gammaDistr <- fitdistr(subEpigMark, densfun = "gamma", lower = 0.001)
+    
+    pars[i, ] <- gammaDistr$estimate
+}
+
+# Generate Q probability matrix for each element in V
+
+Q <- matrix(0, ncol = ncol(V), nrow = nrow(V))      # init matrix
+for (j in 1:8) {
+    for (i in 1:10){
+        a <- pars[j, 1]
+        b <- pars[j, 2]
+        n <- V[i, j]
+        
+        Q[i, j] <- comb(n + b, n) * (a/(a+1))^b * (1/(a+1))^n
+    }
+}
+
+############## SEGUIR AQUI ################
+
 
 row_means <- rowMeans(V[,1:8])
 
