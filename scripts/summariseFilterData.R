@@ -1,4 +1,4 @@
-#!/usr/bin/Rscript
+#!Rscript
 
 ###################################################################################################
 # Script used to analyse and summarise the data in the reads matrix V                           ###
