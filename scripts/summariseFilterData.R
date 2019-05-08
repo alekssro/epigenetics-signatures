@@ -64,15 +64,15 @@ comb = function(n, x) {
 # Fit gamma distribution parameters for each epigenetic mark
 pars <- matrix(0, ncol = 2, nrow = 8)
 for (j in 1:8) {
-    subEpigMark <- sample(V[,i] + 1, size = length(V$H3K36me3)*0.1)     # pseudocount and 10% sample
+    subEpigMark <- sample(V[,j] + 1, size = length(V[,j])*0.1)     # pseudocount and 10% sample
     gammaDistr <- fitdistr(subEpigMark, densfun = "gamma", lower = 0.001)
     
-    pars[i, ] <- gammaDistr$estimate
+    pars[j, ] <- gammaDistr$estimate
 }
 
 # Generate Q probability matrix for each element in V
 
-Q <- matrix(0, ncol = ncol(V), nrow = nrow(V))      # init matrix
+Q <- matrix(1, ncol = ncol(V), nrow = nrow(V))      # init matrix
 for (j in 1:8) {
     for (i in 1:10){
         a <- pars[j, 1]
@@ -83,18 +83,20 @@ for (j in 1:8) {
     }
 }
 
-############## SEGUIR AQUI ################
+bins2keep <- apply(head(Q), 1, function(x) sum(x > 0.01) > 1)
+print(dim(V))
+print(sum(bins2keep))
 
 
-row_means <- rowMeans(V[,1:8])
-
-noHits_i <- row_means < max(row_means) * 0.001
-sum(noHits_i)
-
-filteredV <- V[!noHits_i,]
-dim(filteredV)
-
-chrs <- unique(V$chr)
+# row_means <- rowMeans(V[,1:8])
+# 
+# noHits_i <- row_means < max(row_means) * 0.001
+# sum(noHits_i)
+# 
+# filteredV <- V[!noHits_i,]
+# dim(filteredV)
+# 
+# chrs <- unique(V$chr)
 
 # Plot reads coverage by bins along each chromosome
 if (makePlots == "-p") {
