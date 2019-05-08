@@ -77,12 +77,12 @@ for (j in 1:8) {
 
 # Generate Q probability matrix for each element in V
 cat("    Generating Q matrix of probabilities for each read in V matrix...\n")
-Q <- matrix(1, ncol = ncol(V[,1:8]), nrow = nrow(V[,1:8]))      # init matrix
+Q <- matrix(0, ncol = ncol(V[,1:8]), nrow = nrow(V[,1:8]))      # init matrix
 for (j in 1:8) {
-    for (i in 1:10){
+    for (i in 1:100){
         a <- pars[j, 1]
         b <- pars[j, 2]
-        n <- V[i, j]
+        n <- V[i, j] + 1    # add pseudocount
         
         Q[i, j] <- comb(n + b, n) * (a/(a+1))^b * (1/(a+1))^n
     }
