@@ -91,9 +91,9 @@ for (j in 1:8) {
 print(V[50:100, ])
 print(Q[50:100, ])
 
-bins2keep <- apply(Q, 1, function(x) sum(x > 0.01) > 1)
-cat("Number of bins before filtering: ", dim(V)[1], "\n")
-cat("Number of bins after filtering: ", sum(bins2keep), "\n")
+# bins2keep <- apply(Q, 1, function(x) sum(x > 0.01) > 1)
+# cat("Number of bins before filtering: ", dim(V)[1], "\n")
+# cat("Number of bins after filtering: ", sum(bins2keep), "\n")
 
 
 # row_means <- rowMeans(V[,1:8])
