@@ -28,12 +28,15 @@ suppressPackageStartupMessages(require(MASS, quietly = T, warn.conflicts = F))
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
 makePlots <- args[1]           # "results/genomic_survey/input_data_files.txt" # raw counts files #  
+makePlots <- ifelse(is.na(makePlots), F, ifelse(makePlots == "-p", T, F))
 
 # Load V matrix and chromosome info
+cat("Loading V matrix...\n")
 V <- read.csv("results/genomic_survey/HepG2/V_matrix_transposed.csv", header = T)
 chrmsL <- read.table("data/chromInfo.txt")
 
 # Assign chrm names and rebuild bin names
+cat("Rebuilding bin names...\n")
 chrmsNames <- rep("", times=length(V[,1]))
 binNames <- rep(0, times=length(V[,1]))
 start <- 1
@@ -57,11 +60,13 @@ V$binStart <- binNames
 
 ## Filter bins in V matrix
 # combination function
+cat("Filtering bins with higher probabilities to 1% in at least one epigenetic mark...\n")
 comb = function(n, x) {
     factorial(n) / factorial(n-x) / factorial(x)
 }
 
 # Fit gamma distribution parameters for each epigenetic mark
+cat("    Obtaining gamma distribution parameters for each epigenetic mark, based on reads...\n")
 pars <- matrix(0, ncol = 2, nrow = 8)
 for (j in 1:8) {
     subEpigMark <- sample(V[,j] + 1, size = length(V[,j])*0.1)     # pseudocount and 10% sample
@@ -71,7 +76,7 @@ for (j in 1:8) {
 }
 
 # Generate Q probability matrix for each element in V
-
+cat("    Generating Q matrix of probabilities for each read in V matrix...\n")
 Q <- matrix(1, ncol = ncol(V), nrow = nrow(V))      # init matrix
 for (j in 1:8) {
     for (i in 1:10){
@@ -83,9 +88,9 @@ for (j in 1:8) {
     }
 }
 
-bins2keep <- apply(head(Q), 1, function(x) sum(x > 0.01) > 1)
-print(dim(V))
-print(sum(bins2keep))
+bins2keep <- apply(Q, 1, function(x) sum(x > 0.01) > 1)
+cat("Number of bins before filtering: ", dim(V)[1], "\n")
+cat("Number of bins after filtering: ", sum(bins2keep), "\n")
 
 
 # row_means <- rowMeans(V[,1:8])
@@ -99,7 +104,7 @@ print(sum(bins2keep))
 # chrs <- unique(V$chr)
 
 # Plot reads coverage by bins along each chromosome
-if (makePlots == "-p") {
+if (makePlots) {
     for (i in 1:length(chrs)) {
         
         d <- filteredV %>% filter(chr == chrs[i])
