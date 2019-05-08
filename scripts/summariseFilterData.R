@@ -95,6 +95,8 @@ for (j in 1:8) {
     break
 }
 
+warnings()
+
 print(V[50:100, ])
 print(Q[50:100, ])
 
