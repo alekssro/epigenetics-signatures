@@ -77,7 +77,7 @@ for (j in 1:8) {
 
 # Generate Q probability matrix for each element in V
 cat("    Generating Q matrix of probabilities for each read in V matrix...\n")
-Q <- matrix(1, ncol = ncol(V), nrow = nrow(V))      # init matrix
+Q <- matrix(1, ncol = ncol(V[,1:8]), nrow = nrow(V[,1:8]))      # init matrix
 for (j in 1:8) {
     for (i in 1:10){
         a <- pars[j, 1]
@@ -87,6 +87,9 @@ for (j in 1:8) {
         Q[i, j] <- comb(n + b, n) * (a/(a+1))^b * (1/(a+1))^n
     }
 }
+
+print(V[50:100, ])
+print(Q[50:100, ])
 
 bins2keep <- apply(Q, 1, function(x) sum(x > 0.01) > 1)
 cat("Number of bins before filtering: ", dim(V)[1], "\n")
