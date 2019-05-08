@@ -88,7 +88,11 @@ for (j in 1:8) {
         Q[i, j] <- comb(n + b, n) * (a/(a+1))^b * (1/(a+1))^n
         print(i)
         print(Q[i, j])
+        if (i > 100) {
+            break
+        }
     }
+    break
 }
 
 print(V[50:100, ])
