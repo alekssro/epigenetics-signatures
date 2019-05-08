@@ -69,7 +69,7 @@ comb = function(n, x) {
 cat("    Obtaining gamma distribution parameters for each epigenetic mark, based on reads...\n")
 pars <- matrix(0, ncol = 2, nrow = 8)
 for (j in 1:8) {
-    subEpigMark <- sample(V[,j] + 1, size = length(V[,j])*0.1)     # pseudocount and 10% sample
+    subEpigMark <- sample(V[,j] + 1, size = length(V[,j])*0.01)     # pseudocount and 1% sample
     gammaDistr <- fitdistr(subEpigMark, densfun = "gamma", lower = 0.001)
     
     pars[j, ] <- gammaDistr$estimate
@@ -79,12 +79,15 @@ for (j in 1:8) {
 cat("    Generating Q matrix of probabilities for each read in V matrix...\n")
 Q <- matrix(0, ncol = ncol(V[,1:8]), nrow = nrow(V[,1:8]))      # init matrix
 for (j in 1:8) {
+    a <- pars[j, 1]
+    b <- pars[j, 2]
     for (i in 1:nrow(V)){
-        a <- pars[j, 1]
-        b <- pars[j, 2]
+
         n <- V[i, j] + 1    # add pseudocount
         
         Q[i, j] <- comb(n + b, n) * (a/(a+1))^b * (1/(a+1))^n
+        print(i)
+        print(Q[i, j])
     }
 }
 

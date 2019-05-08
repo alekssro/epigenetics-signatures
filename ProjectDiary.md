@@ -156,6 +156,8 @@ https://app.clickup.com/t/vrd4r
 
 <https://probabilityandstats.wordpress.com/tag/poisson-gamma-mixture/>
 
+​	Buscar referencias que sostengan esta suposición
+
 **Initiation of W and H**
 
 A general rule of thumb for the stochastic initialization approach is to perform several runs of the NMF (i.e., several random initializations for matrices W and H) and keep the factorization that minimizes the reconstruction error across
