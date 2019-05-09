@@ -60,70 +60,22 @@ V$binStart <- binNames
 
 ## Filter bins in V matrix
 # combination function
-cat("Filtering bins with higher probabilities to 1% in at least one epigenetic mark...\n")
-
-###### CONTINUE HERE ########
-
-# IDEA:
-# Get frequency of counts for each read
-# filter bins for which the frequencies are under a threshold in all marks!
+cat("Filtering bins with higher probabilities to 2.5% in at least one epigenetic mark...\n")
 
 # Filter out those bins which doesn't have at least 1% of the read frequency in any of the marks
-col_sums <- colSums(V[,1:8])   # get total counts for each epigen mark
+numV <- V[,1:8]
+thrshld <- apply(numV, 2, function(x) quantile(x, probs = 0.975))   # get total counts for each epigen mark
 
-noHits_i <- row_means < max(row_means) * 0.001
-sum(noHits_i)
+bins2keep <- apply(numV, 1, function(x) sum(x >= thrshld) > 1)
 
-filteredV <- V[!noHits_i,]
+sum(bins2keep)
+
+filteredV <- V[bins2keep, ]
 dim(filteredV)
-
-chrs <- unique(V$chr)
-
-# comb = function(n, x) {
-#     factorial(n) / factorial(n-x) / factorial(x)
-# }
-# 
-# # Fit gamma distribution parameters for each epigenetic mark
-# cat("    Obtaining gamma distribution parameters for each epigenetic mark, based on reads...\n")
-# pars <- matrix(0, ncol = 2, nrow = 8)
-# for (j in 1:8) {
-#     subEpigMark <- sample(V[,j] + 1, size = length(V[,j])*0.01)     # pseudocount and 1% sample
-#     gammaDistr <- fitdistr(subEpigMark, densfun = "gamma", lower = 0.001)
-#     
-#     pars[j, ] <- gammaDistr$estimate
-# }
-# 
-# # Generate Q probability matrix for each element in V
-# cat("    Generating Q matrix of probabilities for each read in V matrix...\n")
-# Q <- matrix(0, ncol = ncol(V[,1:8]), nrow = nrow(V[,1:8]))      # init matrix
-# for (j in 1:8) {
-#     a <- pars[j, 1]
-#     b <- pars[j, 2]
-#     for (i in 1:nrow(V)){
-# 
-#         n <- V[i, j] + 1    # add pseudocount
-#         
-#         Q[i, j] <- comb(n + b - 1, n) * (a/(a+1))^b * (1/(a+1))^n
-#         # cat(i, a, b , n, "\n", sep = " ")
-#         # print(Q[i, j])
-#         if (i > 100000) {
-#             break
-#         }
-#     }
-# 
-# }
-
-
-# print(V[50:100, ])
-# print(Q[50:100, ])
-
-# bins2keep <- apply(Q, 1, function(x) sum(x > 0.01) > 1)
-# cat("Number of bins before filtering: ", dim(V)[1], "\n")
-# cat("Number of bins after filtering: ", sum(bins2keep), "\n")
-
 
 
 # Plot reads coverage by bins along each chromosome
+chrs <- unique(V$chr)
 if (makePlots) {
     for (i in 1:length(chrs)) {
         
@@ -132,7 +84,8 @@ if (makePlots) {
         
         p <- d %>% filter(variable != "chr") %>%
             ggplot(aes(x=binStart, y=as.numeric(value), col=variable)) + 
-            geom_point(aes(color=factor(variable)))
+            geom_point(aes(color=factor(variable))) +
+            xlab("Normalized Reads") + ylab("Bin Position")
         
         ggsave(filename = paste("plots/", chrs[i], "_readsDistr.png", sep=""), plot = p)
         
