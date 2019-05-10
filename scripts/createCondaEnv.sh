@@ -1,8 +1,6 @@
-%%writefile createCondaEnv.sh
 #!/usr/bin/env bash
 # reproducibly create conda environment
-
-cd || exit;
+# NOTE: needs to be created from (base) conda environment
 
 read -p "Create new conda env (y/n)?" CONT
 
@@ -14,6 +12,8 @@ elif [ "$CONT" == "y" ]; then
     echo "Creating new conda environment, choose name"
     read input_variable
     echo "Name $input_variable was chosen";
+
+    source activate
 
     # Create environment.yml or not
     if [ ! -f environment.yml ]; then
