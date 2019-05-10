@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # reproducibly create conda env
 
-conda activate
+cd || exit;
 
 read -p "Create new conda env (y/n)?" CONT
 
