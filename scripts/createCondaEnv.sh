@@ -1,5 +1,6 @@
+%%writefile createCondaEnv.sh
 #!/usr/bin/env bash
-# reproducibly create conda env
+# reproducibly create conda environment
 
 cd || exit;
 
