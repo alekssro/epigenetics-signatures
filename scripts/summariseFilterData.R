@@ -7,16 +7,6 @@
 # Done by Alejandro Roca (alekss.ro@gmail.com)                                                  ###
 ###################################################################################################
 
-# #Resampling 1 set of counts using a multinomial distribution (here 3 categories)
-# 
-# ncounts <- c(100, 230, 45)
-# 
-# tot <- sum(ncounts)
-# 
-# vecp <- ncounts/tot
-# 
-# rmultinom(n = 1,size = tot,prob = vecp)
-
 # Set working directory (may need to be changed)
 # setwd("/mnt/DataHDD/alekssro/Nextcloud/Universidad/Bioinformatics/MasterThesis/mscthesis")
 
@@ -27,7 +17,9 @@ suppressPackageStartupMessages(require(MASS, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
-makePlots <- args[1]           # "results/genomic_survey/input_data_files.txt" # raw counts files #  
+# outfile <- args[1]                          # uncomment to add path in command line
+outfile <- "results/genomic_survey/HepG2/filteredV.csv"
+makePlots <- args[2]                        # if "-p" then makePlots will be True 
 makePlots <- ifelse(is.na(makePlots), F, ifelse(makePlots == "-p", T, F))
 
 # Load V matrix and chromosome info
@@ -71,12 +63,16 @@ bins2keep <- apply(numV, 1, function(x) sum(x >= thrshld) > 1)
 sum(bins2keep)
 
 filteredV <- V[bins2keep, ]
-dim(filteredV)
 
+cat("Number of bins after filtering: ", dim(filteredV), "\n")
+
+cat("Saving filtered V matrix (with chromosome and bin name)...\n")
+write.csv(filteredV, file = outfile, quote = F, row.names = F)
 
 # Plot reads coverage by bins along each chromosome
 chrs <- unique(V$chr)
 if (makePlots) {
+    cat("Creating coverage plots for every chromosome, using filtered data...\n")
     for (i in 1:length(chrs)) {
         
         d <- filteredV %>% filter(chr == chrs[i])
