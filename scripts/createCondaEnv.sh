@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # reproducibly create conda env
 
+conda activate
+
 read -p "Create new conda env (y/n)?" CONT
 
 if [ "$CONT" == "n" ]; then
@@ -16,8 +18,7 @@ elif [ "$CONT" == "y" ]; then
     if [ ! -f environment.yml ]; then
         echo "File 'environment.yml' not available. Installing base packages."
         conda create --name $input_variable python=3 bedtools samtools
-        conda install -n $input_variable -c r r-essentials
-        conda install -n $input_variable -c r r-essentials
+        conda install -n $input_variable -c r r-essentials NMF
         conda install -n $input_variable -c bioconda bioconductor-rtracklayer
     else
         echo "Using 'environment.yml' to create environment"
