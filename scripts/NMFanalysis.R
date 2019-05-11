@@ -19,84 +19,65 @@
 
 suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
 
 source(file = "scripts/more/MajorizeMinimizeNQP.R")
 
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
 filteredV <- read.csv("results/genomic_survey/HepG2/filteredV.csv", header = T)
+V <- as.matrix(filteredV[,1:8])
 
 epimarks <- colnames(filteredV[,1:8])
-# chr1V <- filteredV %>% filter(chr == "chr1")
-V <- as.matrix(filteredV[,1:8])
+
 n_bins <- nrow(V)
 n_epimarks <- ncol(V)
-nIter <- 30   # From a run of 100 iters, RSS doesn't change after 25-30 iterations
-n_signatures <- 3   # stomach, skin and background
-s <- 1e-3      # span needed for convergence
+n_reps <- 30
 
-
-
-# dim(W) 10 x 3
-# dim(H) 3 x 6
-
-MM.RSS <- c()
-MM.RSS.n <- matrix(data = 0, nrow = nIter, ncol = 8)
-for (n in 1:8) {
+res_reps <- list()
+for (i in 1:n_reps) {
     
-    n_signatures <- n
+    randomV <- randomize(V)
     
-    nmf_res <- nmf(V, n)
-    
-    ############# CONTINUE HERE #################
-    
-    # # Initialize W and load H
-    # W <- matrix(runif(n_bins*n_signatures, 0, 1), nrow = n_bins, ncol = n_signatures)
-    # H <- matrix(runif(n_signatures*n_epimarks, 0, 1), nrow = n_signatures, ncol = n_epimarks)
-    # 
-    # for (iter in 1:nIter) {
-    #     
-    #     # Update rows in W; every patient
-    #     for (i in 1:n_bins) {  # nrow(W)
-    #         v <- V[i, ]     # we use rows of V
-    #         
-    #         # For A and b, opposite dimensions as in column update in H
-    #         A = 2 * H %*% t(H)     
-    #         b = as.vector(-2 * H %*% v)
-    #         
-    #         MMres <- MajorizeMinimizeNQP(A = A, b = b, init = W[i,], maxIter = 10, tol = 1e-10)
-    #         
-    #         # Replace old by updated row
-    #         W[i, ] <- MMres$x
-    #     }
-    #     
-    #     # Calculate RSS for each iteration of the algorithm
-    #     MM.RSS[iter] <- sum((V - W %*% H) ^ 2)
-    #     
-    #     MM.RSS.n[iter, n] <- MM.RSS[iter]
-    #     
-    #     # # Keep track of the convergence condition evolution
-    #     # if (iter %% 10 == 0) {cat("Iteration ", iter, ", log RSS decrease: ", 
-    #     #                           log(MM.RSS[iter - 1]) - log(MM.RSS[iter]), "\n", 
-    #     #             sep = '')}
-    #     
-    #     # Convergence conditioned on log(RSS) increase
-    #     if ( (iter > 1) && ((log(MM.RSS[iter - 1]) - log(MM.RSS[iter])) < s) ) {break}
-    #     
-    # }
-    
-    print(paste("N:", n, "sum(V - W * H)^2 =", nmf_res@residuals))
-    
+    resids <- matrix(0, ncol = 2, nrow = n_epimarks)
+    colnames(resids) <- c("real", "random")
+    for (n in 1:epimarks) {
+        
+        n_signatures <- n
+        
+        nmf_res_real <- nmf(V, n)
+        nmf_res_rand <- nmf(randomV, n)
+        
+        
+        print(paste("N:", n, "--> Residual error: [REAL]", nmf_res_real@residuals, "[RANDOM]", nmf_res_rand@residuals))
+        resids[n, ] <- c(nmf_res_real@residuals, nmf_res_rand@residuals)
+        
+    }
+    res_reps[[i]] <- as.data.frame(resids)
 }
 
-iters <- apply(MM.RSS.n, 2, function(x) sum(x > 0))
-meanRSS <- colSums(MM.RSS.n) / iters
-plot(x = 1:8, y = meanRSS)
+all_reps <- do.call(rbind, res_reps)
+all_reps$n <- rep(1:n_epimarks, length.out=nrow(all_reps))
+all_reps$rep <- rep(1:n_reps, each=n_epimarks)
 
-ggplot(NULL) + 
-    geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),1], color = "Signature 1")) + 
-    geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),2], color = "Signature 2")) + 
-    geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),3], color = "Signature 3")) +
-    theme_minimal() +
-    xlab("Patient") + ylab('Mutation Load') +
-    ggtitle('Mutation Load for all patients towards each signature')
+mean_resids_real <- {all_reps %>% group_by(n) %>% summarise(mean = mean(real))}$mean
+mean_resids_random <- {all_reps %>% group_by(n) %>% summarise(mean = mean(random))}$mean
+
+p <- ggplot(NULL) + 
+    geom_line(mapping = aes(x = 1:8, y = mean_resids_real, color = "Real Data")) +
+    geom_line(mapping = aes(x = 1:8, y = mean_resids_random, color = "Random Data")) +
+    geom_boxplot(data = all_reps, mapping = aes(x = n, y = real, group=n)) +
+    geom_boxplot(data = all_reps, mapping = aes(x = n, y = random, group=n)) +
+    xlab("N") + ylab("Reconstruction Error") +
+    theme_minimal()
+
+ggsave("plots/select_n/error_by_n.png", plot = p)
+
+# 
+# ggplot(NULL) + 
+#     geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),1], color = "Signature 1")) + 
+#     geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),2], color = "Signature 2")) + 
+#     geom_line(mapping = aes(x = 1:n_bins, W[1:length(W[,1]),3], color = "Signature 3")) +
+#     theme_minimal() +
+#     xlab("Patient") + ylab('Mutation Load') +
+#     ggtitle('Mutation Load for all patients towards each signature')
