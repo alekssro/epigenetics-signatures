@@ -18,11 +18,10 @@ elif [ "$CONT" == "y" ]; then
     # Create environment.yml or not
     if [ ! -f environment.yml ]; then
         echo "File 'environment.yml' not available. Installing base packages."
-        conda create --name $input_variable python=3 bedtools samtools
-        conda install -n $input_variable -c r r-essentials
-        conda install -n $input_variable -c r r-nmf
-        # conda install -n $input_variable -c r reshape2
-        conda install -n $input_variable -c bioconda bioconductor-rtracklayer
+        conda create --name $input_variable python=3 bedtools samtools -y
+        conda install -n $input_variable -c r r-essentials -y
+        conda install -n $input_variable -c r r-nmf -y
+        conda install -n $input_variable -c bioconda bioconductor-rtracklayer -y
     else
         echo "Using 'environment.yml' to create environment"
         conda env create
