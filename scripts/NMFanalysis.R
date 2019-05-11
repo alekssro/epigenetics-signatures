@@ -41,7 +41,7 @@ for (i in 1:n_reps) {
     
     resids <- matrix(0, ncol = 2, nrow = n_epimarks)
     colnames(resids) <- c("real", "random")
-    for (n in 1:epimarks) {
+    for (n in 1:n_epimarks) {
         
         n_signatures <- n
         
