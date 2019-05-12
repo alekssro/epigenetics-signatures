@@ -32,7 +32,7 @@ epimarks <- colnames(filteredV[,1:8])
 
 n_bins <- nrow(V)
 n_epimarks <- ncol(V)
-n_reps <- 10
+n_reps <- 30
 
 res_reps <- list()
 for (i in 1:n_reps) {
@@ -71,7 +71,7 @@ p <- ggplot(NULL) +
     xlab("N") + ylab("Reconstruction Error") +
     theme_minimal()
 
-ggsave("plots/select_n/error_by_n.png", plot = p)
+ggsave("plots/select_n/error_by_n.png", plot = p, height=5, width=7, units='in', dpi=600)
 
 #
 # ggplot(NULL) +
