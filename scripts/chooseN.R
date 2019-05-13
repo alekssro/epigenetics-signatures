@@ -55,13 +55,22 @@ all_reps$rep <- rep(1:n_reps, each=n_epimarks)
 mean_resids_real <- {all_reps %>% group_by(n) %>% summarise(mean = mean(real))}$mean
 mean_resids_random <- {all_reps %>% group_by(n) %>% summarise(mean = mean(random))}$mean
 
-p <- ggplot(NULL) +
-    geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_real, color = "Real Data")) +
-    geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_random, color = "Random Data")) +
-    geom_boxplot(data = all_reps, mapping = aes(x = n, y = real, group=n)) +
-    geom_boxplot(data = all_reps, mapping = aes(x = n, y = random, group=n)) +
-    xlab("N") + ylab("Reconstruction Error") +
-    theme_minimal()
+if (n_reps > 1) {
+    p <- ggplot(NULL) +
+        geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_real, color = "Real Data")) +
+        geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_random, color = "Random Data")) +
+        geom_boxplot(data = all_reps, mapping = aes(x = n, y = real, group=n)) +
+        geom_boxplot(data = all_reps, mapping = aes(x = n, y = random, group=n)) +
+        xlab("N") + ylab("Reconstruction Error") +
+        theme_minimal()
+} else {
+    # only one repetition, no boxplots needed
+    p <- ggplot(NULL) +
+        geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_real, color = "Real Data")) +
+        geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_random, color = "Random Data")) +
+        xlab("N") + ylab("Reconstruction Error") +
+        theme_minimal()
+}
 
 ggsave(outfile, plot = p, height=5, width=7, units='in', dpi=600)
 
