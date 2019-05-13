@@ -52,7 +52,7 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 	echo "Working on sample ${SAMPLE_ID} assay ${ASSAY} cell-line ${CELL_LINE}"
 
 	# @bam files or .bed not-processed@:
-	echo "\traw bam file $ALIGN_FILENAME";
+	echo "  raw bam file $ALIGN_FILENAME";
 	CELL_LINE_DIR=${DATA_DIR}/${CELL_LINE};
 	SAMPLE_DIR=${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID};
 	# get the path to the alignment file
@@ -65,7 +65,7 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 	bedcount=`ls -1 *.bed 2>/dev/null | wc -l`
 	if [ "$bedcount" -gt 1 ]
 	then
-	    echo "\tConverting bed to bam..";
+	    echo "  Converting bed to bam..";
 	    # define the output file name just generated (same name, change extension .bed to .bam )
 	    BAM_FILE=${ALIGN_FILENAME/".bed"/".bam"};
 	    bedtools bedtobam -i ${ALIGN_FILEPATH} -g ${DATA_DIR}/chromInfo.txt > ${BAM_FILE};
@@ -77,23 +77,23 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 	BAM_NAME=${BAM_FILE/".bam"/""};
 
 	# sort and index bam file;
-	echo "\tSort and index ${BAM_NAME}";
+	echo "  Sort and index ${BAM_NAME}";
     samtools sort ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_FILE} -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam
     samtools index ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam
 
 	# remove duplicate reads
-	echo "\tMark and remove duplicates in ${BAM_NAME}";
+	echo "  Mark and remove duplicates in ${BAM_NAME}";
 	samtools rmdup ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.sorted.bam ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam
 
     # take only reliable alignments ( only matches with 99% probability of being real matches are kept )
-	echo "\tMake a new bam-index and keep only high-quality alignments in ${BAM_NAME}";
+	echo "  Make a new bam-index and keep only high-quality alignments in ${BAM_NAME}";
 	samtools index ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam
 	samtools view -q 20 -b ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.nodup.bam > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.filtered.bam
 	# Alternatively, if Bowtie was used, you select uniquematch reads:
 	# /usr/bin/samtools view -f 0x2 -q 255 -b tumor1.bam -o unique.bam
 
 	# convert .bam to .bed (bedtools bamtobed);
-	echo "\tConvert ${BAM_NAME} into .bed format";
+	echo "  Convert ${BAM_NAME} into .bed format";
 	bamToBed -i ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.filtered.bam  > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
 
 	# For TFs and HistMod signals apply tag extension of 200bp
@@ -105,7 +105,7 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 
 	if [ "$ASSAY_TYPE" != "openchromatin" ]
 	then
-	    echo "\tApply tag extension on ${BAM_NAME} and saving into processed bed file";
+	    echo "  Apply tag extension on ${BAM_NAME} and saving into processed bed file";
 	    awk -F "\t" '$6=="+" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6}' ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.pos.bed
 	    awk -F "\t" '$6=="-" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6}' ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.neg.bed
 	    awk -F "\t" '{print $1,$2,$2+199,$4,$5,$6}' ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.pos.bed > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.extpos.bed
@@ -117,7 +117,7 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 
 	else
 		# otherwise sort the .bed file only
-	    echo "\tSort by strand,chromosome,pos $BAM_NAME";
+	    echo "  Sort by strand,chromosome,pos $BAM_NAME";
 	    sort -k6,6 -k1,1 -k2,2n ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
 	fi
 
