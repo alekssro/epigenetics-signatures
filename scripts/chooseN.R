@@ -1,8 +1,9 @@
 #!/usr/bin/Rscript
 
 ###################################################################################################
-# Script used to perform NMF analysis in the filtered V matrix data                             ###
-#
+# Script used to choose the optimal N for NMF analysis in the filtered V matrix data            ###
+#   Generates a plot comparing real and random data reconstruction                              ###
+#    errors (choose N based on that)                                                            ###
 ###################################################################################################
 # Done by Alejandro Roca (alekss.ro@gmail.com)                                                  ###
 ###################################################################################################
