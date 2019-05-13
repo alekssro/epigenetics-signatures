@@ -7,16 +7,6 @@
 # Done by Alejandro Roca (alekss.ro@gmail.com)                                                  ###
 ###################################################################################################
 
-# #Resampling 1 set of counts using a multinomial distribution (here 3 categories)
-#
-# ncounts <- c(100, 230, 45)
-#
-# tot <- sum(ncounts)
-#
-# vecp <- ncounts/tot
-#
-# rmultinom(n = 1,size = tot,prob = vecp)
-
 suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
