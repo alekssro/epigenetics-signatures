@@ -122,7 +122,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 2.2 Create an empty file with the list of files used as input
         :>${ANALYSIS_DIR}/input_data_files.txt
 
-        # 2.3 Select from the full-datasheet file only raw corresponding to CELL_LINE and SIGNAL_TRACK
+        # 2.3 Select from the full-datasheet file only row corresponding to CELL_LINE and SIGNAL_TRACK
         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
 
         # Progress
