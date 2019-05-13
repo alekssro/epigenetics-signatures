@@ -17,22 +17,23 @@ suppressPackageStartupMessages(require(MASS, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
-# outfile <- args[1]                          # uncomment to add path in command line
-outfile <- "results/genomic_survey/HepG2/filteredV.csv"
-makePlots <- args[2]                        # if "-p" then makePlots will be True 
+infile <- args[1]
+outfile <- args[2]                          
+makePlots <- args[3]                        # if "-p" then makePlots will be True 
+dirPlots <- args[4]
 makePlots <- ifelse(is.na(makePlots), F, ifelse(makePlots == "-p", T, F))
 
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
-V <- read.csv("results/genomic_survey/HepG2/V_matrix_transposed.csv", header = T)
+V <- read.csv(infile, header = T)
 chrmsL <- read.table("data/chromInfo.txt")
 
 # Assign chrm names and rebuild bin names
 cat("Rebuilding bin names...\n")
-chrmsNames <- rep("", times=length(V[,1]))
-binNames <- rep(0, times=length(V[,1]))
+chrmsNames <- rep("", times=nrow(V))
+binNames <- rep(0, times=nrow(V))
 start <- 1
-for (i in 1:length(chrmsL[,1])) {
+for (i in 1:nrow(chrmsL)) {
     
     nBins <- ceiling(chrmsL[i, 2]/200.0)
     
@@ -54,17 +55,15 @@ V$binStart <- binNames
 # combination function
 cat("Filtering bins with higher probabilities to 2.5% in at least one epigenetic mark...\n")
 
-# Filter out those bins which doesn't have at least 1% of the read frequency in any of the marks
-numV <- V[,1:8]
+# Filter out those bins which doesn't have at least 1 mark in higher 0.025 quantile
+numV <- V[,1:(ncol(V) - 2)]     # exclude chrs names and bin names
 thrshld <- apply(numV, 2, function(x) quantile(x, probs = 0.975))   # get total counts for each epigen mark
 
 bins2keep <- apply(numV, 1, function(x) sum(x >= thrshld) > 1)
 
-sum(bins2keep)
-
 filteredV <- V[bins2keep, ]
 
-cat("Number of bins after filtering: ", dim(filteredV), "\n")
+cat("Number of bins after filtering: ", nrow(filteredV), "\n")
 
 cat("Saving filtered V matrix (with chromosome and bin name)...\n")
 write.csv(filteredV, file = outfile, quote = F, row.names = F)
@@ -76,14 +75,14 @@ if (makePlots) {
     for (i in 1:length(chrs)) {
         
         d <- filteredV %>% filter(chr == chrs[i])
-        d <- melt(d, id.vars = "binStart")
+        d <- melt(d, id.vars = "binStart", variable.name = "mark", value.name = "counts")
         
-        p <- d %>% filter(variable != "chr") %>%
-            ggplot(aes(x=binStart, y=as.numeric(value), col=variable)) + 
-            geom_point(aes(color=factor(variable))) +
+        p <- d %>% filter(mark != "chr") %>%
+            ggplot(aes(x=binStart, y=as.numeric(counts), col=mark)) + 
+            geom_point(aes(color=factor(mark))) +
             xlab("Normalized Reads") + ylab("Bin Position")
         
-        ggsave(filename = paste("plots/", chrs[i], "_readsDistr.png", sep=""), plot = p)
+        ggsave(filename = paste(dirPlots, chrs[i], "_readsDistr.png", sep=""), plot = p)
         
     }
 }
