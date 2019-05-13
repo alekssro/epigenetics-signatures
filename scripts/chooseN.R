@@ -11,17 +11,21 @@ suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = 
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
 
-source(file = "scripts/more/MajorizeMinimizeNQP.R")
+# Get arguments from terminal call
+args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
+infile <- args[1]
+outfile <- args[2]               
 
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
-filteredV <- read.csv("results/genomic_survey/HepG2/filteredV.csv", header = T)
-V <- as.matrix(filteredV[,1:8])
+filteredV <- read.csv(infile, header = T)
+numeric_cols <- 1:(ncol(V) - 2)
+V <- as.matrix(filteredV[, numeric_cols])
 
-epimarks <- colnames(filteredV[,1:8])
+epimarks <- colnames(filteredV[, numeric_cols])
 
 n_bins <- nrow(V)
-n_epimarks <- ncol(V)
+n_epimarks <- length(epimarks)
 n_reps <- 1
 
 res_reps <- list()
@@ -32,8 +36,6 @@ for (i in 1:n_reps) {
     resids <- matrix(0, ncol = 2, nrow = n_epimarks)
     colnames(resids) <- c("real", "random")
     for (n in 1:n_epimarks) {
-
-        n_signatures <- n
 
         nmf_res_real <- nmf(V, n)
         nmf_res_rand <- nmf(randomV, n)
@@ -54,14 +56,14 @@ mean_resids_real <- {all_reps %>% group_by(n) %>% summarise(mean = mean(real))}$
 mean_resids_random <- {all_reps %>% group_by(n) %>% summarise(mean = mean(random))}$mean
 
 p <- ggplot(NULL) +
-    geom_line(mapping = aes(x = 1:8, y = mean_resids_real, color = "Real Data")) +
-    geom_line(mapping = aes(x = 1:8, y = mean_resids_random, color = "Random Data")) +
+    geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_real, color = "Real Data")) +
+    geom_line(mapping = aes(x = 1:n_epimarks, y = mean_resids_random, color = "Random Data")) +
     geom_boxplot(data = all_reps, mapping = aes(x = n, y = real, group=n)) +
     geom_boxplot(data = all_reps, mapping = aes(x = n, y = random, group=n)) +
     xlab("N") + ylab("Reconstruction Error") +
     theme_minimal()
 
-ggsave("plots/select_n/error_by_n.png", plot = p, height=5, width=7, units='in', dpi=600)
+ggsave(outfile, plot = p, height=5, width=7, units='in', dpi=600)
 
 #
 # ggplot(NULL) +
