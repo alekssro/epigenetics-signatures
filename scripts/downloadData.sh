@@ -6,7 +6,7 @@ PROJECT_DIR=`pwd`   # should be run from project folder
 DATA_DIR=${PROJECT_DIR}/data;
 
 # 2 Sample-datasheet path
-DATASHEET_SAMPLES_FILE=${DATA_DIR}/DatasetInfoFile.tsv;
+DATASHEET_SAMPLES_FILE=$1;
 
 # Every line contains:
 # CELL_LINE MOD_TYPE    SIGNAL_TRACK    SAMPLE_ID   FILENAME    raw REPLICATE_NUM   LAB DOWNLOAD_LINK
