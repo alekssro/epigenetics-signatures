@@ -178,3 +178,12 @@ Different strategies have been proposed to select the best factorization rank. T
 
 A more robust approach suggests to take the smallest value of r at which the decrease in the residual sum of squares (RSS) between V(j, k) and the NMF model is larger than the decrease observed in the random data.
 
+
+
+
+
+### Defined Epigenetic marks:
+
+[11] H3K4me3, POLR2A, H3K4me1, CTCF, EP300, H3K27ac, H3K36me3, H3K9me3, H3K27me3, H2AFZ, H3K9ac
+
+**Possible cell lines:** HepG2, K562, A549, Hela-S3
