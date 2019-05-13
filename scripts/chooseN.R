@@ -14,7 +14,9 @@ suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
 infile <- args[1]
-outfile <- args[2]               
+outfile <- args[2]
+n_reps <- args[3]
+n_reps <- ifelse(is.na(makePlots), 1, n_reps)  # set to 1 if empty
 
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
@@ -26,7 +28,7 @@ epimarks <- colnames(filteredV[, numeric_cols])
 
 n_bins <- nrow(V)
 n_epimarks <- length(epimarks)
-n_reps <- 1
+# n_reps <- 1         # manually modify the number of repetitions
 
 res_reps <- list()
 for (i in 1:n_reps) {
