@@ -28,7 +28,7 @@
 PROJECT_DIR=`pwd`
 DATA_DIR=${PROJECT_DIR}/data;
 DATASHEET_SAMPLES_FILE=$1	# file containing info for each sample
-cd ${DATA_DIR} || exit;		# change to data directory or exit
+# cd ${DATA_DIR} || exit;		# change to data directory or exit
 
 
 # 1 read the datasheet-tab-delimited file line by line
