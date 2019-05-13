@@ -27,7 +27,7 @@
 # 0. define root directorties
 PROJECT_DIR=`pwd`
 DATA_DIR=${PROJECT_DIR}/data;
-DATASHEET_SAMPLES_FILE=${DATA_DIR}/DatasetInfoFile.tsv;		# file containing info for each sample
+DATASHEET_SAMPLES_FILE=$1	# file containing info for each sample
 cd ${DATA_DIR} || exit;		# change to data directory or exit
 
 
