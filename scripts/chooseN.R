@@ -22,7 +22,7 @@ epimarks <- colnames(filteredV[,1:8])
 
 n_bins <- nrow(V)
 n_epimarks <- ncol(V)
-n_reps <- 30
+n_reps <- 1
 
 res_reps <- list()
 for (i in 1:n_reps) {
