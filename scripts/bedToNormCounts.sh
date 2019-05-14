@@ -53,7 +53,7 @@ BINNED_GENOME=${DATA_DIR}/hg19binned.200bp.bed
 # Define cell types of interest
 CELL_LINES=(HepG2 K562)     # (HepG2 K562 A549 Hela-S3);
 # Define signal-types
-SIGNAL_TRACKS=(H3K4me3 POLR2A H3K4me1 CTCF EP300 H3K27ac H3K36me3 H3K9me3 H3K27me3 H2A.Z H3K9ac)
+SIGNAL_TRACKS=(H2A.Z)
 
 echo "Counting reads:"
 for CELL_LINE in "${CELL_LINES[@]}";do
