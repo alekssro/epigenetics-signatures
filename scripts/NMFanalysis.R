@@ -15,82 +15,88 @@ infile <- args[1]
 outfile <- args[2]
 n <- args[3]
 
-# Heatmap
+V_mat <- read.csv(infile, header = T)
+numeric_cols <- 1:(ncol(V_mat) - 2)
+V <- V_mat[, numeric_cols]
 
+res_nmf <- nmf(V, 7)
+
+# Heatmap
+heatmap(res_nmf@fit@H)
 
 
 
 #######################################
 #   PLOTS FROM PROJECT              ###
 #######################################
-# 
-# gg_color_hue <- function(n) {
-#     hues = seq(15, 375, length = n + 1)
-#     hcl(h = hues, l = 65, c = 100)[1:n]
-# }
-# # dim(V) # 21x96
-# # rownames(W) <- rownames(V) # 21x4
-# # colnames(H) <- colnames(V) # 4x96
-# 
-# H_plot <- data.frame(matrix(0, nrow = ncol(H), ncol = nrow(H)+2))
-# colnames(H_plot) <- c("Signature1", "Signature2", "Signature3", "Signature4",
-#                       "MutType", "MutGroup")
-# for (i in 1:nrow(H)) {     # Transform to percentages
-#     H_plot[,i] <- H[i,]/sum(H[i,]) * 100
-# }
-# 
-# # Associate mutation with color by group
-# colors <- c(rep("C>A", 16), rep("C>G", 16), rep("C>T", 16), 
-#             rep("T>A", 16), rep("T>C", 16), rep("T>G", 16))
-# H_plot[,6] <- colors
-# 
-# # Order by mutation type
-# H_plot[,5] <- reorder(factor(colnames(V)), seq(1, 96))
-# # H_plot <- H_plot %>% arrange(MutType)
-# 
-# labels <- c("C>A", "C>G", "C>T", "T>A", "T>C", "T>G")
-# p1 <- ggplot(H_plot) +
-#     geom_col(mapping = aes (x = MutType, y = Signature1, fill = MutGroup)) + 
-#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-#     ylim(c(0, 30)) +
-#     xlab("Mutation Type") + ylab("Mutation type Count") +
-#     ggtitle("Signature 1") +
-#     annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
-#              colour = gg_color_hue(6)) +
-#     guides(fill=FALSE)
-# 
-# p2 <- ggplot(H_plot) +
-#     geom_col(mapping = aes (x = MutType, y = Signature2, fill = MutGroup)) + 
-#     theme_minimal() +
-#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-#     ylim(c(0, 30)) +
-#     xlab("Mutation Type") + ylab("Mutation type Count") +
-#     ggtitle("Signature 2") +
-#     annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
-#              colour = gg_color_hue(6)) +
-#     guides(fill=FALSE)
-# 
-# p3 <- ggplot(H_plot) +
-#     geom_col(mapping = aes (x = MutType, y = Signature3, fill = MutGroup)) + 
-#     theme_minimal() +
-#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-#     ylim(c(0, 30)) +
-#     xlab("Mutation Type") + ylab("Mutation type Count") +
-#     ggtitle("Signature 3") +
-#     annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
-#              colour = gg_color_hue(6)) +
-#     guides(fill=FALSE)
-# 
-# p4 <- ggplot(H_plot) +
-#     geom_col(mapping = aes (x = MutType, y = Signature4, fill = MutGroup)) + 
-#     theme_minimal() +
-#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-#     ylim(c(0, 30)) +
-#     xlab("Mutation Type") + ylab("Mutation type Count") +
-#     ggtitle("Signature 4") +
-#     annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
-#              colour = gg_color_hue(6)) +
-#     guides(fill=FALSE)
+
+gg_color_hue <- function(n) {
+    hues = seq(15, 375, length = n + 1)
+    hcl(h = hues, l = 65, c = 100)[1:n]
+}
+# dim(V) # 21x96
+# rownames(W) <- rownames(V) # 21x4
+# colnames(H) <- colnames(V) # 4x96
+
+H_plot <- data.frame(matrix(0, nrow = ncol(H), ncol = nrow(H)+2))
+colnames(H_plot) <- c("Signature1", "Signature2", "Signature3", "Signature4",
+                      "MutType", "MutGroup")
+for (i in 1:nrow(H)) {     # Transform to percentages
+    H_plot[,i] <- H[i,]/sum(H[i,]) * 100
+}
+
+# Associate mutation with color by group
+colors <- c(rep("C>A", 16), rep("C>G", 16), rep("C>T", 16),
+            rep("T>A", 16), rep("T>C", 16), rep("T>G", 16))
+H_plot[,6] <- colors
+
+# Order by mutation type
+H_plot[,5] <- reorder(factor(colnames(V)), seq(1, 96))
+# H_plot <- H_plot %>% arrange(MutType)
+
+labels <- c("C>A", "C>G", "C>T", "T>A", "T>C", "T>G")
+p1 <- ggplot(H_plot) +
+    geom_col(mapping = aes (x = MutType, y = Signature1, fill = MutGroup)) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ylim(c(0, 30)) +
+    xlab("Mutation Type") + ylab("Mutation type Count") +
+    ggtitle("Signature 1") +
+    annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
+             colour = gg_color_hue(6)) +
+    guides(fill=FALSE)
+
+p2 <- ggplot(H_plot) +
+    geom_col(mapping = aes (x = MutType, y = Signature2, fill = MutGroup)) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ylim(c(0, 30)) +
+    xlab("Mutation Type") + ylab("Mutation type Count") +
+    ggtitle("Signature 2") +
+    annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
+             colour = gg_color_hue(6)) +
+    guides(fill=FALSE)
+
+p3 <- ggplot(H_plot) +
+    geom_col(mapping = aes (x = MutType, y = Signature3, fill = MutGroup)) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ylim(c(0, 30)) +
+    xlab("Mutation Type") + ylab("Mutation type Count") +
+    ggtitle("Signature 3") +
+    annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
+             colour = gg_color_hue(6)) +
+    guides(fill=FALSE)
+
+p4 <- ggplot(H_plot) +
+    geom_col(mapping = aes (x = MutType, y = Signature4, fill = MutGroup)) +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    ylim(c(0, 30)) +
+    xlab("Mutation Type") + ylab("Mutation type Count") +
+    ggtitle("Signature 4") +
+    annotate("text", x = seq(from = 8, to = 88, by = 16), y = 25, label = labels,
+             colour = gg_color_hue(6)) +
+    guides(fill=FALSE)
 # 
 # p1
 # p2
