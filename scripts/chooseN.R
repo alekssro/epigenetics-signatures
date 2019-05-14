@@ -17,7 +17,7 @@ args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only argume
 infile <- args[1]
 outfile <- args[2]
 n_reps <- args[3]
-n_reps <- ifelse(is.na(makePlots), 1, n_reps)  # set to 1 if empty
+n_reps <- ifelse(is.na(n_reps), 1, n_reps)  # set to 1 if empty
 
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
