@@ -22,7 +22,7 @@ n_reps <- ifelse(is.na(n_reps), 1, n_reps)  # set to 1 if empty
 # Load V matrix and chromosome info
 cat("Loading V matrix...\n")
 filteredV <- read.csv(infile, header = T)
-numeric_cols <- 1:(ncol(V) - 2)
+numeric_cols <- 1:(ncol(filteredV) - 2)
 V <- as.matrix(filteredV[, numeric_cols])
 
 epimarks <- colnames(filteredV[, numeric_cols])
