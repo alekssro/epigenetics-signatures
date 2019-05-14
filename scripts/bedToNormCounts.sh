@@ -126,6 +126,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv
 
         # Progress
+        echo ""
         echo "Calculating counts per genomic bin for Cell line ${CELL_LINE}, Mark ${SIGNAL_TRACK}."
 
         # Read through the datasheet subset (foreach replicate Bi belonging to the signal-type Y...)
