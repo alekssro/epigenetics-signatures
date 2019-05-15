@@ -112,8 +112,8 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 	    awk -F "\t" '{print $1,$3-199,$3,$4,$5,$6}' ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.neg.bed > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.extneg.bed
 	    cat ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.extneg.bed ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.extpos.bed > ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
 
-		echo "  Sort by strand,chromosome,pos $BAM_NAME";
-	    sort -k6,6 -k1,1 -k2,2n ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
+		echo "  Sort by chromosome,pos $BAM_NAME";
+	    sort -k1,1 -k2,2n ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
 	    # remove intermediate files
 	    rm ${BAM_NAME}.ext*; rm ${BAM_NAME}.pos.bed;rm ${BAM_NAME}.neg.bed;
 
