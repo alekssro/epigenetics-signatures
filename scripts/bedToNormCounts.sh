@@ -57,52 +57,52 @@ CELL_LINES=("$@")     # get cell lines from command line
 # Define signal-types
 SIGNAL_TRACKS=(POLR2A CTCF H2A.Z EP300 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9ac H3K9me3)
 
-echo "Counting reads:"
-for CELL_LINE in "${CELL_LINES[@]}";do
-
-    mkdir -p ${ANALYSIS_DIR}/${CELL_LINE}
-
-    for SIGNAL_TRACK in "${SIGNAL_TRACKS[@]}";do
-
-        # Progress
-        echo "  cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
-
-        # Define the output directory (and create if needed)
-        OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
-        # echo $OUT_DIR
-        mkdir -p ${OUT_DIR};
-
-        # Save the lines of DatasetInfoFile corresponding to the specific epigenetic mark
-        awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
-
-
-        TAG_TOTALS=();  # should be the total of informative reads across all ChIP-seq samples in a given sample group (cell line/signal-track)
-        sep=' ';
-
-        while read LINE;do
-
-            SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}');
-            # Identify and retrieve processed.bed file and its path
-            PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
-            if [ -d "${PROCESSED_FILEDIR}" ]; then
-                cd ${PROCESSED_FILEDIR} || continue
-            else
-                continue
-            fi
-            PROCESSED_FILE="*.processed.bed"
-            filelines=$(wc -l ${PROCESSED_FILE})
-            N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
-            echo "      Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
-            TAG_TOTALS+=($N_INFORMATIVE_TAGS);
-            TAG_TOTALS+=($sep);
-
-        done < ${DATASHEET_SAMPLES_FILE};
-
-        # Save read counts into a txt file for all replicates corresponding to a epigen mark
-        echo ${TAG_TOTALS[*]} > ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt
-    done;
-
-done;
+# echo "Counting reads:"
+# for CELL_LINE in "${CELL_LINES[@]}";do
+#
+#     mkdir -p ${ANALYSIS_DIR}/${CELL_LINE}
+#
+#     for SIGNAL_TRACK in "${SIGNAL_TRACKS[@]}";do
+#
+#         # Progress
+#         echo "  cell line -> $CELL_LINE	signal track -> $SIGNAL_TRACK"
+#
+#         # Define the output directory (and create if needed)
+#         OUT_DIR=${ANALYSIS_DIR}/${CELL_LINE}/${SIGNAL_TRACK};
+#         # echo $OUT_DIR
+#         mkdir -p ${OUT_DIR};
+#
+#         # Save the lines of DatasetInfoFile corresponding to the specific epigenetic mark
+#         awk -F "\t" '$1=="'${CELL_LINE}'" && $3=="'${SIGNAL_TRACK}'" {print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7 "\t" $8 "\t" $9}' ${DATASHEET_SAMPLES_FILE} > ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
+#
+#
+#         TAG_TOTALS=();  # should be the total of informative reads across all ChIP-seq samples in a given sample group (cell line/signal-track)
+#         sep=' ';
+#
+#         while read LINE;do
+#
+#             SAMPLE_ID=$(echo ${LINE} | awk '{split($0,a," ");print a[4]}');
+#             # Identify and retrieve processed.bed file and its path
+#             PROCESSED_FILEDIR=${DATA_DIR}/${CELL_LINE}/${SIGNAL_TRACK}/${SAMPLE_ID};
+#             if [ -d "${PROCESSED_FILEDIR}" ]; then
+#                 cd ${PROCESSED_FILEDIR} || continue
+#             else
+#                 continue
+#             fi
+#             PROCESSED_FILE="*.processed.bed"
+#             filelines=$(wc -l ${PROCESSED_FILE})
+#             N_INFORMATIVE_TAGS=$(echo ${filelines} | awk '{split($0,a," ");print a[1]}');
+#             echo "      Increase the total count of informative reads across all ChIP-seq assay samples in ${CELL_LINE}: $SIGNAL_TRACK";
+#             TAG_TOTALS+=($N_INFORMATIVE_TAGS);
+#             TAG_TOTALS+=($sep);
+#
+#         done < ${DATASHEET_SAMPLES_FILE};
+#
+#         # Save read counts into a txt file for all replicates corresponding to a epigen mark
+#         echo ${TAG_TOTALS[*]} > ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt
+#     done;
+#
+# done;
 
 echo ""
 
@@ -153,21 +153,23 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
             # Get the raw counts in each genomic bin
             echo "  Intersect genomic bins with processed bed ${SAMPLE_ID}.processed.bed to get rawCounts"
-            bedtools sort -k1,1 -k2,2n -k3,3n ${PROCESSED_FILEPATH} > ${SORTED_PROCESS_FILEPATH}
-            if [ -s "$SORTED_PROCESS_FILEPATH" ]
-            then
-                rm ${PROCESSED_FILEPATH}
-                mv ${SORTED_PROCESS_FILEPATH} ${PROCESSED_FILEPATH}
-            fi
+            echo "Sorting $PROCESSED_FILEPATH"
+            sort -k1,1 -k2,2n -k6,6 ${PROCESSED_FILEPATH} -o ${PROCESSED_FILEPATH}
+            # sort -k 1,1 -k2,2n -k3,3n ${PROCESSED_FILEPATH} > ${SORTED_PROCESS_FILEPATH}
+            # if [ -s "$SORTED_PROCESS_FILEPATH" ]
+            # then
+            #     rm ${PROCESSED_FILEPATH}
+            #     mv ${SORTED_PROCESS_FILEPATH} ${PROCESSED_FILEPATH}
+            # fi
+            # #
+            # bedtools intersect -sorted -a ${BINNED_GENOME} -b ${PROCESSED_FILEDIR} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
             #
-            bedtools intersect -sorted -a ${BINNED_GENOME} -b ${PROCESSED_FILEDIR} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
-
-            # Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
-            awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
-            mv ${OUT_DIR}/temp.bed ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
-
-            # Put the rawCount file name in a list for normalized signal estimation step
-            echo "${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed" >> ${ANALYSIS_DIR}/input_data_files.txt
+            # # Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
+            # awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
+            # mv ${OUT_DIR}/temp.bed ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+            #
+            # # Put the rawCount file name in a list for normalized signal estimation step
+            # echo "${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed" >> ${ANALYSIS_DIR}/input_data_files.txt
 
         done < ${ANALYSIS_DIR}/ENCODE_project_datasheet_sub.tsv;
 
@@ -185,7 +187,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
         # 5) total read counts per cell type.txt
         # 6) output file path for V matrix
 
-        Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
+        # Rscript ${SCRIPT_DIR}/bedCountsToV.R ${ANALYSIS_DIR}/input_data_files.txt ${DATASHEET_SAMPLES_FILE} ${BINNED_GENOME} ${MAPPABILITY_TRACK} ${OUT_DIR}/${CELL_LINE}_${SIGNAL_TRACK}_allExp_totals.txt ${ANALYSIS_DIR}/${CELL_LINE}/V_matrix.csv
 
     done
 
