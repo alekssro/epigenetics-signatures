@@ -59,6 +59,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
     echo ""
 
     ./scripts/bedToNormCounts.sh "${CELL_LINES[@]}"
+    exit 0
     ;;
 
     -f|--filter)
