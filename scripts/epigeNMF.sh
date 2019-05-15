@@ -150,6 +150,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
     ;;
 
     -h|--help)
+    echo ""
     echo "$0:    NMF ANALYSIS OF MULTIPLE EPIGENETIC MARKS COUNTS PER BIN"
     echo ""
     echo "You should follow the next pipeline for the analysis:"
