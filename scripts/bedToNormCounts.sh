@@ -154,7 +154,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
             # Get the raw counts in each genomic bin
             echo "  Intersect genomic bins with processed bed ${SAMPLE_ID}.processed.bed to get rawCounts"
             echo "Sorting $PROCESSED_FILEPATH"
-            sort -k1,1 -k2,2n -k6,6 ${PROCESSED_FILEPATH} -o ${PROCESSED_FILEPATH}
+            sort -k1,1 -k2,2n ${PROCESSED_FILEPATH} -o ${PROCESSED_FILEPATH}
             # sort -k 1,1 -k2,2n -k3,3n ${PROCESSED_FILEPATH} > ${SORTED_PROCESS_FILEPATH}
             # if [ -s "$SORTED_PROCESS_FILEPATH" ]
             # then
