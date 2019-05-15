@@ -53,11 +53,12 @@ while test $# -gt 0; do   # check arguments one by one until there is none
     -c|--counts)
     shift         # remove first argument ($2 now is $1 if any) (rm "-l")
     export CELL_LINES=("$@")     # get cell lines from command line
+
     echo "Calculating V matrix of normalized counts from data in 'data/' directory "
     echo "Saving results in 'results/' directory"
     echo ""
 
-    ./scripts/bedToNormCounts.sh
+    ./scripts/bedToNormCounts.sh "${CELL_LINES[@]}"
     ;;
 
     -f|--filter)
