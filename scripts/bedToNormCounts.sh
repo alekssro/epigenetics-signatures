@@ -51,7 +51,8 @@ BINNED_GENOME=${DATA_DIR}/hg19binned.200bp.bed
 #   tags over all experiments in a cell line
 
 # Define cell types of interest
-CELL_LINES=(A549 Hela-S3)     # (HepG2 K562 A549 Hela-S3);
+# CELL_LINES=(A549 Hela-S3)     # (HepG2 K562 A549 Hela-S3);
+CELL_LINES=("$@")     # get cell lines from command line
 # Define signal-types
 SIGNAL_TRACKS=(POLR2A CTCF H2A.Z EP300 H3K36me3 H3K27ac H3K27me3 H3K4me1 H3K4me3 H3K9ac H3K9me3)
 
