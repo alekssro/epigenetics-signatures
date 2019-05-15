@@ -16,21 +16,6 @@ N_SIGNATURES=7
 
 while test $# -gt 0; do   # check arguments one by one until there is none
   case "$1" in    # Perform actions for different cases
-    # -a|--all)
-    # shift         # remove first argument ($2 now is $1 if any) (remove flag (-a|--all))
-    # if test $# -gt 0; then    # get nº arguments after -l option (should be one -> CSVDIRECTORY)
-    #   echo ""
-    #   echo "Running all analysis with default values:"
-    #   echo ""
-    #   export CSVDIRECTORY=$1
-    #   $0 -l $CSVDIRECTORY -t $ITERATIONS -m $METHOD $ITERATIONS $N_FEATURES $TUNE_LENGTH $CV_REPEATS
-    #   $0 -p $METHOD $CSVFILE
-    #   exit 0
-    # else
-    #   echo "No directory specified for loading CSV data"
-    #   exit 1
-    # fi
-    # ;;
 
     -d|--download)
     shift
@@ -75,7 +60,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
 
     -f|--filter)
     shift         # remove first argument ($2 now is $1 if any) (rm "-l")
-    if test $# -eq 2; then    # if nº arguments after -m option > 0
+    if test $# -eq 2; then
       export IN_FILE=$1
       export OUT_FILE=$2
       shift 2
@@ -108,7 +93,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
 
     -k|--chooseN)
     shift   # Remove flag (-k|--chooseN)
-    if test $# -eq 3; then    # get nº arguments after -t option (should be one -> ITERATIONS)
+    if test $# -eq 3; then
       echo "Test multiple 'n' values for NMF in order to choose the optimal one from the plot:"
       echo "  Number of repetitions: $3"
       echo ""
@@ -137,7 +122,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
 
     -n|--nmf)
     shift
-    if test $# -eq 3; then    # get nº arguments after -t option (should be one -> ITERATIONS)
+    if test $# -eq 3; then
       echo "Performing an NMF analysis on V matrix $1:"
       echo "  Number of signatures: $3"
       echo ""
@@ -164,61 +149,66 @@ while test $# -gt 0; do   # check arguments one by one until there is none
     fi
     ;;
 
-    # -h|--help)
-    # echo "$0:    ANTIBIOTIC RESISTANT GENES MODEL"
-    # echo ""
-    # echo "You should follow the next pipeline for the analysis:"
-    # echo "    1) Load the data (option '-l' or '--load')"
-    # echo "    2) Find significantly different features (option '-t' or '--test')"
-    # echo "    3) Create model and test predictions (option '-m' or '--model')"
-    # echo ""
-    # echo "OR use '$0 -a [CSVDIRECTORY]' command to run whole pipeline with default parameters"
-    # echo ""
-    # echo " "
-    # echo "$0 [options] [arguments]"
-    # echo " "
-    # echo "Options:"
-    # echo ""
-    # echo "  -a, --all                 run all analysis with default values"
-    # echo "  -c, --convert             convert fasta files to csv files"
-    # echo "  -h, --help                display this help"
-    # echo "  -l, --load                load csv files to .RData."
-    # echo "                              CSVDIRECTORY should be input as argument"
-    # echo "  -m, --model               create model and give test results back."
-    # echo "                              Several arguments can be added."
-    # echo "                              ITERATIONS should be input as argument"
-    # # echo "  -o, --output-dir=DIR      specify a directory to store output in"
-    # echo "  -p, --predict                predict antibiotic resistance genes from csv file"
-    # echo "  -s, --standardize         standardize fasta files for analysis"
-    # echo "  -t, --test                test for significantly different features"
-    # echo "                              between resistant and non-resistant genes."
-    # echo "                              ITERATIONS should be input as argument"
-    # echo ""
-    # echo "Arguments:"
-    # echo ""
-    # echo "  -c | -s option:"
-    # echo "      FASTADIRECTORY"
-    # echo ""
-    # echo "  -l | -a options:"
-    # echo "      CSVDIRECTORY            directory with the CSV files"
-    # echo ""
-    # echo "  -t option:"
-    # echo "      ITERATIONS              number of iterations used in resampling"
-    # echo ""
-    # echo "  -m option:"
-    # echo "      METHOD                 statistical method used to fit the model (KNN/GLM)"
-    # echo "      ITERATIONS             number of iterations used to fit and test the model"
-    # echo "      N_FEATURES             number of (most significant) features used to fit the model"
-    # echo "      TUNE_LENGTH            KNN tune length"
-    # echo "      CV_REPEATS             number of repeats used in cross validation when method = KNN"
-    # echo "  *arguments for -m should be input in the next order:"
-    # echo "    -m [METHOD] [ITERATIONS] [N_FEATURES] [TUNE_LENGTH] [CV_REPEATS]"
-    # echo ""
-    # echo "  -p option:"
-    # echo "      METHOD                 statistical method used to fit the model (KNN/GLM)"
-    # echo "      CSVFILE                path to CSV file"
-    # exit 0
-    # ;;
+    -h|--help)
+    echo "$0:    NMF ANALYSIS OF MULTIPLE EPIGENETIC MARKS COUNTS PER BIN"
+    echo ""
+    echo "You should follow the next pipeline for the analysis:"
+    echo "    1) Download the data (option '-d' or '--download')"
+    echo "    2) Prepare BED alignment files (option '-p' or '--process')"
+    echo "    3) Create V matrix of counts for marks (cols) by bins (rows) (option '-c' or '--counts')"
+    echo "    4) Filter V matrix bins to remove noise (option '-f' or '--filter')"
+    echo "    5) Choose the optimal 'n' number of signatures for NMF (option '-k' or '--chooseN')"
+    echo "    6) NMF analysis (option '-n' or '--nmf')"
+    echo ""
+    echo " "
+    echo "$0 [options] [arguments]"
+    echo " "
+    echo "Options:"
+    echo ""
+    echo "  -c, --counts            obtain normalized counts V matrix from BED files"
+    echo "  -d, --download          download data defined in a tsv file with the corresponding format"
+    echo "  -f, --filter            filter out bins without informative data (remove noise)"
+    echo "  -h, --help              display this help"
+    echo "  -k, --chooseN           test multiple 'n' values for NMF, choose 'n' based on generated plot"
+    echo "  -n, --nmf               perform NMF on a V matrix"
+    echo "                              save results in .RData file and generate plots."
+    echo "  -p, --process           process BAM data files into BED alignment files"
+    echo "                                  Several arguments can be added."
+    echo "                                  ITERATIONS should be input as argument"
+    echo ""
+    echo "Arguments:"
+    echo ""
+    echo "  -d | -p options:"
+    echo "      SAMPLES_INFO.tsv    tsv file containing the following information for each sample:"
+    echo ""
+    echo "    CELL_TYPE MARK_TYPE MARK SAMPLE_ID SAMPLE_FILENAME STATUS REPLICATE LAB DOWNLOAD_LINK"
+    echo ""
+    echo ""
+    echo "  -c option:"
+    echo "      CELL_TYPES          define cell types of interest, separated by space"
+    echo ""
+    echo "  -f | -k | -n options:"
+    echo "      IN_FILE             input file, should be a V matrix"
+    echo "      OUTPUT_FILE         output name"
+    echo "                              -f: filtered V matrix csv file name"
+    echo "                              -k: reconstruction error png file name"
+    echo "                              -n: NMF plots directory name"
+    echo " Optional arguments:"
+    echo ""
+    echo "  -f option:"
+    echo "      [-p]                whether to produce coverage plots or not (argument missing)"
+    echo "      [PLOTS_DIR]         in case -p argument is specified, directory to save plots in."
+    echo ""
+    echo "  -k option:"
+    echo "      [N_REPS]            number of times each reconstruction error is calculated"
+    echo "                              default: 1"
+    echo ""
+    echo "  -n option:"
+    echo "      [N]                 number of signatures used in the NMF analysis"
+    echo "                              default: 7"
+    echo ""
+    exit 0
+    ;;
 
     *)    # other arguments
     echo ""
