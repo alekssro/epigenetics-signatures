@@ -29,7 +29,6 @@ options:
     - '**/*.lot'
     - '**/*.nav'
     - '**/*.out'
-    - '**/*.pdf'
     - '**/*.ps'
     - '**/*.snm'
     - '**/*.synctex.gz'
@@ -87,7 +86,7 @@ files:
     value: {}
     type: ParsedLaTeXMagic
   /home/alekssro/.config/dicy/config.yaml-ParsedYAML:
-    timeStamp: 2019-05-17T13:51:26.067Z
+    timeStamp: 2019-05-17T16:10:53.324Z
     jobNames: []
     value:
       synctex: true
@@ -115,7 +114,6 @@ files:
         - '**/*.lot'
         - '**/*.nav'
         - '**/*.out'
-        - '**/*.pdf'
         - '**/*.ps'
         - '**/*.snm'
         - '**/*.synctex.gz'
@@ -128,20 +126,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-05-17T16:01:39.890Z
+    timeStamp: 2019-05-17T16:11:41.489Z
     jobNames: []
     hash: hbS0sPCYh4N3INM9MHoE4Ybn9gL4S5CFwwxHpYMOv/U=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-05-17T14:57:47.565Z
+    timeStamp: 2019-05-17T16:10:52.998Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-05-17T15:59:31.544Z
+    timeStamp: 2019-05-17T16:12:15.819Z
     jobNames: []
     value:
       messages: []
@@ -366,7 +364,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-05-17T16:07:12.769Z
+    timeStamp: 2019-05-17T16:12:17.444Z
     jobNames: []
     value:
       messages:
@@ -4535,7 +4533,7 @@ files:
       calls: []
     type: ParsedLaTeXLog
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T15:59:33.205Z
+    timeStamp: 2019-05-17T16:12:17.430Z
     jobNames: []
     value:
       commands:
@@ -5209,12 +5207,12 @@ files:
     hash: PT99sR6mxMILa9DSoNVCvR4fYj+s4dHlxq4Y3+PA7A8=
     type: LaTeXClass
   main-blx.bib:
-    timeStamp: 2019-05-17T16:07:12.213Z
+    timeStamp: 2019-05-17T16:12:16.898Z
     jobNames: []
     hash: r82CdlemyMPpsdzL/lEssjXQdHcBOvjzjFoBI7Smp3Y=
     type: BibTeXControlFile
   main.run.xml:
-    timeStamp: 2019-05-17T16:07:12.604Z
+    timeStamp: 2019-05-17T16:12:17.346Z
     jobNames: []
     hash: yHTJ5KIVJUld9TdA5wTpVAFTNJe8JYnHQ+n8dMkT2NE=
     type: XML
@@ -5366,7 +5364,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Chapter1.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T15:59:33.241Z
+    timeStamp: 2019-05-17T16:12:15.800Z
     jobNames: []
     value:
       commands:
@@ -6174,6 +6172,11 @@ files:
         - setcounter
         - setcounter
     type: ParsedLaTeXAuxilary
+  main.pdf:
+    timeStamp: 2019-05-17T16:12:17.383Z
+    jobNames: []
+    hash: Pl1J1FEoqQSlqZYXULqd78O1Ee371HTOmGoLVOx9Mk8=
+    type: PortableDocumentFormat
 rules:
   - name: ApplyOptions
     command: load
@@ -6356,8 +6359,6 @@ rules:
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
@@ -6503,6 +6504,8 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
         type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+        type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -6615,14 +6618,6 @@ rules:
         type: default
       - file: Chapters/Chapter1.tex
         type: default
-      - file: Figures/Electron.pdf
-        type: default
-      - file: MastersDoctoralThesis.cls
-        type: default
-      - file: main.run.xml
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
-        type: default
       - file: Chapters/Discussion.tex
         type: default
       - file: Chapters/Introduction.tex
@@ -6631,7 +6626,15 @@ rules:
         type: default
       - file: Chapters/Results.tex
         type: default
+      - file: Figures/Electron.pdf
+        type: default
+      - file: MastersDoctoralThesis.cls
+        type: default
+      - file: main.run.xml
+        type: default
     outputs:
+      - file: main.pdf
+        type: target
       - file: main-blx.bib
         type: default
       - file: main.run.xml
@@ -6663,26 +6666,6 @@ rules:
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
-  - name: BibTeX
-    command: build
-    phase: execute
-    parameters:
-      - main.aux
-      - main.aux-ParsedLaTeXAuxilary
-    inputs:
-      - file: main.aux-ParsedLaTeXAuxilary
-        type: default
-      - file: main.log-ParsedLaTeXLog
-        type: default
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst
-        type: default
-      - file: main-blx.bib
-        type: default
-      - file: example.bib
-        type: default
-    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -6701,78 +6684,6 @@ rules:
     outputs:
       - file: Chapters/Chapter1.aux-ParsedLaTeXAuxilary
         type: default
-  - name: ParseBibTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.blg
-    inputs: []
-    outputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-  - name: LogProducedTargets
-    command: build
-    phase: finalize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: CheckForMissingBuildRule
-    command: build
-    phase: finalize
-    parameters:
-      - main.tex
-    inputs:
-      - file: main.tex
-        type: default
-    outputs: []
-  - name: FindLogFiles
-    command: log
-    phase: initialize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.log-ParsedLaTeXLog
-    inputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-    outputs: []
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBibTeXLog
-    inputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-    outputs: []
-  - name: ParseBibTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.blg
-    inputs: []
-    outputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-  - name: SaveCache
-    command: save
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -6808,6 +6719,98 @@ rules:
     inputs: []
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
+        type: default
+  - name: LogProducedTargets
+    command: build
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: CheckForMissingBuildRule
+    command: build
+    phase: finalize
+    parameters:
+      - main.tex
+    inputs:
+      - file: main.tex
+        type: default
+    outputs: []
+  - name: FindLogFiles
+    command: log
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.log-ParsedLaTeXLog
+    inputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.blg-ParsedBibTeXLog
+    inputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+    outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+  - name: SaveCache
+    command: save
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: BibTeX
+    command: build
+    phase: execute
+    parameters:
+      - main.aux
+      - main.aux-ParsedLaTeXAuxilary
+    inputs:
+      - file: main.aux-ParsedLaTeXAuxilary
+        type: default
+      - file: main.log-ParsedLaTeXLog
+        type: default
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+      - file: /usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst
+        type: default
+      - file: main-blx.bib
+        type: default
+      - file: example.bib
+        type: default
+    outputs: []
+  - name: ParseBibTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.blg
+    inputs: []
+    outputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+  - name: ParseBibTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.blg
+    inputs: []
+    outputs:
+      - file: main.blg-ParsedBibTeXLog
         type: default
   - name: Clean
     command: clean
