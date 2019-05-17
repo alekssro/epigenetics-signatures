@@ -119,8 +119,8 @@ while read LINE; do			# Read ${DATASHEET_SAMPLES_FILE}
 
 	else
 		# otherwise sort the .bed file only
-	    echo "  Sort by strand,chromosome,pos $BAM_NAME";
-	    sort -k6,6 -k1,1 -k2,2n ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
+	    echo "  Sort by chromosome,pos $BAM_NAME";
+	    sort -k1,1 -k2,2n ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed -o ${CELL_LINE_DIR}/${ASSAY}/${SAMPLE_ID}/${BAM_NAME}.processed.bed
 	fi
 
 	# introduce tab-delimited separator
