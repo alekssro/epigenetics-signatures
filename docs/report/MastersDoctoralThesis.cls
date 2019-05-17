@@ -380,7 +380,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 \DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
-	\checktoopen
+	% \checktoopen
 	\tttypeout{\abstractname}
 	#1%added to be able to have abstract more than one page long
 	\thispagestyle{empty}
@@ -422,7 +422,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 {
 	\DeclareDocumentEnvironment{acknowledgements}{}{%
-		\checktoopen
+		% \checktoopen
 		\tttypeout{\acknowledgementname}
 		\thispagestyle{plain}
 		\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
@@ -446,7 +446,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		}{}%
 }{
 	\DeclareDocumentEnvironment{declaration}{}{
-		\checktoopen
+		% \checktoopen
 		\tttypeout{\authorshipname}
 		\thispagestyle{plain}
 		\null\vfil
@@ -461,14 +461,14 @@ KOMA-script documentation for details.}]{fancyhdr}
 \ifbool{consistentlayout}{
 	\DeclareDocumentCommand{\dedicatory}{
 		m O{\vspace*{.7\textheight} }  }{
-			\checktoopen\tttypeout{Dedicatory}
+			\tttypeout{Dedicatory}
 			\markboth{}{}
 			#2
 			{\hfill\parbox{.4\textwidth}{\flushright#1\par}}
 		}
 }{
 	\newcommand\dedicatory[1]{
-		\checktoopen
+		% \checktoopen
 		\tttypeout{Dedicatory}
 		\null\vfil
 		\thispagestyle{plain}

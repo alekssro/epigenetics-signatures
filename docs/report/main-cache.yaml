@@ -69,7 +69,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-05-17T13:51:26.014Z
+    timeStamp: 2019-05-17T17:22:02.813Z
     jobNames: []
     value:
       severity: info
@@ -126,20 +126,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-05-17T16:11:41.489Z
+    timeStamp: 2019-05-17T17:31:09.704Z
     jobNames: []
-    hash: hbS0sPCYh4N3INM9MHoE4Ybn9gL4S5CFwwxHpYMOv/U=
+    hash: +MpPAYqVNPLSoeIW8vzddjrHPAUMYpQDB8gRRf+QL0U=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-05-17T16:10:52.998Z
+    timeStamp: 2019-05-17T16:59:33.158Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-05-17T16:12:15.819Z
+    timeStamp: 2019-05-17T17:30:34.026Z
     jobNames: []
     value:
       messages: []
@@ -147,8 +147,6 @@ files:
         - /etc/texmf/web2c/texmf.cnf
         - >-
           /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1095.600pk
-        - >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecst1095.600pk
         - >-
           /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk
         - >-
@@ -169,7 +167,6 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplro8t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
-        - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecst1095.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
@@ -364,7 +361,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-05-17T16:12:17.444Z
+    timeStamp: 2019-05-17T17:30:35.543Z
     jobNames: []
     value:
       messages:
@@ -3571,8 +3568,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3622,8 +3619,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3636,8 +3633,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3650,8 +3647,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3664,8 +3661,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3678,8 +3675,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3714,8 +3711,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3728,8 +3725,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3742,8 +3739,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3756,8 +3753,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3770,8 +3767,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3784,8 +3781,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3798,8 +3795,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3812,8 +3809,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3826,8 +3823,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3924,8 +3921,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3938,8 +3935,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3952,8 +3949,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3966,8 +3963,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3980,8 +3977,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -3994,8 +3991,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4008,8 +4005,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4077,8 +4074,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4091,8 +4088,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4105,8 +4102,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4140,8 +4137,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4154,8 +4151,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4168,8 +4165,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4182,8 +4179,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4196,8 +4193,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4210,8 +4207,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4224,8 +4221,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4238,8 +4235,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 90
-              end: 90
+              start: 91
+              end: 91
           log:
             file: main.log
             range:
@@ -4254,8 +4251,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 108
-              end: 108
+              start: 111
+              end: 111
           log:
             file: main.log
             range:
@@ -4270,13 +4267,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 180
-              end: 180
+              start: 186
+              end: 186
           log:
             file: main.log
             range:
-              start: 1860
-              end: 1861
+              start: 1858
+              end: 1859
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4286,13 +4283,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 205
-              end: 205
+              start: 211
+              end: 211
           log:
             file: main.log
             range:
-              start: 1868
-              end: 1869
+              start: 1864
+              end: 1865
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4300,13 +4297,13 @@ files:
           source:
             file: main.toc
             range:
-              start: 36
-              end: 36
+              start: 38
+              end: 38
           log:
             file: main.log
             range:
-              start: 1873
-              end: 1873
+              start: 1869
+              end: 1869
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4316,13 +4313,13 @@ files:
           source:
             file: main.toc
             range:
-              start: 36
-              end: 36
+              start: 38
+              end: 38
           log:
             file: main.log
             range:
-              start: 1877
-              end: 1878
+              start: 1873
+              end: 1874
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4337,8 +4334,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1920
-              end: 1921
+              start: 1916
+              end: 1917
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4353,8 +4350,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1922
-              end: 1923
+              start: 1918
+              end: 1919
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4369,8 +4366,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1924
-              end: 1925
+              start: 1920
+              end: 1921
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4385,8 +4382,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1981
-              end: 1982
+              start: 1973
+              end: 1974
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4399,8 +4396,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1991
-              end: 1991
+              start: 1987
+              end: 1987
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4415,8 +4412,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1995
-              end: 1996
+              start: 1991
+              end: 1992
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4431,8 +4428,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1998
-              end: 1999
+              start: 1994
+              end: 1995
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -4445,8 +4442,8 @@ files:
           log:
             file: main.log
             range:
-              start: 2011
-              end: 2012
+              start: 2007
+              end: 2008
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4454,13 +4451,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 295
-              end: 295
+              start: 301
+              end: 301
           log:
             file: main.log
             range:
-              start: 2044
-              end: 2044
+              start: 2037
+              end: 2037
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4468,13 +4465,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 295
-              end: 295
+              start: 301
+              end: 301
           log:
             file: main.log
             range:
-              start: 2047
-              end: 2047
+              start: 2043
+              end: 2043
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4482,13 +4479,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 295
-              end: 295
+              start: 301
+              end: 301
           log:
             file: main.log
             range:
-              start: 2063
-              end: 2063
+              start: 2059
+              end: 2059
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4496,26 +4493,26 @@ files:
           source:
             file: main.tex
             range:
-              start: 295
-              end: 295
+              start: 301
+              end: 301
           log:
             file: main.log
             range:
-              start: 2064
-              end: 2064
+              start: 2060
+              end: 2060
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            203F18C68FFDEC8B774F0041CB254C99;6973.
+            0F70C31B82B3516F409724B222347866;7152.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 2065
-              end: 2066
+              start: 2061
+              end: 2062
         - severity: info
           name: pdfTeX
           category: Package logreq
@@ -4525,15 +4522,15 @@ files:
           log:
             file: main.log
             range:
-              start: 2067
-              end: 2067
+              start: 2063
+              end: 2063
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T16:12:17.430Z
+    timeStamp: 2019-05-17T17:24:29.010Z
     jobNames: []
     value:
       commands:
@@ -5202,17 +5199,17 @@ files:
     hash: uMQVe8Q0KxkLOJjS16bRi+AfDdOt2EbtDOcIhyJsJBg=
     type: PortableDocumentFormat
   MastersDoctoralThesis.cls:
-    timeStamp: 2019-05-17T15:41:55.273Z
+    timeStamp: 2019-05-17T17:20:19.126Z
     jobNames: []
-    hash: PT99sR6mxMILa9DSoNVCvR4fYj+s4dHlxq4Y3+PA7A8=
+    hash: dZH7UJKLUixyUUAA5+8qrVDBM2i1BNa84bCOjQkFjKg=
     type: LaTeXClass
   main-blx.bib:
-    timeStamp: 2019-05-17T16:12:16.898Z
+    timeStamp: 2019-05-17T17:30:35.024Z
     jobNames: []
     hash: r82CdlemyMPpsdzL/lEssjXQdHcBOvjzjFoBI7Smp3Y=
     type: BibTeXControlFile
   main.run.xml:
-    timeStamp: 2019-05-17T16:12:17.346Z
+    timeStamp: 2019-05-17T17:30:35.458Z
     jobNames: []
     hash: yHTJ5KIVJUld9TdA5wTpVAFTNJe8JYnHQ+n8dMkT2NE=
     type: XML
@@ -5364,7 +5361,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Chapter1.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T16:12:15.800Z
+    timeStamp: 2019-05-17T17:24:27.877Z
     jobNames: []
     value:
       commands:
@@ -5553,24 +5550,24 @@ files:
     timeStamp: 2016-11-25T18:33:50.000Z
     jobNames: []
   Chapters/Discussion.tex:
-    timeStamp: 2019-05-17T15:58:38.411Z
+    timeStamp: 2019-05-17T16:45:43.408Z
     jobNames: []
-    hash: Pjz6IVDMhd3y028XnAtjQ0Xi1ZKmnF4CdklOdytDhP4=
+    hash: zLeCQKELx6dc3g43hZ//8h5btHV+77e32ch/VU3WT/Q=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-05-17T15:53:20.203Z
+    timeStamp: 2019-05-17T16:49:58.619Z
     jobNames: []
-    hash: 1h4WibRbgmladBIFDyILUubVfyOywg0xg/hfzHguorY=
+    hash: P8wH+I47jIC7V6KKKSWRimiTj6wqcJWShqCTfZ5heSw=
     type: TeX
   Chapters/Methods.tex:
-    timeStamp: 2019-05-17T16:02:34.670Z
+    timeStamp: 2019-05-17T16:40:30.495Z
     jobNames: []
-    hash: mx6bwmYC0/oagkAuXiLDcKD2LCzWa/RvkyLaKCKN4jM=
+    hash: e52TH8Anh81itmJX4TQqHUDXc79v+zC/FSyUu4daaAM=
     type: TeX
   Chapters/Results.tex:
-    timeStamp: 2019-05-17T15:58:25.561Z
+    timeStamp: 2019-05-17T16:41:04.274Z
     jobNames: []
-    hash: SCSorQ7xiUAVdYvuMs2vIoY9K4pJxavqgnte5/7PIy0=
+    hash: vhj5PzAfYjonrqn4VMfeI3ZaIL80w97lSIvhKe61xqo=
     type: TeX
   Chapters/Discussion.aux-ParsedLaTeXAuxilary:
     timeStamp: 2019-05-17T15:54:11.453Z
@@ -5873,7 +5870,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Methods.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T15:54:11.463Z
+    timeStamp: 2019-05-17T16:59:37.476Z
     jobNames: []
     value:
       commands:
@@ -5883,6 +5880,8 @@ files:
         - '@writefile'
         - '@writefile'
         - newlabel
+        - '@writefile'
+        - '@writefile'
         - '@writefile'
         - '@writefile'
         - '@writefile'
@@ -6173,9 +6172,9 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   main.pdf:
-    timeStamp: 2019-05-17T16:12:17.383Z
+    timeStamp: 2019-05-17T17:30:35.491Z
     jobNames: []
-    hash: Pl1J1FEoqQSlqZYXULqd78O1Ee371HTOmGoLVOx9Mk8=
+    hash: pCgPnHBOPiVPFrbJ9OEDH+AdaM7P5CAtfJlaUlfxfCI=
     type: PortableDocumentFormat
 rules:
   - name: ApplyOptions
@@ -6639,6 +6638,57 @@ rules:
         type: default
       - file: main.run.xml
         type: default
+  - name: LogProducedTargets
+    command: build
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: CheckForMissingBuildRule
+    command: build
+    phase: finalize
+    parameters:
+      - main.tex
+    inputs:
+      - file: main.tex
+        type: default
+    outputs: []
+  - name: FindLogFiles
+    command: log
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.log-ParsedLaTeXLog
+    inputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.blg-ParsedBibTeXLog
+    inputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+    outputs: []
+  - name: SaveCache
+    command: save
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: Clean
+    command: clean
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -6720,45 +6770,6 @@ rules:
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
-  - name: LogProducedTargets
-    command: build
-    phase: finalize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: CheckForMissingBuildRule
-    command: build
-    phase: finalize
-    parameters:
-      - main.tex
-    inputs:
-      - file: main.tex
-        type: default
-    outputs: []
-  - name: FindLogFiles
-    command: log
-    phase: initialize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.log-ParsedLaTeXLog
-    inputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBibTeXLog
-    inputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-    outputs: []
   - name: ParseLaTeXLog
     command: log
     phase: execute
@@ -6768,12 +6779,6 @@ rules:
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
-  - name: SaveCache
-    command: save
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
   - name: BibTeX
     command: build
     phase: execute
@@ -6787,12 +6792,6 @@ rules:
         type: default
       - file: main.blg-ParsedBibTeXLog
         type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst
-        type: default
-      - file: main-blx.bib
-        type: default
-      - file: example.bib
-        type: default
     outputs: []
   - name: ParseBibTeXLog
     command: build
@@ -6812,9 +6811,3 @@ rules:
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
-  - name: Clean
-    command: clean
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []

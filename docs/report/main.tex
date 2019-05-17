@@ -27,6 +27,7 @@
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 english, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+oneside, % twoside
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
@@ -104,9 +105,13 @@ headsepline, % Uncomment to get a line under the header
 {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
 \textsc{\Large Master Thesis}\\[0.5cm] % Thesis type
 
-\HRule\\[0.4cm] % Horizontal line
+\hrulefill\ % Horizontal line
+\vspace{0.4cm}
+
 {\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
-\HRule\\[1.5cm] % Horizontal line
+
+\hrulefill\
+\vspace{1.5cm} % Horizontal line
 
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
@@ -125,7 +130,9 @@ headsepline, % Uncomment to get a line under the header
 
 \large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in the}\\[0.4cm]
-\deptname\\\groupname\\[2cm] % Research group name and department name
+\deptname\
+\groupname\
+\vspace{2cm} % Research group name and department name
 
 \vfill
 
@@ -135,7 +142,6 @@ headsepline, % Uncomment to get a line under the header
 \vfill
 \end{center}
 \end{titlepage}
-\cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
