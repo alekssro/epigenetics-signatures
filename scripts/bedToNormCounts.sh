@@ -34,6 +34,7 @@ MAPPABILITY_TRACK=${DATA_DIR}/wgEncodeDukeMapabilityUniqueness35bp.uniqueMapRegi
 # 0.5 Chrominfo file (Be sure that you already have the k-binned genome file (k=bin size))
 # CHROMINFO_FILEPATH=${DATA_DIR}/chromInfo.txt 	# used if needed to generated k-binned genome file
 # bedtools makewindows -g ${CHROMINFO_FILEPATH} -w 200 > ${DATA_DIR}/hg19binned.200bp.bed
+# sort -k1,1 -k2,2n data/hg19binned.200bp.bed -o data/hg19binned.200bp.bed
 
 # 0.6 Genomic bin size
 # GENOME_BINSIZE=200;
