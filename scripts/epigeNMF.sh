@@ -69,8 +69,8 @@ while test $# -gt 0; do   # check arguments one by one until there is none
       export OUT_FILE=$2
       shift 2
       echo "Filtering bins in V matrix (remove noise)"
-      echo "  INPUT: V matrix path: $IN_FILE"
-      echo "  OUTPUT: filtered V matrix path: $OUT_FILE"
+      echo "  INPUT: V matrix path -> $IN_FILE"
+      echo "  OUTPUT: filtered V matrix path -> $OUT_FILE"
       echo ""
       Rscript ./scripts/summariseFilterData.R $IN_FILE $OUT_FILE
 
@@ -81,9 +81,9 @@ while test $# -gt 0; do   # check arguments one by one until there is none
           export PLOT_DIR=$4
           shift 4
           echo "Filtering bins in V matrix (remove noise) and plotting coverage"
-          echo "  INPUT: V matrix path: $IN_FILE"
-          echo "  OUTPUT: filtered V matrix path: $OUT_FILE"
-          echo "          plots directory: $PLOT_DIR"
+          echo "  INPUT: V matrix path -> $IN_FILE"
+          echo "  OUTPUT: filtered V matrix path -> $OUT_FILE"
+          echo "          plots directory -> $PLOT_DIR"
           echo ""
           Rscript ./scripts/summariseFilterData.R $IN_FILE $OUT_FILE -p $PLOT_DIR
 
