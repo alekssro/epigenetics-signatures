@@ -72,7 +72,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
       echo "  INPUT: V matrix path: $IN_FILE"
       echo "  OUTPUT: filtered V matrix path: $OUT_FILE"
       echo ""
-      Rscript summariseFilterData.R $IN_FILE $OUT_FILE
+      Rscript ./scripts/summariseFilterData.R $IN_FILE $OUT_FILE
 
     else
       if test $# -eq 4; then
@@ -85,7 +85,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
           echo "  OUTPUT: filtered V matrix path: $OUT_FILE"
           echo "          plots directory: $PLOT_DIR"
           echo ""
-          Rscript summariseFilterData.R $IN_FILE $OUT_FILE -p $PLOT_DIR
+          Rscript ./scripts/summariseFilterData.R $IN_FILE $OUT_FILE -p $PLOT_DIR
 
       fi
       echo "Incorrect number of arguments specified: 2 or 4 arguments expected"
@@ -105,7 +105,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
       export OUT_FILE=$2
       export N_REPEATS=$3
       shift 3
-      Rscript chooseN.R $IN_FILE $OUT_FILE $N_REPEATS
+      Rscript ./scripts/chooseN.R $IN_FILE $OUT_FILE $N_REPEATS
       # exit 0
     else
       if test $# -eq 2; then
@@ -115,7 +115,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
         export IN_FILE=$1
         export OUT_FILE=$2
         shift 2
-        Rscript chooseN.R $IN_FILE $OUT_FILE $N_REPEATS
+        Rscript ./scripts/chooseN.R $IN_FILE $OUT_FILE $N_REPEATS
       fi
       echo "Incorrect number of arguments specified: needs at least input and output arguments"
       echo ""
@@ -134,7 +134,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
       export OUT_FILE=$2
       export N_SIGNATURES=$3
       shift 3
-      Rscript NMFanalysis.R $IN_FILE $OUT_FILE $N_SIGNATURES
+      Rscript ./scripts/NMFanalysis.R $IN_FILE $OUT_FILE $N_SIGNATURES
       # exit 0
     else
       if test $# -eq 2; then
@@ -144,7 +144,7 @@ while test $# -gt 0; do   # check arguments one by one until there is none
         export IN_FILE=$1
         export OUT_FILE=$2
         shift 2
-        Rscript NMFanalysis.R $IN_FILE $OUT_FILE $N_SIGNATURES
+        Rscript ./scripts/NMFanalysis.R $IN_FILE $OUT_FILE $N_SIGNATURES
       fi
       echo "Incorrect number of arguments specified: needs at least input and output arguments"
       echo ""
