@@ -51,11 +51,12 @@ BINNED_GENOME=${DATA_DIR}/hg19binned.200bp.bed
 #   tags over all experiments in a cell line
 
 # Define cell types of interest
-# CELL_LINES=(A549 Hela-S3)     # (HepG2 K562 A549 Hela-S3);
-CELL_LINES=("$@")     # get cell lines from command line
+CELL_LINES=(K562)     # (HepG2 K562 A549 Hela-S3);
+# CELL_LINES=("$@")     # get cell lines from command line
 
 # Define signal-types
-SIGNAL_TRACKS=(H3K4me3 POLR2A H3K4me1 CTCF EP300 H3K27ac H3K36me3 H3K9me3 H3K27me3 H2A.Z H3K9ac)
+SIGNAL_TRACKS=(POLR2A)
+# SIGNAL_TRACKS=(H3K4me3 POLR2A H3K4me1 CTCF EP300 H3K27ac H3K36me3 H3K9me3 H3K27me3 H2A.Z H3K9ac)
 
 echo "Counting reads:"
 for CELL_LINE in "${CELL_LINES[@]}";do
@@ -152,7 +153,7 @@ for CELL_LINE in "${CELL_LINES[@]}";do
 
             # Get the raw counts in each genomic bin
             echo "  Intersect genomic bins with processed bed ${SAMPLE_ID}.processed.bed to get rawCounts"
-            bedtools intersect -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
+            bedtools intersect -sorted -a ${BINNED_GENOME} -b ${PROCESSED_FILEPATH} -c > ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed
 
             # Extract only informative bins in 'temp.bed' , and replace 'rawCounts' by this one.
             awk -F "\t" '$4 > 0 {print $1 "\t" $2 "\t" $3 "\t" $4}' ${OUT_DIR}/${SAMPLE_ID}.rawCounts.bed > ${OUT_DIR}/temp.bed
