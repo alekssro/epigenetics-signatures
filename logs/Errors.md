@@ -1,16 +1,17 @@
 Errores (6/33):
 
- Cell line K562, Mark POLR2A.
+- [x]  Cell line K562, Mark POLR2A.
 
- Cell line A549, Mark H3K4me3
+- [x]  Cell line A549, Mark H3K4me3
 
- Cell line A549, Mark H3K4me3
+- [x]  Cell line A549, Mark H3K4me3
 
-Cell line A549, Mark H3K36me3
+- [x] Cell line A549, Mark H3K36me3
 
-Cell line A549, Mark H3K9me3
+- [x] Cell line A549, Mark H3K9me3
 
-Cell line A549, Mark H3K27me3
+- [x] Cell line A549, Mark H3K27me3
+
 
 
 
@@ -136,7 +137,6 @@ Read 2 items
     Estimate expected counts by finding overlaps between bins and mappability regions 
     Normalized counts for  ENCFF804NBY.rawCounts.bed  calculated
   Appending combined counts for the epigenetic mark H3K4me3  to the V matrix file 
-
 
 Calculating counts per genomic bin for Cell line K562, Mark POLR2A.
   Intersect genomic bins with processed bed ENCFF138LNW.processed.bed to get rawCounts
