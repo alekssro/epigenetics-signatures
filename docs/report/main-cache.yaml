@@ -69,7 +69,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-05-18T12:57:40.852Z
+    timeStamp: 2019-05-19T12:53:22.935Z
     jobNames: []
     value:
       severity: info
@@ -126,7 +126,7 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-05-18T13:06:47.227Z
+    timeStamp: 2019-05-19T17:59:46.382Z
     jobNames: []
     hash: zizQQWkNipNqtMFklFsdY4X0j4jLIaC3/yGT/g4/3Lg=
     type: LaTeX
@@ -139,7 +139,7 @@ files:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-05-18T12:58:16.350Z
+    timeStamp: 2019-05-19T17:55:29.473Z
     jobNames: []
     value:
       messages: []
@@ -360,7 +360,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-05-18T13:54:11.662Z
+    timeStamp: 2019-05-19T18:07:01.988Z
     jobNames: []
     value:
       messages:
@@ -4296,13 +4296,13 @@ files:
           source:
             file: main.toc
             range:
-              start: 38
-              end: 38
+              start: 42
+              end: 42
           log:
             file: main.log
             range:
-              start: 1869
-              end: 1869
+              start: 1873
+              end: 1873
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4312,13 +4312,13 @@ files:
           source:
             file: main.toc
             range:
-              start: 38
-              end: 38
+              start: 42
+              end: 42
           log:
             file: main.log
             range:
-              start: 1873
-              end: 1874
+              start: 1877
+              end: 1878
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4333,8 +4333,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1912
-              end: 1913
+              start: 1913
+              end: 1914
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4349,8 +4349,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1914
-              end: 1915
+              start: 1915
+              end: 1916
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4360,13 +4360,13 @@ files:
           source:
             file: Chapters/Introduction.tex
             range:
-              start: 22
-              end: 22
+              start: 24
+              end: 24
           log:
             file: main.log
             range:
-              start: 1916
-              end: 1917
+              start: 1923
+              end: 1924
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4381,8 +4381,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1968
-              end: 1969
+              start: 1982
+              end: 1983
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4395,8 +4395,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1982
-              end: 1982
+              start: 1996
+              end: 1996
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4411,8 +4411,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1986
-              end: 1987
+              start: 2000
+              end: 2001
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -4427,8 +4427,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1989
-              end: 1990
+              start: 2003
+              end: 2004
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -4441,8 +4441,8 @@ files:
           log:
             file: main.log
             range:
-              start: 2002
-              end: 2003
+              start: 2016
+              end: 2017
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4455,8 +4455,8 @@ files:
           log:
             file: main.log
             range:
-              start: 2032
-              end: 2032
+              start: 2046
+              end: 2046
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4469,8 +4469,8 @@ files:
           log:
             file: main.log
             range:
-              start: 2038
-              end: 2038
+              start: 2052
+              end: 2052
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4483,8 +4483,8 @@ files:
           log:
             file: main.log
             range:
-              start: 2054
-              end: 2054
+              start: 2068
+              end: 2068
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4497,21 +4497,21 @@ files:
           log:
             file: main.log
             range:
-              start: 2055
-              end: 2055
+              start: 2069
+              end: 2069
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            9B7F2FAD6F7EDE52128638DA04E71F75;7148.
+            E4D9EB2C3C01EC9DA2A3C28A16053612;7920.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 2056
-              end: 2057
+              start: 2070
+              end: 2071
         - severity: info
           name: pdfTeX
           category: Package logreq
@@ -4521,15 +4521,15 @@ files:
           log:
             file: main.log
             range:
-              start: 2058
-              end: 2058
+              start: 2072
+              end: 2072
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-18T12:58:17.823Z
+    timeStamp: 2019-05-19T17:55:30.995Z
     jobNames: []
     value:
       commands:
@@ -5202,12 +5202,12 @@ files:
     hash: dZH7UJKLUixyUUAA5+8qrVDBM2i1BNa84bCOjQkFjKg=
     type: LaTeXClass
   main-blx.bib:
-    timeStamp: 2019-05-18T13:54:11.194Z
+    timeStamp: 2019-05-19T18:07:01.528Z
     jobNames: []
     hash: r82CdlemyMPpsdzL/lEssjXQdHcBOvjzjFoBI7Smp3Y=
     type: BibTeXControlFile
   main.run.xml:
-    timeStamp: 2019-05-18T13:54:11.543Z
+    timeStamp: 2019-05-19T18:07:01.902Z
     jobNames: []
     hash: yHTJ5KIVJUld9TdA5wTpVAFTNJe8JYnHQ+n8dMkT2NE=
     type: XML
@@ -5359,7 +5359,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Chapter1.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-18T12:58:16.358Z
+    timeStamp: 2019-05-19T17:55:29.477Z
     jobNames: []
     value:
       commands:
@@ -5553,9 +5553,9 @@ files:
     hash: zLeCQKELx6dc3g43hZ//8h5btHV+77e32ch/VU3WT/Q=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-05-18T13:55:39.725Z
+    timeStamp: 2019-05-19T18:06:56.031Z
     jobNames: []
-    hash: U6wjRn9tikArCE/MCX3YQZ327D2YLA56LLBU3EIJPrA=
+    hash: AD+59jVHW897rLhbk86SAG8+G+ltwUt2s05DlXjUm2s=
     type: TeX
   Chapters/Methods.tex:
     timeStamp: 2019-05-17T16:40:30.495Z
@@ -5718,7 +5718,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-17T15:54:11.458Z
+    timeStamp: 2019-05-19T17:55:29.481Z
     jobNames: []
     value:
       commands:
@@ -5728,6 +5728,10 @@ files:
         - '@writefile'
         - '@writefile'
         - newlabel
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
         - '@writefile'
         - '@writefile'
         - '@writefile'
@@ -6170,9 +6174,9 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   main.pdf:
-    timeStamp: 2019-05-18T13:54:11.573Z
+    timeStamp: 2019-05-19T18:07:01.929Z
     jobNames: []
-    hash: wT6RJeovZRfKsyqfKnZGk690Tvk17WxggNm70Hzxlk8=
+    hash: Ot97Lof20cy1Xzs/CxF+ioVfAW7NpByfOOeOfjfYM3Y=
     type: PortableDocumentFormat
 rules:
   - name: ApplyOptions
