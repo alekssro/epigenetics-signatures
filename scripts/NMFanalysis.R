@@ -8,21 +8,103 @@
 
 suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
 infile <- args[1]
 outfile <- args[2]
 n <- args[3]
+n <- 7
+
+order <- c("H3K27me3", "H3K9me3", "CTCF", "H3K27ac", "POLR2A", "H3K36me3", "H3K4me1", "H2A.Z", "H3K4me3", "H3K9ac", "EP300")
+
+##########################################################
+# NFM on A549 V matrix
+##########################################################
+
+# infile <- "results/genomic_survey/A549/filteredV.csv"
+# 
+# V_mat <- read.csv(infile, header = T)
+# numeric_cols <- 1:(ncol(V_mat) - 2)
+# V <- V_mat[, numeric_cols]
+# 
+# nmf_A549 <- nmf(V, 7)
+# 
+# H_A549 <- nmf_A549@fit@H
+# W_A549 <- nmf_A549@fit@W
+
+##########################################################
+# NFM on Hela-S3 V matrix
+##########################################################
+
+infile <- "results/genomic_survey/Hela-S3//filteredV.csv"
 
 V_mat <- read.csv(infile, header = T)
 numeric_cols <- 1:(ncol(V_mat) - 2)
 V <- V_mat[, numeric_cols]
 
-res_nmf <- nmf(V, 7)
+nmf_HelaS3 <- nmf(V, 7)
 
-# Heatmap
-heatmap(res_nmf@fit@H)
+H_HelaS3 <- nmf_HelaS3@fit@H
+W_HelaS3 <- nmf_HelaS3@fit@W
+
+##########################################################
+# NFM on HepG2 V matrix
+##########################################################
+
+infile <- "results/genomic_survey/HepG2//filteredV.csv"
+
+V_mat <- read.csv(infile, header = T)
+numeric_cols <- 1:(ncol(V_mat) - 2)
+V <- V_mat[, numeric_cols]
+
+nmf_HepG2 <- nmf(V, 7)
+
+H_HepG2 <- nmf_HepG2@fit@H
+W_HepG2 <- nmf_HepG2@fit@W
+
+##########################################################
+# NFM on K562 V matrix
+##########################################################
+
+infile <- "results/genomic_survey/K562//filteredV.csv"
+
+V_mat <- read.csv(infile, header = T)
+numeric_cols <- 1:(ncol(V_mat) - 2)
+V <- V_mat[, numeric_cols]
+
+nmf_K562 <- nmf(V, 7)
+
+H_K562 <- nmf_K562@fit@H
+W_K562 <- nmf_K562@fit@W
+
+#########################################################
+###     PLOTS                                       #####
+#########################################################
+
+
+###############
+# Heatmap   ###
+###############
+
+H <- H_HelaS3[, order]
+
+heatmap(H, scale = "column", Rowv = NA, Colv = NA)
+
+cormat <- round(cor(H),2)
+head(cormat)
+
+melted_cormat <- melt(cormat)
+head(melted_cormat)
+
+ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + 
+    geom_tile(aes(fill = value), colour = "white") +
+    scale_fill_gradient(low = "white", high = "steelblue")
+
+ggplot(melted_cormat, aes(variable, Name)) + 
+    geom_tile(aes(fill = rescale), colour = "white") +
+    scale_fill_gradient(low = "white", high = "steelblue")
 
 
 
