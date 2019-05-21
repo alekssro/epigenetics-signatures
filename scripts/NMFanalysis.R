@@ -9,6 +9,7 @@
 suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(scales, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
@@ -89,23 +90,32 @@ W_K562 <- nmf_K562@fit@W
 ###############
 
 H <- H_HelaS3[, order]
+rownames(H) <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
+                 "Signature 5", "Signature 6", "Signature 7")
 
 heatmap(H, scale = "column", Rowv = NA, Colv = NA)
 
-cormat <- round(cor(H),2)
-head(cormat)
+H_m <- melt(H, varnames = c("Signature", "Mark"))
 
-melted_cormat <- melt(cormat)
-head(melted_cormat)
-
-ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + 
+ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) + 
     geom_tile(aes(fill = value), colour = "white") +
     scale_fill_gradient(low = "white", high = "steelblue")
 
-ggplot(melted_cormat, aes(variable, Name)) + 
-    geom_tile(aes(fill = rescale), colour = "white") +
-    scale_fill_gradient(low = "white", high = "steelblue")
+ggplot(H_m, aes(Mark, Signature)) + 
+    geom_tile(aes(fill = rescale(value, to = c(0, 0.5))), colour = "white") +
+    scale_fill_gradient(low = "lightsteelblue", high = "royalblue2")
 
+
+############
+# Lines  ###
+############
+
+ggplot(NULL) + 
+    geom_line(mapping = aes(x = 1:10, W[1:length(W[,1]),1], color = "Signature 1")) + 
+    geom_line(mapping = aes(x = 1:10, W[1:length(W[,1]),2], color = "Signature 2")) + 
+    theme_minimal() +
+    xlab("Patient") + ylab('Mutation Load') +
+    ggtitle('Mutation Load for all patients towards each signature')
 
 
 #######################################
