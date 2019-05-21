@@ -52,12 +52,11 @@ BINNED_GENOME=${DATA_DIR}/hg19binned.200bp.bed
 #   tags over all experiments in a cell line
 
 # Define cell types of interest
-CELL_LINES=(A549)     # (HepG2 K562 A549 Hela-S3);
-# CELL_LINES=("$@")     # get cell lines from command line
+# CELL_LINES=(HepG2 K562 A549 Hela-S3);   # manually select cell lines
+CELL_LINES=("$@")     # get cell lines from command line
 
 # Define signal-types
-SIGNAL_TRACKS=(H3K4me3 H3K36me3 H3K9me3 H3K27me3)
-# SIGNAL_TRACKS=(H3K4me3 POLR2A H3K4me1 CTCF EP300 H3K27ac H3K36me3 H3K9me3 H3K27me3 H2A.Z H3K9ac)
+SIGNAL_TRACKS=(H3K4me3 POLR2A H3K4me1 CTCF EP300 H3K27ac H3K36me3 H3K9me3 H3K27me3 H2A.Z H3K9ac)
 
 echo "Counting reads:"
 for CELL_LINE in "${CELL_LINES[@]}";do
