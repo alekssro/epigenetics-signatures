@@ -55,9 +55,29 @@ A critical finding regarding the prevalence of alternative splicing was that a m
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Epigenomic modelling}
+\subsection{Epigenomic modeling}
 
-Explain previous attempts on modelling the epigenetic profiles and where did they focus
+% Explain previous attempts on modeling the epigenetic profiles and where did they focus
+
+% Origin of epigenetic modeling
+
+Mentioned growth on epigenetics data availability, favored by the arise of NGS sequencing techniques, granted the possibility to create extensive descriptions on the different epigenetic marks for various samples. Moreover, the findings on the function of epigenetic modifications to modulate the chromatin arrangement provided a glimpse of the likeliness to characterize the relationships between chromatin states and gene expression profiles. Thanks to the contribution made to the two major public databases, the ENCODE (The ENCyclopedia of Dna Elements) \cite{Feingold2004} and the NIH Roadmap Epigenomics \cite{Bernstein2010}, this characterization becomes more accessible. Modeling the epigenetic modifications requires the development of computational tools which use the multiple types of data, such as DNA methylation, histone modification or Transcription Factors (TFs), in order to establish a correlation between the epigenomic assays and the biological activity. The main objectives of finding the specified models are both learn more about the biological association of epigenetic modifications and which predictions can be achieved from the models. The nature of the algorithms used to model epigenomics have been diverse but most of the proposed methods fall under unsupervised learning techniques of classification, which seek to devise patterns of chromatin modifications from the datasets alone, relying for it on multiple statistical techniques.
+
+\medskip
+
+A first proper mathematical attempt to model histone modification dynamics was made in \cite{Dodd2007}, where they characterized the bistable gene expression resulting from the alternative states of the chromosomal regions. They applied a simple stochastic model in which they divided the DNA into \~1.2 kb, corresponding to around 60 nucleosomes, and they consider either modified or unmodified nucleosomes from which they try to infer the state conversion of a region. Further contributions delved into the pattern-finding idea using more complete models such in ChromaSig \cite{Hon2008}. Nine different types of epigenetic marks were taken into account in order to find strong signals of correlation between the epigenetic signatures profile and the promoter and enhancer activity state. Nevertheless, the analysis worked on a pre-defined set of loci with high grade of epigenetic modifications from the ENCODE project pilot, representing only the 1% of the human genome \cite{ENCODEProjectConsortium2007}. The essence of the method requires to calculate the likelihood for each loci towards being classified in a motif by using an euclidean distance measure. On account of the computational limitations, these methods could not be applied to study whole-genome marks and on multiple genomic assays.
+
+\medskip
+
+More recent tools are able to directly specify the combination of epigenetic modifications or `chromatin states' in a genome-wide fashion, making use of integrative models based on Hidden Markov Models (HMM) like in ChromHMM \cite{Ernst2010,Ernst2017} and EpicSeg \cite{Mammana2015}, or dynamic Bayesian networks like in Segway \cite{Hoffman2012}. ChromHMM software learns and characterizes the chromatin states from multiple ChIP-seq datasets by creating tracks of presence/absence vectors for the epigenetic mark in a k-binned genome. In such a way, genome-wide annotation is efficient but it misses the quantitative hand of the epigenetic mark reads, using only binary data. EpicSeg uses a similar angle in the analysis, however there is no need to pre-process the data as it uses raw read counts like observations in the analysis, which allows to define a valid discrete multivariate probability distribution and then solve the lost of quantitative data. For its part, Segway refuses the idea of genome segmentation and addresses the most probable sequence of chromatin states by means of a Dynamic Bayerian Network (DBN) at a 1-bp resolution. This approach can elucidate some limitations from previous methods such as missing data handling or finding the correct constrains for segments length.
+
+\medskip
+
+Yet, there are practical limitations essentially about the precondition to define the number of chromatin states beforehand, since this choice is arbitrary from the model and answers to biological interpretability of the results. Moreover, the algorithms mentioned above are computationally intensive and challenging to use without a sufficiently computational power. A relatively new statistical method called Non-Negative Matrix Factorization (NMF) \cite{Lee1999} has been applied to the problem in question of finding chromatin states from the reads of epigenetic modification marks \cite{Cieslik2014,Gandolfi2017}. NMF undertake the dimensionality problem on the genome-wide analysis of epigenetic tracks by approximating the dataset values through a reduced number of meaningful components \cite{Devarajan2008}. The method makes it possible to integrate multiple epigenetic marks to the characterization of chromatin combinatory patterns, and also allows to find an optimal number of distinct patterns based on the data. In both studies \cite{Cieslik2014,Gandolfi2017}, they applied NMF to matrices consisting on multiple epigenetic marks as columns and non-overlapping segments of the genome as rows, being the value of the cell equal to the read counts.
+
+\medskip
+
+In the first case, the segments used as rows correspond to multiple regions of TSS-proximal gene bodies since they contain epigenetic traces of transcription initiation and elongation. In the second case, they use bins of 200-bp, similar to the case in ChromHMM, in an attempt to approximate a single nucleosome with each bin. In the present study, aspects from these papers were used, extending the analysis to multiple cancer cell lines. 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2

@@ -69,7 +69,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-05-22T10:23:12.792Z
+    timeStamp: 2019-05-31T20:12:04.775Z
     jobNames: []
     value:
       severity: info
@@ -126,20 +126,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-05-22T14:32:38.705Z
+    timeStamp: 2019-05-31T20:13:10.820Z
     jobNames: []
-    hash: aZIjr7w8XErYg44vCs4KpSqSy3mUh2ycFvZb8fNX4pY=
+    hash: yd2JjeNYEACZteD3aYdGyNHALoGne/a+qlKX1eAWaUY=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-05-22T10:23:12.804Z
+    timeStamp: 2019-05-31T18:30:21.757Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-05-22T14:23:15.067Z
+    timeStamp: 2019-05-31T20:12:59.659Z
     jobNames: []
     value:
       messages: []
@@ -308,7 +308,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-05-22T15:10:35.083Z
+    timeStamp: 2019-05-31T20:13:13.913Z
     jobNames: []
     value:
       messages:
@@ -3897,91 +3897,91 @@ files:
           category: LaTeX Font
           text: Try loading font information for T1+cmtt
           source:
-            file: 'H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3'
+            file: Chapters/Methods.tex
             range:
               start: 62
               end: 62
           log:
             file: main.log
             range:
-              start: 1717
-              end: 1717
+              start: 1705
+              end: 1705
         - severity: info
           name: pdfTeX
           category: Package atveryend
           text: Empty hook `BeforeClearDocument'
           source:
-            file: Chapters/Methods.tex
+            file: main.tex
             range:
-              start: 305
-              end: 305
+              start: 307
+              end: 307
           log:
             file: main.log
             range:
-              start: 1784
-              end: 1784
+              start: 1772
+              end: 1772
         - severity: info
           name: pdfTeX
           category: Package atveryend
           text: Empty hook `AfterLastShipout'
           source:
-            file: Chapters/Methods.tex
+            file: main.tex
             range:
-              start: 305
-              end: 305
+              start: 307
+              end: 307
           log:
             file: main.log
             range:
-              start: 1786
-              end: 1786
+              start: 1774
+              end: 1774
         - severity: info
           name: pdfTeX
           category: Package atveryend
           text: Executing hook `AtVeryEndDocument'
           source:
-            file: Chapters/Methods.tex
+            file: main.tex
             range:
-              start: 305
-              end: 305
+              start: 307
+              end: 307
           log:
             file: main.log
             range:
-              start: 1800
-              end: 1800
+              start: 1788
+              end: 1788
         - severity: info
           name: pdfTeX
           category: Package atveryend
           text: Executing hook `AtEndAfterFileList'
           source:
-            file: Chapters/Methods.tex
+            file: main.tex
             range:
-              start: 305
-              end: 305
+              start: 307
+              end: 307
           log:
             file: main.log
             range:
-              start: 1801
-              end: 1801
+              start: 1789
+              end: 1789
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            BC728550975EF93DE4020B578DFC33F3;3610.
+            99EF020FB7C269666790119880EFE515;3605.
           source:
-            file: Chapters/Methods.tex
+            file: main.tex
           log:
             file: main.log
             range:
-              start: 1802
-              end: 1803
+              start: 1790
+              end: 1791
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T14:39:54.260Z
+    timeStamp: 2019-05-31T20:12:59.607Z
     jobNames: []
     value:
       commands:
@@ -4011,6 +4011,17 @@ files:
         - '@input'
         - '@input'
         - bibdata
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
         - bibcite
         - bibcite
         - bibcite
@@ -4670,7 +4681,7 @@ files:
     hash: Vo+CHWjPTbJacD5zE14/XQRfFmuB8SaLKRl+hZ9uXxc=
     type: XML
   Appendices/AppendixA.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T11:48:22.492Z
+    timeStamp: 2019-05-23T09:38:19.288Z
     jobNames: []
     value:
       commands:
@@ -4901,14 +4912,14 @@ files:
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-05-22T15:10:29.402Z
+    timeStamp: 2019-05-31T18:34:52.847Z
     jobNames: []
-    hash: hlYPqjrMYGjWxJucRMgsXGXto8pjqy/cGAG37wN7nAc=
+    hash: 2ZH4mXftsPe15/fznQL0OZ8RuAjSEEEPBsAFYVFFCFc=
     type: TeX
   Chapters/Methods.tex:
-    timeStamp: 2019-05-22T14:13:17.506Z
+    timeStamp: 2019-05-23T09:48:33.225Z
     jobNames: []
-    hash: 0NSTQGC3ohC0tvvzlJ4QEA0oKnFrvMnDSqrpXE5yEd0=
+    hash: Yx/K44g3lgVvvkvuiQyM5bUVEmvJXLkS7hNgh4DPIjA=
     type: TeX
   Chapters/Results.tex:
     timeStamp: 2019-05-20T19:42:35.226Z
@@ -4953,7 +4964,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T14:29:38.454Z
+    timeStamp: 2019-05-31T20:13:00.591Z
     jobNames: []
     value:
       commands:
@@ -4998,7 +5009,18 @@ files:
         - '@writefile'
         - citation
         - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
         - '@writefile'
+        - citation
+        - citation
+        - citation
+        - citation
         - '@writefile'
         - '@writefile'
         - '@writefile'
@@ -5118,18 +5140,18 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   main.pdf:
-    timeStamp: 2019-05-22T15:10:35.030Z
+    timeStamp: 2019-05-31T20:13:13.860Z
     jobNames: []
-    hash: Uu0yEQxJs/Nz6GRkIhI1bwLEjriIVooLuvGqHB8QvRo=
+    hash: ISCr0sBJM3cxLoYLGGbw9IGqbnfmotuHq2ABeSzUMuA=
     type: PortableDocumentFormat
   /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst:
     timeStamp: 2016-11-25T18:27:13.000Z
     jobNames: []
     type: BibTeXStyle
   mscthesis.bib:
-    timeStamp: 2019-05-22T14:42:53.327Z
+    timeStamp: 2019-05-31T20:12:10.635Z
     jobNames: []
-    hash: AlOzkZ9Ds+qNN8P3Ux3nxYz6nVHLnAkTuPGDvXo2jto=
+    hash: Hu7KiZL2YptGu1+NyuU8LbzMBF4CTBmjj3HZJPs/pFA=
     type: BibTeXFile
   /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx:
     timeStamp: 2017-11-12T22:32:57.000Z
@@ -5697,24 +5719,15 @@ rules:
     parameters: []
     inputs: []
     outputs: []
-  - name: ParseLaTeXLog
+  - name: ReportLogMessages
     command: log
     phase: execute
     parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
+      - main.blg-ParsedBiberLog
+    inputs:
+      - file: main.blg-ParsedBiberLog
         type: default
-  - name: ParseLaTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
+    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5732,6 +5745,15 @@ rules:
     inputs: []
     outputs:
       - file: main.fls-ParsedFileListing
+        type: default
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
         type: default
   - name: ParseLaTeXAuxilary
     command: build
@@ -5778,6 +5800,15 @@ rules:
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
   - name: BibTeX
     command: build
     phase: execute
@@ -5791,20 +5822,6 @@ rules:
         type: default
       - file: main.blg-ParsedBibTeXLog
         type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
-        type: default
-      - file: mscthesis.bib
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst
-        type: default
-      - file: main-blx.bib
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/ieeetr.bst
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/beebe/apa.bst
-        type: default
     outputs: []
   - name: ParseBibTeXLog
     command: build
@@ -5824,23 +5841,3 @@ rules:
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
-  - name: Biber
-    command: build
-    phase: execute
-    parameters:
-      - main.bcf
-    inputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-      - file: main.blg-ParsedBiberLog
-        type: default
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBiberLog
-    inputs:
-      - file: main.blg-ParsedBiberLog
-        type: default
-    outputs: []
