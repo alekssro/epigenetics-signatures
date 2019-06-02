@@ -4,7 +4,7 @@
 
 \section{Data}
 
-The data used in this study is obtained entirely from the ENCODE project database [ ], where multiple epigenetic marks and reference epigenomes are available. Data sets from 11 types of epigenetic marks were collected, including histone modifications (H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3 and H3K9ac), chromatin remodeling proteins (EP300 and H2A.Z) and transcription regulation factors (CTCF, POLR2A). Replicate samples for each of the 11 epigenetic marks were used in the three cell lines of study, which includes a human liver cancer cell line (HepG2) [ ], myelogenous leukemia cell line (K562) [ ] and cells derived from HeLa cancerous cervical tumor line (HeLa-S3).
+The data used in this study is obtained entirely from the ENCODE project database \cite{Feingold2004}, where multiple epigenetic marks and reference epigenomes are available. Data sets from 11 types of epigenetic marks were collected, including histone modifications (H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3 and H3K9ac), chromatin remodeling proteins (EP300 and H2A.Z) and transcription regulation factors (CTCF, POLR2A). Replicate samples for each of the 11 epigenetic marks were used in the three cell lines of study, which includes a human liver cancer cell line (HepG2) \cite{Aden1979}, myelogenous leukemia cell line (K562) \cite{Andersson1979} and cells derived from HeLa cancerous cervical tumor line (HeLa-S3) \cite{Douglas1973,Chen2008}.
 
 \medskip
 

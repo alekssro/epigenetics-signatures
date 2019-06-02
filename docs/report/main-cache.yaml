@@ -69,7 +69,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-05-31T20:12:04.775Z
+    timeStamp: 2019-06-02T18:37:38.486Z
     jobNames: []
     value:
       severity: info
@@ -81,12 +81,12 @@ files:
     jobNames: []
     type: ParsedYAML
   main.tex-ParsedLaTeXMagic:
-    timeStamp: 2019-05-17T13:51:26.071Z
+    timeStamp: 2019-06-02T18:37:38.520Z
     jobNames: []
     value: {}
     type: ParsedLaTeXMagic
   /home/alekssro/.config/dicy/config.yaml-ParsedYAML:
-    timeStamp: 2019-05-17T16:10:53.324Z
+    timeStamp: 2019-06-02T18:37:38.517Z
     jobNames: []
     value:
       synctex: true
@@ -126,20 +126,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-05-31T20:13:10.820Z
+    timeStamp: 2019-06-02T18:18:04.645Z
     jobNames: []
-    hash: yd2JjeNYEACZteD3aYdGyNHALoGne/a+qlKX1eAWaUY=
+    hash: aCj2y0y2d9UC5jx5vK/XfQw0XJ2ZUT1bzadwQt4/Dlg=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-05-31T18:30:21.757Z
+    timeStamp: 2019-06-02T17:21:07.289Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-05-31T20:12:59.659Z
+    timeStamp: 2019-06-02T18:37:40.618Z
     jobNames: []
     value:
       messages: []
@@ -161,23 +161,32 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplro8t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+        - >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplb8t.vf
+        - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr7t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplr8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplrc8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplri8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
+        - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+        - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         - /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         - /usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
         - /usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
@@ -308,7 +317,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-05-31T20:13:13.913Z
+    timeStamp: 2019-06-02T18:37:42.491Z
     jobNames: []
     value:
       messages:
@@ -3980,8 +3989,13 @@ files:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
+  main.pdf:
+    timeStamp: 2019-06-02T18:37:42.414Z
+    jobNames: []
+    hash: 5an13Xws+G1sxT4/5TspxykYW+9Ey2+tFpiGIDwX4YU=
+    type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-31T20:12:59.607Z
+    timeStamp: 2019-06-02T18:37:40.552Z
     jobNames: []
     value:
       commands:
@@ -4010,6 +4024,7 @@ files:
         - '@input'
         - '@input'
         - '@input'
+        - bibstyle
         - bibdata
         - bibcite
         - bibcite
@@ -4059,10 +4074,18 @@ files:
         - bibcite
         - bibcite
         - bibcite
-        - bibstyle
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
     type: ParsedLaTeXAuxilary
   main.blg-ParsedBibTeXLog:
-    timeStamp: 2019-05-22T14:42:09.629Z
+    timeStamp: 2019-06-02T18:37:39.759Z
     jobNames: []
     value:
       messages: []
@@ -4081,20 +4104,8 @@ files:
   /etc/texmf/web2c/texmf.cnf:
     timeStamp: 2018-09-27T08:17:57.961Z
     jobNames: []
-  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1095.600pk:
-    timeStamp: 2019-05-17T13:23:55.444Z
-    jobNames: []
-  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecst1095.600pk:
-    timeStamp: 2019-05-17T13:23:56.088Z
-    jobNames: []
-  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk:
-    timeStamp: 2019-05-17T13:23:55.036Z
-    jobNames: []
   /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk:
     timeStamp: 2019-05-17T13:23:56.912Z
-    jobNames: []
-  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk:
-    timeStamp: 2019-05-17T13:23:56.508Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc:
     timeStamp: 2016-11-25T18:31:06.000Z
@@ -4132,22 +4143,10 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplro8t.tfm:
     timeStamp: 2016-11-25T18:31:28.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm:
-    timeStamp: 2016-11-25T18:31:36.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm:
     timeStamp: 2016-11-25T18:31:36.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecst1095.tfm:
-    timeStamp: 2016-11-25T18:31:36.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm:
-    timeStamp: 2016-11-25T18:31:36.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm:
-    timeStamp: 2016-11-25T18:31:36.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm:
     timeStamp: 2016-11-25T18:31:36.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm:
@@ -4159,13 +4158,7 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm:
@@ -4174,13 +4167,7 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm:
-    timeStamp: 2016-11-25T18:31:41.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm:
@@ -4201,14 +4188,8 @@ files:
   /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm:
     timeStamp: 2016-11-25T18:31:53.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
-    timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb:
-    timeStamp: 2016-11-25T18:32:22.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb:
     timeStamp: 2016-11-25T18:32:26.000Z
@@ -4240,9 +4221,6 @@ files:
   /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf:
-    timeStamp: 2016-11-25T18:32:48.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
@@ -4269,10 +4247,6 @@ files:
     timeStamp: 2016-11-25T18:33:35.000Z
     jobNames: []
     type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty:
-    timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty:
     timeStamp: 2016-11-25T18:33:35.000Z
     jobNames: []
@@ -4285,32 +4259,12 @@ files:
     timeStamp: 2016-11-25T18:33:35.000Z
     jobNames: []
     type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty:
-    timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty:
     timeStamp: 2017-03-26T21:48:50.000Z
     jobNames: []
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty:
     timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty:
-    timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty:
-    timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty:
-    timeStamp: 2016-11-25T18:33:35.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty:
-    timeStamp: 2018-01-26T22:43:53.000Z
     jobNames: []
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/generic/unicode-data/CaseFolding.txt:
@@ -4322,14 +4276,6 @@ files:
   /usr/share/texlive/texmf-dist/tex/generic/unicode-data/UnicodeData.txt:
     timeStamp: 2017-06-27T21:55:49.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty:
-    timeStamp: 2016-11-25T18:33:39.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex:
-    timeStamp: 2016-11-25T18:33:39.000Z
-    jobNames: []
-    type: TeX
   /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty:
     timeStamp: 2016-11-25T18:33:40.000Z
     jobNames: []
@@ -4347,10 +4293,6 @@ files:
     type: LaTeXClass
   /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty:
     timeStamp: 2017-04-15T22:59:15.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty:
-    timeStamp: 2016-11-25T18:33:41.000Z
     jobNames: []
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty:
@@ -4379,40 +4321,6 @@ files:
   /usr/share/texlive/texmf-dist/tex/latex/base/utf8.def:
     timeStamp: 2017-02-22T00:01:07.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg:
-    timeStamp: 2016-11-25T18:33:42.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def:
-    timeStamp: 2017-12-30T22:46:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty:
-    timeStamp: 2017-12-30T22:46:57.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-bibtex.def:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def:
-    timeStamp: 2017-12-30T22:46:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-natbib.def:
-    timeStamp: 2016-11-25T18:33:42.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx:
-    timeStamp: 2017-12-30T22:46:57.000Z
-    jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty:
     timeStamp: 2016-11-25T18:33:43.000Z
     jobNames: []
@@ -4427,6 +4335,10 @@ files:
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty:
     timeStamp: 2016-11-25T18:33:43.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty:
+    timeStamp: 2016-11-25T18:33:45.000Z
     jobNames: []
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg:
@@ -4455,6 +4367,9 @@ files:
     jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def:
     timeStamp: 2018-01-09T22:36:08.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def:
+    timeStamp: 2016-11-25T18:33:50.000Z
     jobNames: []
   /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty:
     timeStamp: 2017-06-25T21:52:12.000Z
@@ -4541,13 +4456,6 @@ files:
   /usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg:
     timeStamp: 2016-11-25T18:33:53.000Z
     jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def:
-    timeStamp: 2016-11-25T18:33:53.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty:
-    timeStamp: 2016-11-25T18:33:53.000Z
-    jobNames: []
-    type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty:
     timeStamp: 2016-11-25T18:33:56.000Z
     jobNames: []
@@ -4573,10 +4481,6 @@ files:
     jobNames: []
     type: LaTeXStyle
   /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd:
-    timeStamp: 2016-11-25T18:33:57.000Z
-    jobNames: []
-    type: FontDescription
-  /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd:
     timeStamp: 2016-11-25T18:33:57.000Z
     jobNames: []
     type: FontDescription
@@ -4655,266 +4559,15 @@ files:
     jobNames: []
     hash: Z/GVgCISowFZuJYvFBSDepEst/G+HXRCNP7wsxkqOfs=
     type: TeX
-  Chapters/Chapter1.tex:
-    timeStamp: 2019-05-17T16:07:00.047Z
-    jobNames: []
-    hash: QMQPttlNcK+BV8wUQ01SF2xJsXHYO2PCg4Wjpvc5j48=
-    type: TeX
-  Figures/Electron.pdf:
-    timeStamp: 2008-09-13T13:28:04.000Z
-    jobNames: []
-    hash: uMQVe8Q0KxkLOJjS16bRi+AfDdOt2EbtDOcIhyJsJBg=
-    type: PortableDocumentFormat
-  MastersDoctoralThesis.cls:
-    timeStamp: 2019-05-17T17:20:19.126Z
-    jobNames: []
-    hash: dZH7UJKLUixyUUAA5+8qrVDBM2i1BNa84bCOjQkFjKg=
-    type: LaTeXClass
-  main-blx.bib:
-    timeStamp: 2019-05-22T11:43:29.602Z
-    jobNames: []
-    hash: r82CdlemyMPpsdzL/lEssjXQdHcBOvjzjFoBI7Smp3Y=
-    type: BibTeXControlFile
-  main.run.xml:
-    timeStamp: 2019-05-22T11:43:29.757Z
-    jobNames: []
-    hash: Vo+CHWjPTbJacD5zE14/XQRfFmuB8SaLKRl+hZ9uXxc=
-    type: XML
-  Appendices/AppendixA.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-23T09:38:19.288Z
-    jobNames: []
-    value:
-      commands:
-        - relax
-        - providecommand
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - newlabel
-        - '@setckpt'
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-    type: ParsedLaTeXAuxilary
-  Chapters/Chapter1.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-20T18:47:06.856Z
-    jobNames: []
-    value:
-      commands:
-        - relax
-        - providecommand
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - newlabel
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - newlabel
-        - '@writefile'
-        - '@writefile'
-        - newlabel
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - '@writefile'
-        - providecommand
-        - newlabel
-        - '@writefile'
-        - '@writefile'
-        - newlabel
-        - '@writefile'
-        - newlabel
-        - '@writefile'
-        - '@writefile'
-        - '@setckpt'
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-        - setcounter
-    type: ParsedLaTeXAuxilary
-  /usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-    type: BibTeXStyle
-  example.bib:
-    timeStamp: 2015-08-24T20:31:26.000Z
-    jobNames: []
-    hash: Mu6d/SESldD+3feWcQl54KoKMR4TW2qSPydxrlJBOJs=
-    type: BibTeXFile
-  /usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def:
-    timeStamp: 2016-11-25T18:33:50.000Z
-    jobNames: []
   Chapters/Discussion.tex:
     timeStamp: 2019-05-20T19:45:20.756Z
     jobNames: []
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-05-31T18:34:52.847Z
+    timeStamp: 2019-06-02T18:17:28.728Z
     jobNames: []
-    hash: 2ZH4mXftsPe15/fznQL0OZ8RuAjSEEEPBsAFYVFFCFc=
+    hash: yNB9jKBS06e3eRvwxy1epF/ZAJgmX70iNcy+gGi5KZw=
     type: TeX
   Chapters/Methods.tex:
     timeStamp: 2019-05-23T09:48:33.225Z
@@ -4926,8 +4579,50 @@ files:
     jobNames: []
     hash: chqDGnqC4PnJYzzCMtl94MsiVW93pmQK0qZ6eFSq+Uw=
     type: TeX
+  MastersDoctoralThesis.cls:
+    timeStamp: 2019-05-17T17:20:19.126Z
+    jobNames: []
+    hash: dZH7UJKLUixyUUAA5+8qrVDBM2i1BNa84bCOjQkFjKg=
+    type: LaTeXClass
+  Appendices/AppendixA.aux-ParsedLaTeXAuxilary:
+    timeStamp: 2019-06-02T18:37:39.762Z
+    jobNames: []
+    value:
+      commands:
+        - relax
+        - providecommand
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - newlabel
+        - '@setckpt'
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+    type: ParsedLaTeXAuxilary
   Chapters/Discussion.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T11:48:22.489Z
+    timeStamp: 2019-06-02T18:37:39.765Z
     jobNames: []
     value:
       commands:
@@ -4964,7 +4659,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-31T20:13:00.591Z
+    timeStamp: 2019-06-02T18:37:41.569Z
     jobNames: []
     value:
       commands:
@@ -5021,7 +4716,18 @@ files:
         - citation
         - citation
         - citation
+        - citation
+        - citation
+        - citation
+        - citation
         - '@writefile'
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
         - '@writefile'
         - '@writefile'
         - '@writefile'
@@ -5052,7 +4758,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Methods.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T14:23:15.055Z
+    timeStamp: 2019-06-02T18:37:39.772Z
     jobNames: []
     value:
       commands:
@@ -5100,7 +4806,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Results.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-05-22T11:48:22.487Z
+    timeStamp: 2019-06-02T18:37:39.775Z
     jobNames: []
     value:
       commands:
@@ -5139,58 +4845,15 @@ files:
         - setcounter
         - setcounter
     type: ParsedLaTeXAuxilary
-  main.pdf:
-    timeStamp: 2019-05-31T20:13:13.860Z
-    jobNames: []
-    hash: ISCr0sBJM3cxLoYLGGbw9IGqbnfmotuHq2ABeSzUMuA=
-    type: PortableDocumentFormat
   /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst:
     timeStamp: 2016-11-25T18:27:13.000Z
     jobNames: []
     type: BibTeXStyle
   mscthesis.bib:
-    timeStamp: 2019-05-31T20:12:10.635Z
+    timeStamp: 2019-06-02T18:17:43.869Z
     jobNames: []
-    hash: Hu7KiZL2YptGu1+NyuU8LbzMBF4CTBmjj3HZJPs/pFA=
+    hash: D2jXyt0usBQ/yx47eeE80ZNIbA5zU2P7ctpm/+gNhfU=
     type: BibTeXFile
-  /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx:
-    timeStamp: 2017-11-12T22:32:57.000Z
-    jobNames: []
-  main.blg-ParsedBiberLog:
-    jobNames: []
-    type: ParsedBiberLog
-  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk:
-    timeStamp: 2019-05-22T10:23:16.613Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/bibtex/bst/base/ieeetr.bst:
-    timeStamp: 2016-11-25T18:27:13.000Z
-    jobNames: []
-    type: BibTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def:
-    timeStamp: 2018-01-15T22:21:32.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg:
-    timeStamp: 2018-01-15T22:21:32.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty:
-    timeStamp: 2018-01-15T22:21:32.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ppl.cfg:
-    timeStamp: 2018-01-15T22:21:32.000Z
-    jobNames: []
-  /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty:
-    timeStamp: 2016-11-25T18:33:45.000Z
-    jobNames: []
-    type: LaTeXStyle
-  /usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst:
-    timeStamp: 2016-11-25T18:27:13.000Z
-    jobNames: []
-    type: BibTeXStyle
-  /usr/share/texlive/texmf-dist/bibtex/bst/beebe/apa.bst:
-    timeStamp: 2016-11-25T18:27:14.000Z
-    jobNames: []
-    type: BibTeXStyle
 rules:
   - name: ApplyOptions
     command: load
@@ -5284,19 +4947,7 @@ rules:
       - file: /etc/texmf/web2c/texmf.cnf
         type: default
       - file: >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1095.600pk
-        type: default
-      - file: >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecst1095.600pk
-        type: default
-      - file: >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk
-        type: default
-      - file: >-
           /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1095.600pk
-        type: default
-      - file: >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
         type: default
@@ -5322,17 +4973,9 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplro8t.tfm
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecst1095.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
         type: default
@@ -5340,21 +4983,13 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
         type: default
@@ -5367,8 +5002,6 @@ rules:
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
-        type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
         type: default
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
@@ -5393,8 +5026,6 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
         type: default
-      - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
-        type: default
       - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -5411,27 +5042,15 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
         type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-        type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
         type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-        type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
         type: default
@@ -5439,10 +5058,6 @@ rules:
           /usr/share/texlive/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
         type: default
@@ -5453,8 +5068,6 @@ rules:
       - file: /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
         type: default
@@ -5472,28 +5085,6 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
         type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-bibtex.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-natbib.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-        type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
@@ -5501,6 +5092,8 @@ rules:
       - file: /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
         type: default
@@ -5568,10 +5161,6 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
         type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
-        type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -5585,8 +5174,6 @@ rules:
       - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
         type: default
@@ -5630,8 +5217,6 @@ rules:
         type: default
       - file: Appendices/AppendixA.tex
         type: default
-      - file: Chapters/Chapter1.tex
-        type: default
       - file: Chapters/Discussion.tex
         type: default
       - file: Chapters/Introduction.tex
@@ -5640,94 +5225,11 @@ rules:
         type: default
       - file: Chapters/Results.tex
         type: default
-      - file: Figures/Electron.pdf
-        type: default
       - file: MastersDoctoralThesis.cls
-        type: default
-      - file: main.run.xml
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/alphabetic.bbx
-        type: default
-      - file: >-
-          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ppl.cfg
-        type: default
-      - file: /usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
         type: default
     outputs:
       - file: main.pdf
         type: target
-      - file: main-blx.bib
-        type: default
-      - file: main.run.xml
-        type: default
-  - name: LogProducedTargets
-    command: build
-    phase: finalize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: CheckForMissingBuildRule
-    command: build
-    phase: finalize
-    parameters:
-      - main.tex
-    inputs:
-      - file: main.tex
-        type: default
-    outputs: []
-  - name: FindLogFiles
-    command: log
-    phase: initialize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.log-ParsedLaTeXLog
-    inputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBibTeXLog
-    inputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-    outputs: []
-  - name: SaveCache
-    command: save
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: Clean
-    command: clean
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBiberLog
-    inputs:
-      - file: main.blg-ParsedBiberLog
-        type: default
-    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5755,6 +5257,24 @@ rules:
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
+  - name: BibTeX
+    command: build
+    phase: execute
+    parameters:
+      - main.aux
+      - main.aux-ParsedLaTeXAuxilary
+    inputs:
+      - file: main.aux-ParsedLaTeXAuxilary
+        type: default
+      - file: main.log-ParsedLaTeXLog
+        type: default
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
+        type: default
+      - file: mscthesis.bib
+        type: default
+    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5800,6 +5320,45 @@ rules:
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
+  - name: ParseBibTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.blg
+    inputs: []
+    outputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+  - name: LogProducedTargets
+    command: build
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: CheckForMissingBuildRule
+    command: build
+    phase: finalize
+    parameters:
+      - main.tex
+    inputs:
+      - file: main.tex
+        type: default
+    outputs: []
+  - name: FindLogFiles
+    command: log
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.log-ParsedLaTeXLog
+    inputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+    outputs: []
   - name: ParseLaTeXLog
     command: log
     phase: execute
@@ -5809,29 +5368,15 @@ rules:
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
-  - name: BibTeX
-    command: build
+  - name: ReportLogMessages
+    command: log
     phase: execute
     parameters:
-      - main.aux
-      - main.aux-ParsedLaTeXAuxilary
+      - main.blg-ParsedBibTeXLog
     inputs:
-      - file: main.aux-ParsedLaTeXAuxilary
-        type: default
-      - file: main.log-ParsedLaTeXLog
-        type: default
       - file: main.blg-ParsedBibTeXLog
         type: default
     outputs: []
-  - name: ParseBibTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.blg
-    inputs: []
-    outputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
   - name: ParseBibTeXLog
     command: log
     phase: execute
@@ -5841,3 +5386,15 @@ rules:
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
+  - name: SaveCache
+    command: save
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: Clean
+    command: clean
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []

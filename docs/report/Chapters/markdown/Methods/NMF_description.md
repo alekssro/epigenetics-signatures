@@ -1,7 +1,3 @@
-% Chapter Template
-
-\chapter{Methods}\label{Methods} % for referencing this chapter elsewhere, use \ref{Methods}
-
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
