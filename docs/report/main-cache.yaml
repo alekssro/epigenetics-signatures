@@ -13,7 +13,6 @@ options:
   cleanPatterns:
     - '**/*.aux'
     - '**/*.aux.bak'
-    - '**/*.bbl'
     - '**/*.bcf'
     - '**/*.blg'
     - '**/*.dvi'
@@ -69,7 +68,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-06-02T18:37:38.486Z
+    timeStamp: 2019-06-04T16:04:54.440Z
     jobNames: []
     value:
       severity: info
@@ -86,7 +85,7 @@ files:
     value: {}
     type: ParsedLaTeXMagic
   /home/alekssro/.config/dicy/config.yaml-ParsedYAML:
-    timeStamp: 2019-06-02T18:37:38.517Z
+    timeStamp: 2019-06-04T16:05:45.465Z
     jobNames: []
     value:
       synctex: true
@@ -98,7 +97,6 @@ files:
       cleanPatterns:
         - '**/*.aux'
         - '**/*.aux.bak'
-        - '**/*.bbl'
         - '**/*.bcf'
         - '**/*.blg'
         - '**/*.dvi'
@@ -126,20 +124,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-06-02T18:18:04.645Z
+    timeStamp: 2019-06-04T16:04:45.045Z
     jobNames: []
-    hash: aCj2y0y2d9UC5jx5vK/XfQw0XJ2ZUT1bzadwQt4/Dlg=
+    hash: 6ZqZ8a9QL+W0mHpWgxnZvWm++dUgiXYfMD9bT60X4BY=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-06-02T17:21:07.289Z
+    timeStamp: 2019-06-04T16:06:55.688Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-06-02T18:37:40.618Z
+    timeStamp: 2019-06-04T16:05:47.333Z
     jobNames: []
     value:
       messages: []
@@ -174,6 +172,7 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
         - >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
@@ -186,6 +185,7 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplri8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+        - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         - /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         - /usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
@@ -317,7 +317,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-06-02T18:37:42.491Z
+    timeStamp: 2019-06-04T16:05:48.867Z
     jobNames: []
     value:
       messages:
@@ -3927,8 +3927,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1772
-              end: 1772
+              start: 1777
+              end: 1777
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3941,8 +3941,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1774
-              end: 1774
+              start: 1779
+              end: 1779
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3955,8 +3955,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1788
-              end: 1788
+              start: 1793
+              end: 1793
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3969,8 +3969,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1789
-              end: 1789
+              start: 1794
+              end: 1794
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
@@ -3982,20 +3982,20 @@ files:
           log:
             file: main.log
             range:
-              start: 1790
-              end: 1791
+              start: 1795
+              end: 1796
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.pdf:
-    timeStamp: 2019-06-02T18:37:42.414Z
+    timeStamp: 2019-06-04T16:05:48.783Z
     jobNames: []
-    hash: 5an13Xws+G1sxT4/5TspxykYW+9Ey2+tFpiGIDwX4YU=
+    hash: O9MM3PYvmTR59sw6VnMXW5FVMtu8xM5OLOnvWcp6NSo=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-02T18:37:40.552Z
+    timeStamp: 2019-06-04T16:05:47.267Z
     jobNames: []
     value:
       commands:
@@ -4026,6 +4026,8 @@ files:
         - '@input'
         - bibstyle
         - bibdata
+        - bibcite
+        - bibcite
         - bibcite
         - bibcite
         - bibcite
@@ -4565,9 +4567,9 @@ files:
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-06-02T18:17:28.728Z
+    timeStamp: 2019-06-04T15:57:22.144Z
     jobNames: []
-    hash: yNB9jKBS06e3eRvwxy1epF/ZAJgmX70iNcy+gGi5KZw=
+    hash: EjoIYL5FpTAumera7Jr3UsCa0F2LsRv9JIcKDA+1+7M=
     type: TeX
   Chapters/Methods.tex:
     timeStamp: 2019-05-23T09:48:33.225Z
@@ -4659,7 +4661,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-02T18:37:41.569Z
+    timeStamp: 2019-06-04T16:05:48.829Z
     jobNames: []
     value:
       commands:
@@ -4709,6 +4711,16 @@ files:
         - citation
         - citation
         - citation
+        - '@writefile'
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
+        - citation
         - citation
         - citation
         - '@writefile'
@@ -4719,17 +4731,12 @@ files:
         - citation
         - citation
         - citation
-        - citation
-        - '@writefile'
-        - citation
-        - citation
-        - citation
-        - citation
-        - citation
-        - citation
-        - citation
         - '@writefile'
         - '@writefile'
+        - citation
+        - citation
+        - citation
+        - citation
         - '@writefile'
         - '@setckpt'
         - setcounter
@@ -4850,10 +4857,26 @@ files:
     jobNames: []
     type: BibTeXStyle
   mscthesis.bib:
-    timeStamp: 2019-06-02T18:17:43.869Z
+    timeStamp: 2019-06-04T16:04:04.868Z
     jobNames: []
-    hash: D2jXyt0usBQ/yx47eeE80ZNIbA5zU2P7ctpm/+gNhfU=
+    hash: PeG9Nd8UbhbFbsM81P7O9B9mHUZ9Mvz1lgpHXC0Nne4=
     type: BibTeXFile
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  main.blg:
+    timeStamp: 2019-06-04T16:05:13.667Z
+    jobNames: []
+    hash: NcxRQ/qjnj+ba1ad52IzM04Jh+tM5YJstb7eyex7mAA=
+    type: BibTeXLog
+    subType: BibTeX
+  main.bbl:
+    timeStamp: 2019-06-04T16:05:13.667Z
+    jobNames: []
+    hash: hslx8SCDnjlS3IZogKviYnqLf5X/4wHlUXq/jjHdXqE=
 rules:
   - name: ApplyOptions
     command: load
@@ -5003,6 +5026,8 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
         type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+        type: default
       - file: >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
         type: default
@@ -5025,6 +5050,8 @@ rules:
       - file: /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
         type: default
       - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         type: default
@@ -5227,6 +5254,8 @@ rules:
         type: default
       - file: MastersDoctoralThesis.cls
         type: default
+      - file: main.bbl
+        type: default
     outputs:
       - file: main.pdf
         type: target
@@ -5257,24 +5286,6 @@ rules:
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
-  - name: BibTeX
-    command: build
-    phase: execute
-    parameters:
-      - main.aux
-      - main.aux-ParsedLaTeXAuxilary
-    inputs:
-      - file: main.aux-ParsedLaTeXAuxilary
-        type: default
-      - file: main.log-ParsedLaTeXLog
-        type: default
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
-        type: default
-      - file: mscthesis.bib
-        type: default
-    outputs: []
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5325,7 +5336,9 @@ rules:
     phase: execute
     parameters:
       - main.blg
-    inputs: []
+    inputs:
+      - file: main.blg
+        type: default
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
@@ -5359,15 +5372,6 @@ rules:
       - file: main.log-ParsedLaTeXLog
         type: default
     outputs: []
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
   - name: ReportLogMessages
     command: log
     phase: execute
@@ -5377,12 +5381,23 @@ rules:
       - file: main.blg-ParsedBibTeXLog
         type: default
     outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
   - name: ParseBibTeXLog
     command: log
     phase: execute
     parameters:
       - main.blg
-    inputs: []
+    inputs:
+      - file: main.blg
+        type: default
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default

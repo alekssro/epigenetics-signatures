@@ -24,8 +24,21 @@ Although the number of identified signatures was five, further on this number go
 
 \subsection{NMF and epigenetics}
 
-Application of NMF to epigenetics,
+The epigenetic modeling techniques explained before have shown the possibility to find genome-wide chromatin states based on the partition of the DNA. Nevertheless, they make the assumption that a small set of these chromatin states would be sufficient to describe the genomic expression, whereas several hundreds chromatin states have been estimated even with a small set of epigenetic marks used \cite{Ucar2011}. In addition, chromatin modifications tend to be highly correlated, hampering the task of assessing the importance of the chromatin marks and relating them to the biological mechanisms. NMF can be used in order to overcome these downsides by identifying combinatorial patterns of chromatin states. 
 
-Explain the use of Gandolfi, 2017 as guidance an explain differences
+\medskip
 
-Gandolfi, Francesco, and Anna Tramontano. ``A computational approach for the functional classification of the epigenome.''
+This application was initially presented as a way to get combinatorial patterns of epigenetic marks from integrated epigenetic data sets \cite{Cieslik2014}. They characterized a small amount of combinatorial patterns, which could be displayed and interpreted, were statistically capable of regression and classification tasks. Each row of the $V$ matrix represents 2 kbp of regions flanking Transcription Start Sites (TSS) and columns represent the epigenetic marks used. In a case study for regression of \textit{Pol2} binding, ten epigenetic marks were used to identify seven quantitative epigenetic patterns. Using the 7 chromatin patterns in a regression model yield a performance of $r^2 = 0.85$, matching the one obtained by using 10 epigenetic marks but solving multicollinearity problems. 
+
+\medskip
+
+Later on, functional classification of the epigenome was performed by adding more epigenetic marks and in this case, segmenting the DNA into 200 bp regions as an attempt to resemble one nucleosome with each 200-bp bin \cite{Gandolfi2017}. NMF was here applied to 13 different epigenetic marks over 833,738 significant bins in human embryonic stem cells, finding 7 epigenetic signals or chromatin profiles. These seven epigenetic signals were then labeled based on the related biological process and then used for a wide range of tasks: study the genomic distribution of the signatures, investigate their recovery power on genomic features, association with the gene expression...
+
+\medskip
+
+Over the present analysis, aspects of these previous analysis have been reproduced, adopting the processing of the data scheme \{Gandolfi2017}, segmenting the genome into 200-bp bins and extending the analysis to three cancer cell types for which eleven common epigenetic marks were available. Results show that there are similar chromatin signatures found for these tissues, suggesting a possible generalization of the chromatin profiles in normal and cancer cells.
+
+
+
+In order to achieve this, we need to map epigenetic modification reads (from Bisulfite-seq; DNA methylations, or ChIP-seq; histone modifications) into the human genome, specifically into genes and flanking/regulatory regions, which are the ones of interest. In this way we would obtain the counts of each epigenetic modification for different tissues. Non-negative Matrix Factorization (NMF) reveals as an ideal method for the task of finding combinatorial patterns of epigenetic modifications. We can then study the state of each epigenetic modification type in the defined loci of the tissue. From this information we would obtain the different epigenetic signatures which we will use for association and simulation analysis.
+
