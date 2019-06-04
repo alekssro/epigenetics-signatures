@@ -101,22 +101,38 @@ ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) +
     geom_tile(aes(fill = value), colour = "white") +
     scale_fill_gradient(low = "white", high = "steelblue")
 
-ggplot(H_m, aes(Mark, Signature)) + 
-    geom_tile(aes(fill = rescale(value, to = c(0, 0.5))), colour = "white") +
-    scale_fill_gradient(low = "lightsteelblue", high = "royalblue2")
 
+W <- W_HelaS3
+colnames(W) <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
+                 "Signature 5", "Signature 6", "Signature 7")
+
+heatmap(W, scale = "row", Rowv = NA, Colv = NA)
+
+W_m <- melt(W, varnames = c("Bin", "Signature"))
+
+ggplot(data = W_m, aes(x=Bin, y=Signature, fill=value)) + 
+    geom_tile(aes(fill = value), colour = "white") +
+    scale_fill_gradient(low = "white", high = "steelblue")
 
 ############
 # Lines  ###
 ############
 
-ggplot(NULL) + 
-    geom_line(mapping = aes(x = 1:10, W[1:length(W[,1]),1], color = "Signature 1")) + 
-    geom_line(mapping = aes(x = 1:10, W[1:length(W[,1]),2], color = "Signature 2")) + 
+# Get maximum load signature for each bin
+max_per_bin <- apply(W_HelaS3, 1, which.max)
+grouped_bins <- matrix(max_per_bin, nrow = ceiling(length(max_per_bin)/10))
+max_per_group <- apply(grouped_bins, 1, function(x){
+    as.numeric(names(which.max(table(x))))})
+
+p <- ggplot(NULL) + 
+    geom_step(mapping = aes(x = 1:length(max_per_group), y = max_per_group, color = "Signature 1")) + 
+    # geom_line(mapping = aes(x = 1:nrow(W_HelaS3), W_HelaS3[1:length(W_HelaS3[,1]),2], color = "Signature 2")) + 
     theme_minimal() +
-    xlab("Patient") + ylab('Mutation Load') +
+    xlab("Bin Position") + ylab('Predominant Epigenetic Load') +
+    xlim(c(0, 10000))
     ggtitle('Mutation Load for all patients towards each signature')
 
+p
 
 #######################################
 #   PLOTS FROM PROJECT              ###
