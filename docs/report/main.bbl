@@ -22,6 +22,13 @@ B{\"{a}}ckdahl, L., Bushell, A., and Beck, S. (2009).
 \newblock {Inflammatory signalling as mediator of epigenetic modulation in
   tissue-specific chronic inflammation}.
 
+\bibitem[Badea, 2008]{Badea2008}
+Badea, L. (2008).
+\newblock {Extracting gene expression profiles common to colon and pancreatic
+  adenocarcinoma using simultaneous nonnegative matrix factorization.}
+\newblock {\em Pacific Symposium on Biocomputing. Pacific Symposium on
+  Biocomputing}.
+
 \bibitem[Barneda-Zahonero and Parra, 2012]{Barneda-Zahonero2012}
 Barneda-Zahonero, B. and Parra, M. (2012).
 \newblock {Histone deacetylases and cancer}.
@@ -233,6 +240,12 @@ Kim, P.~M. and Tidor, B. (2003).
   large-scale gene expression data}.
 \newblock {\em Genome Research}.
 
+\bibitem[Lee and Seung, 2001]{Lee2001}
+Lee, D. and Seung, S. (2001).
+\newblock {Algorithms for Non-negative Matrix Factorization}.
+\newblock {\em Advances in Neural Information Processing Systems 13},
+  1(1):556--562.
+
 \bibitem[Lee and Seung, 1999]{Lee1999}
 Lee, D.~D. and Seung, H.~S. (1999).
 \newblock {Learning the parts of objects by non-negative matrix factorization}.
@@ -269,6 +282,12 @@ Partridge, J.~F., Scott, K.~S., Bannister, A.~J., Kouzarides, T., and Allshire,
   methylation and recruitment of silencing factors and cohesin to an ectopic
   site}.
 \newblock {\em Current Biology}.
+
+\bibitem[Pascual-Montano et~al., 2006]{Pascual-Montano2006}
+Pascual-Montano, A., Carazo, J.~M., Kochi, K., Lehmann, D., and Pascual-Marqui,
+  R.~D. (2006).
+\newblock {Nonsmooth nonnegative matrix factorization (nsNMF)}.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}.
 
 \bibitem[Ramakrishna et~al., 2012]{Ramakrishna2012}
 Ramakrishna, M., Hinton, J., Alexandrov, L., and et~al. (2012).

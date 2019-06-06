@@ -68,7 +68,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-06-04T16:04:54.440Z
+    timeStamp: 2019-06-06T12:39:43.559Z
     jobNames: []
     value:
       severity: info
@@ -124,20 +124,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-06-04T16:04:45.045Z
+    timeStamp: 2019-06-06T12:47:36.763Z
     jobNames: []
     hash: 6ZqZ8a9QL+W0mHpWgxnZvWm++dUgiXYfMD9bT60X4BY=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-06-04T16:06:55.688Z
+    timeStamp: 2019-06-06T12:39:43.571Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-06-04T16:05:47.333Z
+    timeStamp: 2019-06-06T12:44:33.479Z
     jobNames: []
     value:
       messages: []
@@ -159,6 +159,7 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplro8t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1095.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
@@ -166,15 +167,20 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmbb.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+        - >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
         - >-
           /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb
+        - /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
         - /usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
@@ -186,6 +192,7 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/vf/adobe/palatino/pplro8t.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
+        - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
         - /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         - /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         - /usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
@@ -267,6 +274,7 @@ files:
         - /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
         - /usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
         - /usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
+        - /usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
         - /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
         - >-
           /usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
@@ -317,7 +325,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-06-04T16:05:48.867Z
+    timeStamp: 2019-06-06T14:35:19.623Z
     jobNames: []
     value:
       messages:
@@ -3904,6 +3912,20 @@ files:
         - severity: info
           name: pdfTeX
           category: LaTeX Font
+          text: Try loading font information for U+fplmbb
+          source:
+            file: Chapters/Introduction.tex
+            range:
+              start: 117
+              end: 117
+          log:
+            file: main.log
+            range:
+              start: 1693
+              end: 1694
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
           text: Try loading font information for T1+cmtt
           source:
             file: Chapters/Methods.tex
@@ -3913,8 +3935,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1705
-              end: 1705
+              start: 1710
+              end: 1710
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3927,8 +3949,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1777
-              end: 1777
+              start: 1787
+              end: 1787
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3941,8 +3963,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1779
-              end: 1779
+              start: 1789
+              end: 1789
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3955,8 +3977,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1793
-              end: 1793
+              start: 1803
+              end: 1803
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3969,33 +3991,33 @@ files:
           log:
             file: main.log
             range:
-              start: 1794
-              end: 1794
+              start: 1804
+              end: 1804
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            99EF020FB7C269666790119880EFE515;3605.
+            E32B101396FBAFFD7A4D601C44CB6B45;3736.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 1795
-              end: 1796
+              start: 1805
+              end: 1806
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.pdf:
-    timeStamp: 2019-06-04T16:05:48.783Z
+    timeStamp: 2019-06-06T14:35:19.530Z
     jobNames: []
-    hash: O9MM3PYvmTR59sw6VnMXW5FVMtu8xM5OLOnvWcp6NSo=
+    hash: PaUQdl3UsQCLuAuNnhqlh1yrFeH3Cj3fqHpjTpMn+/c=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-04T16:05:47.267Z
+    timeStamp: 2019-06-06T12:47:24.852Z
     jobNames: []
     value:
       commands:
@@ -4085,9 +4107,12 @@ files:
         - bibcite
         - bibcite
         - bibcite
+        - bibcite
+        - bibcite
+        - bibcite
     type: ParsedLaTeXAuxilary
   main.blg-ParsedBibTeXLog:
-    timeStamp: 2019-06-02T18:37:39.759Z
+    timeStamp: 2019-06-06T12:39:45.951Z
     jobNames: []
     value:
       messages: []
@@ -4567,9 +4592,9 @@ files:
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-06-04T15:57:22.144Z
+    timeStamp: 2019-06-06T14:35:12.601Z
     jobNames: []
-    hash: EjoIYL5FpTAumera7Jr3UsCa0F2LsRv9JIcKDA+1+7M=
+    hash: RSsEwK9vzwRw6cyXqNRq1sHzYoN+FcsOrAmAk64VoiI=
     type: TeX
   Chapters/Methods.tex:
     timeStamp: 2019-05-23T09:48:33.225Z
@@ -4661,7 +4686,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-04T16:05:48.829Z
+    timeStamp: 2019-06-06T14:33:39.797Z
     jobNames: []
     value:
       commands:
@@ -4720,6 +4745,10 @@ files:
         - citation
         - citation
         - citation
+        - '@writefile'
+        - citation
+        - citation
+        - citation
         - citation
         - citation
         - citation
@@ -4731,8 +4760,11 @@ files:
         - citation
         - citation
         - citation
+        - citation
+        - citation
         - '@writefile'
         - '@writefile'
+        - citation
         - citation
         - citation
         - citation
@@ -4857,9 +4889,9 @@ files:
     jobNames: []
     type: BibTeXStyle
   mscthesis.bib:
-    timeStamp: 2019-06-04T16:04:04.868Z
+    timeStamp: 2019-06-06T12:47:07.202Z
     jobNames: []
-    hash: PeG9Nd8UbhbFbsM81P7O9B9mHUZ9Mvz1lgpHXC0Nne4=
+    hash: Lwp+q0WyOObzG9uiCed430ZsyGomgVAD+PlmPvEuEYo=
     type: BibTeXFile
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
@@ -4867,16 +4899,32 @@ files:
   /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
-  main.blg:
-    timeStamp: 2019-06-04T16:05:13.667Z
-    jobNames: []
-    hash: NcxRQ/qjnj+ba1ad52IzM04Jh+tM5YJstb7eyex7mAA=
-    type: BibTeXLog
-    subType: BibTeX
   main.bbl:
-    timeStamp: 2019-06-04T16:05:13.667Z
+    timeStamp: 2019-06-06T14:33:39.868Z
     jobNames: []
-    hash: hslx8SCDnjlS3IZogKviYnqLf5X/4wHlUXq/jjHdXqE=
+    hash: mm89/tXL8hYwmh/pDtGd8j13It0av+NM+UEUDGoQC/g=
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmbb.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb:
+    timeStamp: 2016-11-25T18:32:22.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb:
+    timeStamp: 2016-11-25T18:32:22.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
 rules:
   - name: ApplyOptions
     command: load
@@ -5256,9 +5304,111 @@ rules:
         type: default
       - file: main.bbl
         type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmbb.tfm
+        type: default
+      - file: >-
+          /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+        type: default
     outputs:
       - file: main.pdf
         type: target
+  - name: ParseBibTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.blg
+    inputs: []
+    outputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+  - name: LogProducedTargets
+    command: build
+    phase: finalize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: CheckForMissingBuildRule
+    command: build
+    phase: finalize
+    parameters:
+      - main.tex
+    inputs:
+      - file: main.tex
+        type: default
+    outputs: []
+  - name: FindLogFiles
+    command: log
+    phase: initialize
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.log-ParsedLaTeXLog
+    inputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+    outputs: []
+  - name: ReportLogMessages
+    command: log
+    phase: execute
+    parameters:
+      - main.blg-ParsedBibTeXLog
+    inputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+    outputs: []
+  - name: ParseBibTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.blg
+    inputs: []
+    outputs:
+      - file: main.blg-ParsedBibTeXLog
+        type: default
+  - name: SaveCache
+    command: save
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: Clean
+    command: clean
+    phase: execute
+    parameters: []
+    inputs: []
+    outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5276,15 +5426,6 @@ rules:
     inputs: []
     outputs:
       - file: main.fls-ParsedFileListing
-        type: default
-  - name: ParseLaTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
         type: default
   - name: ParseLaTeXAuxilary
     command: build
@@ -5331,85 +5472,23 @@ rules:
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
-  - name: ParseBibTeXLog
+  - name: BibTeX
     command: build
     phase: execute
     parameters:
-      - main.blg
+      - main.aux
+      - main.aux-ParsedLaTeXAuxilary
     inputs:
-      - file: main.blg
+      - file: main.aux-ParsedLaTeXAuxilary
         type: default
-    outputs:
-      - file: main.blg-ParsedBibTeXLog
-        type: default
-  - name: LogProducedTargets
-    command: build
-    phase: finalize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: CheckForMissingBuildRule
-    command: build
-    phase: finalize
-    parameters:
-      - main.tex
-    inputs:
-      - file: main.tex
-        type: default
-    outputs: []
-  - name: FindLogFiles
-    command: log
-    phase: initialize
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.log-ParsedLaTeXLog
-    inputs:
       - file: main.log-ParsedLaTeXLog
         type: default
-    outputs: []
-  - name: ReportLogMessages
-    command: log
-    phase: execute
-    parameters:
-      - main.blg-ParsedBibTeXLog
-    inputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
-    outputs: []
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
+      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
         type: default
-  - name: ParseBibTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.blg
-    inputs:
-      - file: main.blg
+      - file: mscthesis.bib
         type: default
     outputs:
-      - file: main.blg-ParsedBibTeXLog
+      - file: main.bbl
         type: default
-  - name: SaveCache
-    command: save
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
-  - name: Clean
-    command: clean
-    phase: execute
-    parameters: []
-    inputs: []
-    outputs: []
