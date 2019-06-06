@@ -30,10 +30,12 @@ or minimizing the divergence between \(V\) and \(WH\),
     D(V \vert \vert WH) = \sum_{ij}\left(V_{ij} \log \frac{V_{ij}}{(WH)_{ij}} - V_{ij} + (WH)_{ij} \right)
 \end{equation}
 
-as in both cases, the measure is lower bounded by zero and minimizes when \(V = WH\). Once the cost function for the minimization was defined, multiplicative rules were proposed as the procedure to update \(W\) and \(H\). A compelling property of the approximation is that (1.1) can be reformulated in a row or column-wise manner:
+as in both cases, the measure is lower bounded by zero and minimizes when \(V = WH\). Once the cost function for the minimization was defined, multiplicative rules were proposed as the procedure to update \(W\) and \(H\). A compelling property of the approximation is that (1.1) can be reformulated in a column or row-wise manner:
 
--  \(v \approx Wh\) when \(v\) represents a column in \(V\), \(v = (V_{1n}, \ldots , V_{Mn}) \in \mathbb{R}^M\), and \(h\) a column in \(H\), \(h = (H_{1n}, \ldots , H_{Kn}) \in \mathbb{R}^K\)
-- \(v \approx wH\) when \(v\) represents a row in \(V\), \(v = (V_{1m}, \ldots , V_{Nm}) \in \mathbb{R}^N\) and \(w\) a row in \(W\) \(w = (W_{1m}, \ldots , W_{Km}) \in \mathbb{R}^K\)
+\begin{enumerate}
+    \item Update columns in \(H\): \(v \approx Wh\) when \(v\) represents a column in \(V\), \[v = (V_{1n}, \ldots , V_{Mn}) \in \mathbb{R}^M\], and \(h\) a column in \(H\), \[h = (H_{1n}, \ldots , H_{Kn}) \in \mathbb{R}^K\]
+    \item Update rows in \(W\): \(v \approx wH\) when \(v\) represents a row in \(V\), \[v = (V_{1m}, \ldots , V_{Nm}) \in \mathbb{R}^N\] and \(w\) a row in \(W\) \[w = (W_{1m}, \ldots , W_{Km}) \in \mathbb{R}^K\]
+\end{enumerate}
 
 Therefore, it is possible to iteratively update rows in \(W\) and then columns in \(H\). The multiplicative updates for \(H\) and \(W\) in the euclidean distance minimization were described with the next form \cite{Lee2001}:
 
