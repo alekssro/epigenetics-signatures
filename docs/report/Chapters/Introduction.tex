@@ -85,7 +85,7 @@ In the first case, the segments used as rows correspond to multiple regions of T
 
 \section{Non-negative Matrix Factorization}
 
-Non-negative matrix Factorization reveals as a method to learn parts or components from high-dimensional data. In contrast to other matrix factorization methods such as Principal Component Analysis (PCA) or Vector Quantization (VQ), NMF does not learn holistic but part-based representations. In addition, NMF is constrained to have positive values as only additive combinations are considered \cite{Lee1999}. Basically, NMF consists on an approximation of an \(m \times n\) \(V\) matrix by the matrix multiplication of \(W\)(\(m \times k\)) and \(H\) (\(k \times n\)).
+Non-negative matrix Factorization reveals as a method to learn parts or components from high-dimensional data. In contrast to other matrix factorization methods such as Principal Component Analysis (PCA) or Vector Quantization (VQ), NMF does not learn holistic but part-based representations. In addition, NMF is constrained to have positive values as only additive combinations are considered \cite{Lee1999}. Basically, NMF consists on an approximation of an \(m \times n\) \(V\) matrix by the matrix multiplication of \(W\) (\(m \times k\)) and \(H\) (\(k \times n\)).
 
 \begin{equation}
     V \approx W \times H
@@ -113,10 +113,10 @@ or minimizing the divergence between \(V\) and \(WH\),
 
 as in both cases, the measure is lower bounded by zero and minimizes when \(V = WH\). Once the cost function for the minimization was defined, multiplicative rules were proposed as the procedure to update \(W\) and \(H\). A compelling property of the approximation is that (1.1) can be reformulated in a column or row-wise manner:
 
-\begin{enumerate}
+\begin{itemize}
     \item Update columns in \(H\): \(v \approx Wh\) when \(v\) represents a column in \(V\), \[v = (V_{1n}, \ldots , V_{Mn}) \in \mathbb{R}^M\], and \(h\) a column in \(H\), \[h = (H_{1n}, \ldots , H_{Kn}) \in \mathbb{R}^K\]
     \item Update rows in \(W\): \(v \approx wH\) when \(v\) represents a row in \(V\), \[v = (V_{1m}, \ldots , V_{Nm}) \in \mathbb{R}^N\] and \(w\) a row in \(W\) \[w = (W_{1m}, \ldots , W_{Km}) \in \mathbb{R}^K\]
-\end{enumerate}
+\end{itemize}
 
 Therefore, it is possible to iteratively update rows in \(W\) and then columns in \(H\). The multiplicative updates for \(H\) and \(W\) in the euclidean distance minimization were described with the next form \cite{Lee2001}:
 

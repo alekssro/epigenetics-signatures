@@ -6,16 +6,35 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{NMF description}
+\section{NMF}
 
-Explain the statistical framework in detail
+Non-Negative Matrix Factorization is the statistical framework in which this analysis is based on. Given a non-negative matrix \(V\), NMF is an unsupervised learning method which tries to find non-negative matrix factors \(W\) and \(H\) such that
+
+\begin{equation}
+     V \approx W \times H.
+\end{equation}
+
+The epigenetic data used, described in a later section, fulfills the precondition of non-negativity of the data. The \(V\) matrix used in the analysis is composed by 200-bp bins as rows and the epigenetic marks as columns. We are investigating the possibility of finding \(k\) signatures which will summarize combinatorial patterns of the data to the epigenetic marks by means of the \(H\) matrix and to the genome-wide bins by means of the \(W\) matrix.
+
+\medskip
+
+In order to perform the analysis, the \(V\) matrix was loaded into R environment and concretely the Rpackage \textit{NMF} was used \cite{Gaujoux2010}. The package used was select for consistency with previous similar studies \cite{Gandolfi2017} and seeing that attempts to implement the algorithm resulted in more time-consuming alternatives. Rpackage \textit{NMF} offers a framework with several NMF algorithms, including the ones explained in a previous section, from which \texttt{brunet} option was chosen. This algorithm is based on Kullback-Leibler divergence and matches the one described in \cite{Lee2001} and used in \cite{Brunet2004}, enhanced to avoid numerical overflow.
 
 %-----------------------------------
 %	SUBSECTION 1
 %-----------------------------------
-\subsection{Algorithms}
+\subsection{Algorithm}
 
-Explain the different types of algorithms to solve the problem and the one used.
+Passed on a non-negative matrix \(V\) of \(m \times n\) size and a chosen number of \(k\) signatures, \texttt{brunet} implementation will find the approximation \(V \approx WH\).
+
+\begin{enumerate}
+    \item First, both \(W\) and \(H\) matrices are randomly initialized.
+    \item Then, every row in \(W\) is updated according to the correspondent multiplicative update rules mentioned in (1.7).
+    \item Every column in \(H\) is updated according to (1.6).
+    \item Repeat steps 2 and 3 until the default convergence criteria is reached.
+\end{enumerate}
+
+The stopping or convergence criteria for the NMF algorithm can be based on a fixed number of iterations or the invariability of the target values \[( \vert \vert WH \vert \vert  )_t = ( \vert \vert WH \vert \vert  )_{t+1}.\] Since no fixed number of iterations was assumed, the stopping criteria for the analysis was the invariability of the \(WH\) matrix multiplication, which means there were different number of iterations when NMF was applied to the alternative tissues, varying between 350-600 iterations. The implementation in \textit{NMF} package includes parallel computations to speed up the process.
 
 %-----------------------------------
 %	SUBSECTION 2
@@ -27,16 +46,6 @@ Explain different ways to choose N, the way used, the N used and why.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 2
-%----------------------------------------------------------------------------------------
-
-\section{Bio Justification}
-
-[Change title]
-
-Explain the relation between signatures found in NMF and biological processes
-
-%----------------------------------------------------------------------------------------
-%	SECTION 3
 %----------------------------------------------------------------------------------------
 
 \section{Data}

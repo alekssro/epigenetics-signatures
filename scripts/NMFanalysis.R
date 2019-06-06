@@ -39,7 +39,7 @@ order <- c("H3K27me3", "H3K9me3", "CTCF", "H3K27ac", "POLR2A", "H3K36me3", "H3K4
 # NFM on Hela-S3 V matrix
 ##########################################################
 
-infile <- "results/genomic_survey/Hela-S3//filteredV.csv"
+infile <- "results/genomic_survey/Hela-S3/filteredV.csv"
 
 V_mat <- read.csv(infile, header = T)
 numeric_cols <- 1:(ncol(V_mat) - 2)
@@ -54,7 +54,7 @@ W_HelaS3 <- nmf_HelaS3@fit@W
 # NFM on HepG2 V matrix
 ##########################################################
 
-infile <- "results/genomic_survey/HepG2//filteredV.csv"
+infile <- "results/genomic_survey/HepG2/filteredV.csv"
 
 V_mat <- read.csv(infile, header = T)
 numeric_cols <- 1:(ncol(V_mat) - 2)
@@ -69,7 +69,7 @@ W_HepG2 <- nmf_HepG2@fit@W
 # NFM on K562 V matrix
 ##########################################################
 
-infile <- "results/genomic_survey/K562//filteredV.csv"
+infile <- "results/genomic_survey/K562/filteredV.csv"
 
 V_mat <- read.csv(infile, header = T)
 numeric_cols <- 1:(ncol(V_mat) - 2)
@@ -119,7 +119,7 @@ ggplot(data = W_m, aes(x=Bin, y=Signature, fill=value)) +
 ############
 
 # Get maximum load signature for each bin
-max_per_bin <- apply(W_HelaS3, 1, which.max)
+max_per_bin <- apply(W_HelaS3[chr1, ], 1, which.max)
 grouped_bins <- matrix(max_per_bin, nrow = ceiling(length(max_per_bin)/10))
 max_per_group <- apply(grouped_bins, 1, function(x){
     as.numeric(names(which.max(table(x))))})
@@ -129,7 +129,7 @@ p <- ggplot(NULL) +
     # geom_line(mapping = aes(x = 1:nrow(W_HelaS3), W_HelaS3[1:length(W_HelaS3[,1]),2], color = "Signature 2")) + 
     theme_minimal() +
     xlab("Bin Position") + ylab('Predominant Epigenetic Load') +
-    xlim(c(0, 10000))
+    xlim(c(0, 10000)) +
     ggtitle('Mutation Load for all patients towards each signature')
 
 p

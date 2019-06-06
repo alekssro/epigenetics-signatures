@@ -151,6 +151,11 @@ Gandolfi, F. and Tramontano, A. (2017).
   epigenome}.
 \newblock {\em Epigenetics and Chromatin}, 10(1):1--24.
 
+\bibitem[Gaujoux and Seoighe, 2010]{Gaujoux2010}
+Gaujoux, R. and Seoighe, C. (2010).
+\newblock {A flexible R package for nonnegative matrix factorization}.
+\newblock {\em BMC Bioinformatics}.
+
 \bibitem[Goldberg et~al., 2007]{Goldberg2007}
 Goldberg, A.~D., Allis, C.~D., and Bernstein, E. (2007).
 \newblock {Epigenetics: A Landscape Takes Shape}.
