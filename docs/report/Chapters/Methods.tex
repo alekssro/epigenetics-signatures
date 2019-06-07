@@ -42,22 +42,34 @@ The stopping or convergence criteria for the NMF algorithm can be based on a fix
 
 \subsection{Choosing number of signatures}
 
-Explain different ways to choose N, the way used, the N used and why.
+In order to apply NMF to the data we foremost need to choose a suitable \(k\) number of signatures, also called rank. The number of clusters defined will largely influence the results and the explanation of them, therefore it is highly important to find the optimal number to produce ``meaningful'' clusters \cite{Brunet2004}. As explained in previous sections, there is no standard procedure to find the best \(k\) number. Therefore, an additional matrix was created with randomly permuted values from the original \(V\) matrix, which we will refer to as ``random'' \(V_R\) matrix. The \(V_R\) matrix is composed of the same values as \(V\) but column-wise permuted, meaning that the presumed chromatic patterns would not be able to be recognized.
+
+\medskip
+
+To compare the performance of NMF using different \(k\) values, the analysis is performed using values from 2 to 10 and then compared the reconstruction errors of the resultant models. As the NMF factorized matrix can vary from one run to another, the process is repeated 30 times and the results can be seen in [INSERT CROSS-REFERENCE].
+
+\medskip
+
+[INSERT CHOOSE N PLOT]
+
+\medskip
+
+As we can see from the results, for the same \(k\) value, the NMF model produces worst results for the \(V_R\) matrix as well as more variable results. Nevertheless, there is a \(k\) value for which the plots intersect due to the model being over-fitted. We chose \(k = 7\) because it is the value for which the reconstruction error is the lowest possible before modeling the noise in the data.
 
 %----------------------------------------------------------------------------------------
-%	SECTION 2
+%	SECTION 3
 %----------------------------------------------------------------------------------------
 
 \section{Data}
 
-The data used in this study is obtained entirely from the ENCODE project database \cite{Feingold2004}, where multiple epigenetic marks and reference epigenomes are available. Data sets from 11 types of epigenetic marks were collected, including histone modifications (H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3 and H3K9ac), chromatin remodeling proteins (EP300 and H2A.Z) and transcription regulation factors (CTCF, POLR2A). Replicate samples for each of the 11 epigenetic marks were used in the three cell lines of study, which includes a human liver cancer cell line (HepG2) \cite{Aden1979}, myelogenous leukemia cell line (K562) \cite{Andersson1979} and cells derived from HeLa cancerous cervical tumor line (HeLa-S3) \cite{Douglas1973,Chen2008}.
+The data used in this study was obtained entirely from the ENCODE project database \cite{Feingold2004}, where multiple epigenetic marks and reference epigenomes are available. Data sets from 11 types of epigenetic marks were collected, including histone modifications (H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3 and H3K9ac), chromatin remodeling proteins (EP300 and H2A.Z) and transcription regulation factors (CTCF, POLR2A). Replicate samples for each of the 11 epigenetic marks were used in the three cell lines of study, which includes a human liver cancer cell line (HepG2) \cite{Aden1979}, myelogenous leukemia cell line (K562) \cite{Andersson1979} and cells derived from HeLa cancerous cervical tumor line (HeLa-S3) \cite{Douglas1973,Chen2008}.
 
 \medskip
 
 In order to standardize the input and facilitate the data sets processing, the information for all the samples was arranged in a tab separated file with the following fields as columns:
 
 \begin{enumerate}
-    \item \textbf{Cell line type}. Either HepG2, K562 or Hela-S3.
+    \item \textbf{Cell line type}. Either HepG2, K562 or Hela-S3 for this analysis.
     \item \textbf{Epigenetic modification category}. Where does the modification apply. Either histone modification (`histonemod'), chromatin modulation (`openchromatin') or transcription factor (`TFBS').
     \item \textbf{Epigenetic modification name}. The label of the mark which the sample corresponds to, as mentioned above.
     \item \textbf{Accession ID}. The accession name for the sample in the database.
@@ -71,7 +83,7 @@ In order to standardize the input and facilitate the data sets processing, the i
 As a matter of convenience, `\path{downloadData.sh} \path{[DataInfo.tsv]}' or `\path{epigeNMF.sh} \path{-d}  \path{[DataInfo.tsv]}' can be used to automatically download the data sets into the appropriate directory tree: \path{CELL_LINE/SIGNAL_TRACK/SAMPLE_ID}.
 
 %----------------------------------------------------------------------------------------
-%	SECTION 4
+%	SECTION 3
 %----------------------------------------------------------------------------------------
 
 \section{Pipeline}
