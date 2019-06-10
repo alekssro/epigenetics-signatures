@@ -51,7 +51,7 @@ p <- ggplot(nmf_perform, aes(K, runtimes)) +
 
 ggsave(filename = "plots/performance/performance_nmf.png", plot = p)
 
-p <- ggplot(nmf_perform, aes(K, residuals) +
+p <- ggplot(nmf_perform, aes(K, residuals)) +
 	geom_point() +
 	ggtitle("NMF reconstruction error by k value") +
 	xlab("k") + ylab("Reconstruction error") +
