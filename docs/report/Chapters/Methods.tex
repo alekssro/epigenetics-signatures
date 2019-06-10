@@ -14,11 +14,11 @@ Non-Negative Matrix Factorization is the statistical framework in which this ana
      V \approx W \times H.
 \end{equation}
 
-The epigenetic data used, described in a later section, fulfills the precondition of non-negativity of the data. The \(V\) matrix used in the analysis is composed by 200-bp bins as rows and the epigenetic marks as columns. We are investigating the possibility of finding \(k\) signatures which will summarize combinatorial patterns of the data to the epigenetic marks by means of the \(H\) matrix and to the genome-wide bins by means of the \(W\) matrix.
+The epigenetic data used, described in a later section \ref{data}, fulfills the precondition of non-negativity of the data. The \(V\) matrix used in the analysis is composed by 200-bp bins as rows and the epigenetic marks as columns. We are investigating the possibility of finding \(k\) signatures which will summarize combinatorial patterns of the data to the epigenetic marks by means of the \(H\) matrix and to the genome-wide bins by means of the \(W\) matrix.
 
 \medskip
 
-In order to perform the analysis, the \(V\) matrix was loaded into R environment and concretely the Rpackage \textit{NMF} was used \cite{Gaujoux2010}. The package used was select for consistency with previous similar studies \cite{Gandolfi2017} and seeing that attempts to implement the algorithm resulted in more time-consuming alternatives. Rpackage \textit{NMF} offers a framework with several NMF algorithms, including the ones explained in a previous section, from which \texttt{brunet} option was chosen. This algorithm is based on Kullback-Leibler divergence and matches the one described in \cite{Lee2001} and used in \cite{Brunet2004}, enhanced to avoid numerical overflow.
+In order to perform the analysis, the \(V\) matrix was loaded into R environment and concretely the Rpackage \textit{NMF} was used \cite{Gaujoux2010}. The package used was select for consistency with previous similar studies \cite{Gandolfi2017} and seeing that attempts to implement the algorithm resulted in more time-consuming alternatives. Rpackage \textit{NMF} offers a framework with several NMF algorithms, including the ones explained in a previous section \ref{NMFalgs}, from which \texttt{brunet} option was chosen. This algorithm is based on Kullback-Leibler divergence and matches the one described in \cite{Lee2001} and used in \cite{Brunet2004}, enhanced to avoid numerical overflow.
 
 %-----------------------------------
 %	SUBSECTION 1
@@ -40,27 +40,29 @@ The stopping or convergence criteria for the NMF algorithm can be based on a fix
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Choosing number of signatures}
+\subsection{Choosing number of signatures}\label{chooseK}
 
 In order to apply NMF to the data we foremost need to choose a suitable \(k\) number of signatures, also called rank. The number of clusters defined will largely influence the results and the explanation of them, therefore it is highly important to find the optimal number to produce ``meaningful'' clusters \cite{Brunet2004}. As explained in previous sections, there is no standard procedure to find the best \(k\) number. Therefore, an additional matrix was created with randomly permuted values from the original \(V\) matrix, which we will refer to as ``random'' \(V_R\) matrix. The \(V_R\) matrix is composed of the same values as \(V\) but column-wise permuted, meaning that the presumed chromatic patterns would not be able to be recognized.
 
 \medskip
 
-To compare the performance of NMF using different \(k\) values, the analysis is performed using values from 2 to 10 and then compared the reconstruction errors of the resultant models. As the NMF factorized matrix can vary from one run to another, the process is repeated 30 times and the results can be seen in [INSERT CROSS-REFERENCE].
+To compare the performance of NMF using different \(k\) values, the analysis is performed using values from 2 to 10 and then compared the reconstruction errors of the resultant models. As the NMF factorized matrix can vary from one run to another, the process is repeated 30 times and the results can be seen in [INSERT CROSS-REFERENCE]. The reconstruction error was calculated for comparison by residuals sum of squares (RSS),
 
-\medskip
+\begin{equation}
+    \vert \vert V - WH \vert \vert ^ 2 = \sum_{ij} (V_{ij} - (WH)_{ij} )^2
+\end{equation}
 
 [INSERT CHOOSE N PLOT]
 
 \medskip
 
-As we can see from the results, for the same \(k\) value, the NMF model produces worst results for the \(V_R\) matrix as well as more variable results. Nevertheless, there is a \(k\) value for which the plots intersect due to the model being over-fitted. We chose \(k = 7\) because it is the value for which the reconstruction error is the lowest possible before modeling the noise in the data.
+As we can see from the results, for the same \(k\) value, the NMF model produces worst results for the \(V_R\) matrix as well as more variable results. Nevertheless, there is a \(k\) value for which the plots intersect due to the model being over-fitted. We chose \(k = 7\) because it is the value for which the reconstruction error is the lowest possible before modeling the noise in the data. The results found similar in all the three cell types.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
 %----------------------------------------------------------------------------------------
 
-\section{Data}
+\section{Data}\label{data}
 
 The data used in this study was obtained entirely from the ENCODE project database \cite{Feingold2004}, where multiple epigenetic marks and reference epigenomes are available. Data sets from 11 types of epigenetic marks were collected, including histone modifications (H3K4me3, H3K4me1, H3K27ac, H3K36me3, H3K9me3, H3K27me3 and H3K9ac), chromatin remodeling proteins (EP300 and H2A.Z) and transcription regulation factors (CTCF, POLR2A). Replicate samples for each of the 11 epigenetic marks were used in the three cell lines of study, which includes a human liver cancer cell line (HepG2) \cite{Aden1979}, myelogenous leukemia cell line (K562) \cite{Andersson1979} and cells derived from HeLa cancerous cervical tumor line (HeLa-S3) \cite{Douglas1973,Chen2008}.
 
@@ -88,18 +90,74 @@ As a matter of convenience, `\path{downloadData.sh} \path{[DataInfo.tsv]}' or `\
 
 \section{Pipeline}
 
-Explain the command line tool, the pipeline followed for the analysis and explain functioning of each script
-
-You should follow the next pipeline for the analysis:
+In order to integrate the different scripts used in the project, a bash command line tool was created. The command line requires of a conda environment which can be set up using the \texttt{createCondaEnv.sh} script. This command line includes options to follow the next pipeline for the analysis:
 
 \begin{enumerate}
-    \item Download the data (option \path{-d} or \path{--download})
-    \item Prepare BED alignment files (option \path{-p} or \path{--process})
-    \item Create V matrix of counts for marks (cols) by bins (rows) (option \path{-c} or \path{--counts})
-    \item Filter V matrix bins to remove noise (option \path{-f} or \path{--filter})
-    \item Choose the optimal `n' number of signatures for NMF (option \path{-k} or \path{--chooseN})
-    \item NMF analysis (option \path{-n} or \path{--nmf})
+    \item Download the data (option \texttt{-d} or \texttt{--download}).
+    \item Prepare BED alignment files (option \texttt{-p} or \texttt{--process}).
+    \item Create V matrix of counts for marks (cols) by bins (rows) (option \texttt{-c} or \texttt{--counts}).
+    \item Filter V matrix bins to remove noise (option \texttt{-f} or \texttt{--filter}).
+    \item Choose the optimal `n' number of signatures for NMF (option \texttt{-k} or \texttt{--chooseN}).
+    \item NMF analysis (option \texttt{-n} or \texttt{--nmf}).
 \end{enumerate}
+
+All the scripts used for the analysis as well as for creating the report are available as a \href{https://bitbucket.org/alekssro/mscthesis/src/master/}{Bitbucket repository}.
+
+\subsection{Download Data}
+
+Command: \texttt{scripts/epigeNMF.sh -d [Datasets.tsv]}
+
+\smallskip
+
+Makes use of \texttt{downloadData.sh} script. It requires the file with the datasets info as explained in the Data section \ref{data}. For each sample, the dataset will be downloaded and saved in the \path{data} directory using the next file tree: \path{data/[cell_line]/[epigenetic_mark_name]/[sample_id]/}.
+
+\subsection{Processing BAM files}
+
+Command: \texttt{scripts/epigeNMF.sh -p [Datasets.tsv]}
+
+\smallskip
+
+Makes use of \texttt{prepareBedAlignment.sh} script, based on the processing pipeline used in \cite{Gandolfi2017}, following the scheme and updating outdated methods. The script process raw BAM files into filtered BED files by (1) removing duplicate reads, (2) filter reads by quality, (3) add a 200-bp tag extension in both 3' ends to transcription factors and histone modification signals (resembling half of the average ChIP-seq fragments) and (4) convert BAM files into BED files. It outputs processed BED files to the same path as the BAM file.
+
+\subsection{Generate V matrix}
+
+Command: \texttt{scripts/epigeNMF.sh -c [cell-lines]}
+
+\smallskip
+
+Calls \texttt{bedToNormCounts.sh} script, based on the processing pipeline used in \cite{Gandolfi2017}, following the scheme and updating outdated methods. Takes the cell lines desired to generate the \(V\) matrix from their samples. It requires the datasets info file, human genome segmented into 200-bp fragments as well as a uniqueness mappability track file (using the reference \textit{Duke Uniqueness Regions}) to be in the data directory. For each sample in each cell line, the script assigns the reads to a bin in the segmented genome and calls \texttt{bedCountsToV.R} script which adds the columns of the corresponding cell line \(V\) matrix.
+
+\medskip
+
+The bin counts are normalized with an scaling factor based on the uniqueness mappability positions present in each bin and the total number of reads in the sample. The technical replicates available for a epigenetic sample were combined by taking the mean of the normalized counts for each bin. The result of the execution is a \(V\) matrix csv file for each of the cell lines of interest, saved in the file tree directory \path{results/genomic_survey/[cell_line]/V_matrix.csv}.
+
+\subsection{Filter V matrix}
+
+Command: \texttt{scripts/epigeNMF.sh -f [input-V.csv] [output-V.csv]}
+
+\smallskip
+
+Uses \texttt{summariseFilterData.R} script. Takes as arguments the input and output directories, being the input an unfiltered \(V\) matrix in CSV format and the output a \(V\) filtered matrix also in CSV format. The bins are filtered taking only those for which at least one of the epigenetic marks fall into the top 2.5\% percentile. The threshold was set to the 0.975 quantile in order to filter out the counts considered as noise for our analysis.
+
+\subsection{Choose number of signatures}
+
+Command: \texttt{scripts/epigeNMF.sh -k [input] [output] [n-repeats]}
+
+\smallskip
+
+With \texttt{chooseN.R} script used to choose the optimal \(k\) number of signatures for the NMF analysis in the filtered \(V\) matrix data. Generates a plot comparing real and random data reconstruction errors (choose \(k\) based on that). It also includes an option to define the number of times NMF and reconstruction error are calculated for each \(k\) value. Outputs a residual error plot as the one described in \ref{chooseK} section.
+
+\subsection{NMF analysis}
+
+Command: \texttt{scripts/epigeNMF.sh -n [input-file] [output-file] [n-signatures]}
+
+\smallskip
+
+Calls \texttt{NMFanalysis.R} with a filtered \(V\) matrix in CSV file as input, and produces several informative plots describing the \(H\) and \(W\) matrices generated, saving them to the output directory. The number of signatures can be passed as an argument, with a default of \(k = 7\). 
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
 
 \section{Performance}
 

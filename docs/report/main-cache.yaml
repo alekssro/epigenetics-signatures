@@ -68,7 +68,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-06-07T16:43:57.971Z
+    timeStamp: 2019-06-10T10:40:44.057Z
     jobNames: []
     value:
       severity: info
@@ -124,20 +124,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-06-06T14:36:24.697Z
+    timeStamp: 2019-06-07T18:05:00.908Z
     jobNames: []
-    hash: 6ZqZ8a9QL+W0mHpWgxnZvWm++dUgiXYfMD9bT60X4BY=
+    hash: WaeySW+As/O0rwledUg/KOR8vQOuJY0B6OBjFFzbDKk=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-06-07T16:43:57.976Z
+    timeStamp: 2019-06-10T10:40:44.070Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-06-06T18:04:09.011Z
+    timeStamp: 2019-06-09T13:02:24.899Z
     jobNames: []
     value:
       messages: []
@@ -302,6 +302,7 @@ files:
         - Chapters/Methods.tex
         - Chapters/Results.aux
         - Chapters/Results.tex
+        - Figures/AU_seal.png
         - MastersDoctoralThesis.cls
         - main.aux
         - main.bbl
@@ -326,7 +327,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-06-07T16:50:30.869Z
+    timeStamp: 2019-06-09T13:20:18.170Z
     jobNames: []
     value:
       messages:
@@ -3832,6 +3833,20 @@ files:
               end: 1612
         - severity: info
           name: pdfTeX
+          category: Package pdftex.def
+          text: 'Figures/AU_seal.png used Requested size: 170.71652pt x 172.41275pt.'
+          source:
+            file: main.tex
+            range:
+              start: 132
+              end: 132
+          log:
+            file: main.log
+            range:
+              start: 1616
+              end: 1617
+        - severity: info
+          name: pdfTeX
           category: LaTeX Font
           text: >-
             Font shape `T1/ppl/bx/n' in size <10.95> not available Font shape
@@ -3839,13 +3854,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 187
-              end: 187
+              start: 194
+              end: 194
           log:
             file: main.log
             range:
-              start: 1621
-              end: 1622
+              start: 1628
+              end: 1629
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3855,13 +3870,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 212
-              end: 212
+              start: 219
+              end: 219
           log:
             file: main.log
             range:
-              start: 1627
-              end: 1628
+              start: 1634
+              end: 1635
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3876,8 +3891,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1668
-              end: 1669
+              start: 1675
+              end: 1676
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3892,8 +3907,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1670
-              end: 1671
+              start: 1677
+              end: 1678
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3908,8 +3923,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1678
-              end: 1679
+              start: 1685
+              end: 1686
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3922,8 +3937,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1693
-              end: 1693
+              start: 1700
+              end: 1700
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3938,8 +3953,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1698
-              end: 1699
+              start: 1705
+              end: 1706
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3952,8 +3967,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1700
-              end: 1701
+              start: 1707
+              end: 1708
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3966,8 +3981,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1711
-              end: 1711
+              start: 1718
+              end: 1718
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3975,13 +3990,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 307
-              end: 307
+              start: 314
+              end: 314
           log:
             file: main.log
             range:
-              start: 1800
-              end: 1800
+              start: 1813
+              end: 1813
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3989,13 +4004,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 307
-              end: 307
+              start: 314
+              end: 314
           log:
             file: main.log
             range:
-              start: 1802
-              end: 1802
+              start: 1815
+              end: 1815
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4003,13 +4018,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 307
-              end: 307
+              start: 314
+              end: 314
           log:
             file: main.log
             range:
-              start: 1816
-              end: 1816
+              start: 1829
+              end: 1829
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4017,38 +4032,38 @@ files:
           source:
             file: main.tex
             range:
-              start: 307
-              end: 307
+              start: 314
+              end: 314
           log:
             file: main.log
             range:
-              start: 1817
-              end: 1817
+              start: 1830
+              end: 1830
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            4283E29A2CFCBE796282099DB5F6CB40;3525.
+            EB700478B3479A47803E1203FAAAE519;4431.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 1818
-              end: 1819
+              start: 1831
+              end: 1832
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.pdf:
-    timeStamp: 2019-06-07T16:50:30.810Z
+    timeStamp: 2019-06-10T10:40:47.340Z
     jobNames: []
-    hash: 22qzrH9Rdxcvzj47eGTzpobpzyyU7FDQfTOGj0W71FI=
+    hash: XUrpcE5q+5HR9fh8EFciZLO3wFfuG6Kr9QjJ2dEVLEc=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-06T18:38:18.246Z
+    timeStamp: 2019-06-07T18:00:02.449Z
     jobNames: []
     value:
       commands:
@@ -4070,6 +4085,8 @@ files:
         - providecommand
         - providecommand
         - babel@aux
+        - providecommand
+        - newlabel
         - '@writefile'
         - gdef
         - '@input'
@@ -4144,7 +4161,7 @@ files:
         - bibcite
     type: ParsedLaTeXAuxilary
   main.blg-ParsedBibTeXLog:
-    timeStamp: 2019-06-06T18:38:17.553Z
+    timeStamp: 2019-06-07T17:47:27.992Z
     jobNames: []
     value:
       messages: []
@@ -4624,14 +4641,14 @@ files:
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-06-06T18:03:44.416Z
+    timeStamp: 2019-06-09T13:06:25.887Z
     jobNames: []
-    hash: IBrvhmZSF4/uGcLMfDnypYiYVIxmYiTxB1EZ9dDQ9Hw=
+    hash: PMGw0nJ8+Ir+a4QS8qQyXJmI69VQJtAa0yCV606+hIQ=
     type: TeX
   Chapters/Methods.tex:
-    timeStamp: 2019-06-07T16:49:22.624Z
+    timeStamp: 2019-06-09T13:20:14.002Z
     jobNames: []
-    hash: VUS3OS/udqfR+2WG/tKcp3bFGa5C/LolWSAy+EIOXfY=
+    hash: Uf1BQwu0EwW19PfhjZQ2IMhZb/27hsTqVBy51zFibTk=
     type: TeX
   Chapters/Results.tex:
     timeStamp: 2019-05-20T19:42:35.226Z
@@ -4718,7 +4735,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-06T18:38:19.071Z
+    timeStamp: 2019-06-09T13:06:47.936Z
     jobNames: []
     value:
       commands:
@@ -4785,6 +4802,7 @@ files:
         - citation
         - citation
         - '@writefile'
+        - newlabel
         - citation
         - citation
         - citation
@@ -4829,7 +4847,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Methods.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-07T16:50:30.019Z
+    timeStamp: 2019-06-09T13:10:44.458Z
     jobNames: []
     value:
       commands:
@@ -4850,6 +4868,16 @@ files:
         - citation
         - citation
         - citation
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - '@writefile'
+        - citation
+        - citation
+        - '@writefile'
+        - '@writefile'
         - '@writefile'
         - '@writefile'
         - '@writefile'
@@ -4936,7 +4964,7 @@ files:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
   main.bbl:
-    timeStamp: 2019-06-07T16:50:30.074Z
+    timeStamp: 2019-06-10T10:40:45.381Z
     jobNames: []
     hash: WT+jKBSYU5jOPzJJnguI8h8Lm2ftm8ObxSGm2rYBujQ=
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm:
@@ -4965,6 +4993,118 @@ files:
     timeStamp: 2016-11-25T18:33:57.000Z
     jobNames: []
     type: FontDescription
+  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1095.600pk:
+    timeStamp: 2019-05-17T13:23:55.444Z
+    jobNames: []
+  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk:
+    timeStamp: 2019-05-17T13:23:55.036Z
+    jobNames: []
+  /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk:
+    timeStamp: 2019-05-17T13:23:56.508Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm:
+    timeStamp: 2016-11-25T18:31:36.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm:
+    timeStamp: 2016-11-25T18:31:36.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm:
+    timeStamp: 2016-11-25T18:31:36.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  Chapters/Chapter1.tex:
+    timeStamp: 2019-05-17T16:07:00.047Z
+    jobNames: []
+    hash: QMQPttlNcK+BV8wUQ01SF2xJsXHYO2PCg4Wjpvc5j48=
+    type: TeX
+  Figures/Electron.pdf:
+    timeStamp: 2008-09-13T13:28:04.000Z
+    jobNames: []
+    hash: uMQVe8Q0KxkLOJjS16bRi+AfDdOt2EbtDOcIhyJsJBg=
+    type: PortableDocumentFormat
+  Chapters/Chapter1.aux-ParsedLaTeXAuxilary:
+    timeStamp: 2019-06-07T17:35:40.686Z
+    jobNames: []
+    value:
+      commands:
+        - relax
+        - providecommand
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - providecommand
+        - newlabel
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - newlabel
+        - '@writefile'
+        - '@writefile'
+        - '@setckpt'
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+        - setcounter
+    type: ParsedLaTeXAuxilary
+  Figures/AU_seal.png:
+    timeStamp: 2019-06-07T17:28:40.402Z
+    jobNames: []
+    hash: JoHX8wRRQnofoCS3aZYaFIhNozaAYmdsCXpWbFSwXAc=
 rules:
   - name: ApplyOptions
     command: load
@@ -5361,6 +5501,35 @@ rules:
         type: default
       - file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
         type: default
+      - file: >-
+          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ecit1095.600pk
+        type: default
+      - file: >-
+          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk
+        type: default
+      - file: >-
+          /home/alekssro/.texlive2017/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecit1095.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1440.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
+        type: default
+      - file: /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
+        type: default
+      - file: Chapters/Chapter1.tex
+        type: default
+      - file: Figures/Electron.pdf
+        type: default
+      - file: Figures/AU_seal.png
+        type: default
     outputs:
       - file: main.pdf
         type: target
@@ -5415,6 +5584,24 @@ rules:
     parameters: []
     inputs: []
     outputs: []
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.log
+    inputs: []
+    outputs:
+      - file: main.log-ParsedLaTeXLog
+        type: default
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
@@ -5432,15 +5619,6 @@ rules:
     inputs: []
     outputs:
       - file: main.fls-ParsedFileListing
-        type: default
-  - name: ParseLaTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
         type: default
   - name: ParseLaTeXAuxilary
     command: build
@@ -5487,15 +5665,6 @@ rules:
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
   - name: BibTeX
     command: build
     phase: execute
@@ -5509,15 +5678,11 @@ rules:
         type: default
       - file: main.blg-ParsedBibTeXLog
         type: default
-      - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
-        type: default
-      - file: mscthesis.bib
-        type: default
     outputs:
       - file: main.bbl
         type: default
   - name: ParseBibTeXLog
-    command: log
+    command: build
     phase: execute
     parameters:
       - main.blg
@@ -5526,7 +5691,7 @@ rules:
       - file: main.blg-ParsedBibTeXLog
         type: default
   - name: ParseBibTeXLog
-    command: build
+    command: log
     phase: execute
     parameters:
       - main.blg

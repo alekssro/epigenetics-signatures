@@ -36,18 +36,20 @@ The stopping or convergence criteria for the NMF algorithm can be based on a fix
 %	SUBSECTION 2
 %-----------------------------------
 
-\subsection{Choosing number of signatures}
+\subsection{Choosing number of signatures}\label{chooseK}
 
 In order to apply NMF to the data we foremost need to choose a suitable \(k\) number of signatures, also called rank. The number of clusters defined will largely influence the results and the explanation of them, therefore it is highly important to find the optimal number to produce ``meaningful'' clusters \cite{Brunet2004}. As explained in previous sections, there is no standard procedure to find the best \(k\) number. Therefore, an additional matrix was created with randomly permuted values from the original \(V\) matrix, which we will refer to as ``random'' \(V_R\) matrix. The \(V_R\) matrix is composed of the same values as \(V\) but column-wise permuted, meaning that the presumed chromatic patterns would not be able to be recognized.
 
 \medskip
 
-To compare the performance of NMF using different \(k\) values, the analysis is performed using values from 2 to 10 and then compared the reconstruction errors of the resultant models. As the NMF factorized matrix can vary from one run to another, the process is repeated 30 times and the results can be seen in [INSERT CROSS-REFERENCE].
+To compare the performance of NMF using different \(k\) values, the analysis is performed using values from 2 to 10 and then compared the reconstruction errors of the resultant models. As the NMF factorized matrix can vary from one run to another, the process is repeated 30 times and the results can be seen in [INSERT CROSS-REFERENCE]. The reconstruction error was calculated for comparison by residuals sum of squares (RSS),
 
-\medskip
+\begin{equation}
+     \vert \vert V - WH \vert \vert ^2 = \sum_{ij} (V_{ij} - (WH)_{ij})^2
+\end{equation}
 
 [INSERT CHOOSE N PLOT]
 
 \medskip
 
-As we can see from the results, for the same \(k\) value, the NMF model produces worst results for the \(V_R\) matrix as well as more variable results. Nevertheless, there is a \(k\) value for which the plots intersect due to the model being over-fitted. We chose \(k = 7\) because it is the value for which the reconstruction error is the lowest possible before modeling the noise in the data.
+As we can see from the results, for the same \(k\) value, the NMF model produces worst results for the \(V_R\) matrix as well as more variable results. Nevertheless, there is a \(k\) value for which the plots intersect due to the model being over-fitted. We chose \(k = 7\) because it is the value for which the reconstruction error is the lowest possible before modeling the noise in the data. The results found similar in all the three cell types.
