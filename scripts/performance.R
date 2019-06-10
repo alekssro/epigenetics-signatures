@@ -50,3 +50,11 @@ p <- ggplot(nmf_perform, aes(K, runtimes)) +
     theme_minimal()
 
 ggsave(filename = "plots/performance/performance_nmf.png", plot = p)
+
+p <- ggplot(nmf_perform, aes(K, residuals) +
+	geom_point() +
+	ggtitle("NMF reconstruction error by k value") +
+	xlab("k") + ylab("Reconstruction error") +
+	theme_minimal()
+
+ggsave(filename = "plots/select_n/reconst_error.png", plot = p)
