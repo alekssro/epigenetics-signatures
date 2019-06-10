@@ -47,8 +47,6 @@ V <- V_mat[, numeric_cols]
 
 nmf_HelaS3 <- nmf(V, 7)
 
-estim.r <- nmf(V, 2:9, nrun = 10)
-
 H_HelaS3 <- nmf_HelaS3@fit@H
 W_HelaS3 <- nmf_HelaS3@fit@W
 
