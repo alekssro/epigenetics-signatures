@@ -68,7 +68,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-06-10T10:40:44.057Z
+    timeStamp: 2019-06-12T17:29:09.178Z
     jobNames: []
     value:
       severity: info
@@ -124,20 +124,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-06-07T18:05:00.908Z
+    timeStamp: 2019-06-10T17:10:57.050Z
     jobNames: []
     hash: WaeySW+As/O0rwledUg/KOR8vQOuJY0B6OBjFFzbDKk=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-06-10T10:40:44.070Z
+    timeStamp: 2019-06-12T17:29:09.186Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-06-09T13:02:24.899Z
+    timeStamp: 2019-06-12T17:29:12.698Z
     jobNames: []
     value:
       messages: []
@@ -327,7 +327,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-06-09T13:20:18.170Z
+    timeStamp: 2019-06-12T17:29:12.725Z
     jobNames: []
     value:
       messages:
@@ -3981,8 +3981,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1718
-              end: 1718
+              start: 1724
+              end: 1724
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3995,8 +3995,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1813
-              end: 1813
+              start: 1819
+              end: 1819
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4009,8 +4009,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1815
-              end: 1815
+              start: 1821
+              end: 1821
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4023,8 +4023,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1829
-              end: 1829
+              start: 1835
+              end: 1835
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4037,30 +4037,30 @@ files:
           log:
             file: main.log
             range:
-              start: 1830
-              end: 1830
+              start: 1836
+              end: 1836
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            EB700478B3479A47803E1203FAAAE519;4431.
+            F3D5AA4DE023330FAF63A55F6A8F25EE;4535.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 1831
-              end: 1832
+              start: 1837
+              end: 1838
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.pdf:
-    timeStamp: 2019-06-10T10:40:47.340Z
+    timeStamp: 2019-06-12T17:29:12.650Z
     jobNames: []
-    hash: XUrpcE5q+5HR9fh8EFciZLO3wFfuG6Kr9QjJ2dEVLEc=
+    hash: oTyv3RN6nxmrD3m4jmhK3rrQhl+a1liJ9Q0FNRVY+9U=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
     timeStamp: 2019-06-07T18:00:02.449Z
@@ -4641,9 +4641,9 @@ files:
     hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-06-09T13:06:25.887Z
+    timeStamp: 2019-06-12T17:29:04.363Z
     jobNames: []
-    hash: PMGw0nJ8+Ir+a4QS8qQyXJmI69VQJtAa0yCV606+hIQ=
+    hash: i5bkXUIGSsuY3iHk1oO9N8gBPlDS2OQbkeeGpk7Kui8=
     type: TeX
   Chapters/Methods.tex:
     timeStamp: 2019-06-09T13:20:14.002Z
@@ -4735,7 +4735,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-09T13:06:47.936Z
+    timeStamp: 2019-06-12T17:29:12.732Z
     jobNames: []
     value:
       commands:
@@ -4818,8 +4818,9 @@ files:
         - citation
         - citation
         - citation
-        - citation
         - '@writefile'
+        - '@writefile'
+        - citation
         - '@setckpt'
         - setcounter
         - setcounter
@@ -4964,7 +4965,7 @@ files:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
   main.bbl:
-    timeStamp: 2019-06-10T10:40:45.381Z
+    timeStamp: 2019-06-12T17:29:17.318Z
     jobNames: []
     hash: WT+jKBSYU5jOPzJJnguI8h8Lm2ftm8ObxSGm2rYBujQ=
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm:
@@ -5105,6 +5106,78 @@ files:
     timeStamp: 2019-06-07T17:28:40.402Z
     jobNames: []
     hash: JoHX8wRRQnofoCS3aZYaFIhNozaAYmdsCXpWbFSwXAc=
+  main.aux:
+    timeStamp: 2019-06-12T17:29:12.625Z
+    jobNames: []
+    hash: M0rSm0HR8QM6s3LGHp4iceVMMHxp3oikm+cEhU4CkBU=
+    type: LaTeXAuxilary
+  main.fls:
+    timeStamp: 2019-06-12T17:29:12.646Z
+    jobNames: []
+    hash: 9TLPuZerI0SwtbhdpfcNINxvg3RWsIFwlCMxcXrGbwk=
+    type: FileListing
+  main.log:
+    timeStamp: 2019-06-12T17:29:12.651Z
+    jobNames: []
+    hash: fXD/fpsiS8LaXNqM8br33Kdmzs71wWX/af9C8ClDnLU=
+    type: LaTeXLog
+    subType: pdfTeX
+  main.synctex.gz:
+    timeStamp: 2019-06-12T17:29:12.650Z
+    jobNames: []
+    hash: w3V7QeSEF1a75ew1U2PmWbDSf6QmkkgKnii/Zos3aGM=
+    type: SyncTeX
+  Appendices/AppendixA.aux:
+    timeStamp: 2019-06-12T17:29:12.589Z
+    jobNames: []
+    hash: W++gauzaJcr1QcSLd36/0wx4DMTVp6+bnpn1lc0x1kY=
+    type: LaTeXAuxilary
+  Chapters/Discussion.aux:
+    timeStamp: 2019-06-12T17:29:12.583Z
+    jobNames: []
+    hash: VuP+87JYCYo6CKD4BXB4hfzB1TOOXhq60FdWMPJBsJM=
+    type: LaTeXAuxilary
+  Chapters/Introduction.aux:
+    timeStamp: 2019-06-12T17:29:12.499Z
+    jobNames: []
+    hash: xBUWeTXvinZeCeUShSSQEKoLM7/lHDCXikyS/y1rUnU=
+    type: LaTeXAuxilary
+  Chapters/Methods.aux:
+    timeStamp: 2019-06-12T17:29:12.562Z
+    jobNames: []
+    hash: 3FubfvXRAO9TpCMw6F1mb094eJQ2nJfSYscoWZjGJ/w=
+    type: LaTeXAuxilary
+  Chapters/Results.aux:
+    timeStamp: 2019-06-12T17:29:12.575Z
+    jobNames: []
+    hash: OR9y9G44dak6lbQCuMO6nuP8XrrXUqDgUdgzVRQaagg=
+    type: LaTeXAuxilary
+  main.out:
+    timeStamp: 2019-06-12T17:29:12.629Z
+    jobNames: []
+    hash: CgIvzvZjsywxmKW4GzFuIePp0eiXQ7IEFLiIrSuZjAE=
+    type: OUT
+  main.lof:
+    timeStamp: 2019-06-12T17:29:12.630Z
+    jobNames: []
+    hash: s39iSraAN0fYj9AJNoDMrmlxWLR9UnR78nWUc40FXeA=
+    type: ListOfFigures
+  main.lot:
+    timeStamp: 2019-06-12T17:29:12.630Z
+    jobNames: []
+    hash: s39iSraAN0fYj9AJNoDMrmlxWLR9UnR78nWUc40FXeA=
+    type: ListOfTables
+  main.toc:
+    timeStamp: 2019-06-12T17:29:12.630Z
+    jobNames: []
+    hash: ngJ78I1Stg4iN/3LSiTwzeePf8f8HNXikRqB44du+y8=
+    type: TableOfContents
+  main.blg:
+    timeStamp: 2019-06-12T17:29:17.318Z
+    jobNames: []
+    hash: Y7/qAiaUwjKyJqT2lo0GJWjdC277pM28XhRiCnGXnfA=
+    type: BibTeXLog
+    subType: BibTeX
 rules:
   - name: ApplyOptions
     command: load
@@ -5530,9 +5603,55 @@ rules:
         type: default
       - file: Figures/AU_seal.png
         type: default
+      - file: main.aux
+        type: default
+      - file: Appendices/AppendixA.aux
+        type: default
+      - file: Chapters/Discussion.aux
+        type: default
+      - file: Chapters/Introduction.aux
+        type: default
+      - file: Chapters/Methods.aux
+        type: default
+      - file: Chapters/Results.aux
+        type: default
+      - file: main.out
+        type: default
+      - file: main.lof
+        type: default
+      - file: main.lot
+        type: default
+      - file: main.toc
+        type: default
     outputs:
       - file: main.pdf
         type: target
+      - file: main.aux
+        type: default
+      - file: main.fls
+        type: default
+      - file: main.log
+        type: default
+      - file: main.synctex.gz
+        type: target
+      - file: Appendices/AppendixA.aux
+        type: default
+      - file: Chapters/Discussion.aux
+        type: default
+      - file: Chapters/Introduction.aux
+        type: default
+      - file: Chapters/Methods.aux
+        type: default
+      - file: Chapters/Results.aux
+        type: default
+      - file: main.lof
+        type: default
+      - file: main.lot
+        type: default
+      - file: main.out
+        type: default
+      - file: main.toc
+        type: default
   - name: LogProducedTargets
     command: build
     phase: finalize
@@ -5584,30 +5703,14 @@ rules:
     parameters: []
     inputs: []
     outputs: []
-  - name: ParseLaTeXLog
-    command: log
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
-  - name: ParseLaTeXLog
-    command: build
-    phase: execute
-    parameters:
-      - main.log
-    inputs: []
-    outputs:
-      - file: main.log-ParsedLaTeXLog
-        type: default
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
     parameters:
       - main.aux
-    inputs: []
+    inputs:
+      - file: main.aux
+        type: default
     outputs:
       - file: main.aux-ParsedLaTeXAuxilary
         type: default
@@ -5616,16 +5719,31 @@ rules:
     phase: execute
     parameters:
       - main.fls
-    inputs: []
+    inputs:
+      - file: main.fls
+        type: default
     outputs:
       - file: main.fls-ParsedFileListing
+        type: default
+  - name: ParseLaTeXLog
+    command: build
+    phase: execute
+    parameters:
+      - main.log
+    inputs:
+      - file: main.log
+        type: default
+    outputs:
+      - file: main.log-ParsedLaTeXLog
         type: default
   - name: ParseLaTeXAuxilary
     command: build
     phase: execute
     parameters:
       - Appendices/AppendixA.aux
-    inputs: []
+    inputs:
+      - file: Appendices/AppendixA.aux
+        type: default
     outputs:
       - file: Appendices/AppendixA.aux-ParsedLaTeXAuxilary
         type: default
@@ -5634,7 +5752,9 @@ rules:
     phase: execute
     parameters:
       - Chapters/Discussion.aux
-    inputs: []
+    inputs:
+      - file: Chapters/Discussion.aux
+        type: default
     outputs:
       - file: Chapters/Discussion.aux-ParsedLaTeXAuxilary
         type: default
@@ -5643,7 +5763,9 @@ rules:
     phase: execute
     parameters:
       - Chapters/Introduction.aux
-    inputs: []
+    inputs:
+      - file: Chapters/Introduction.aux
+        type: default
     outputs:
       - file: Chapters/Introduction.aux-ParsedLaTeXAuxilary
         type: default
@@ -5652,7 +5774,9 @@ rules:
     phase: execute
     parameters:
       - Chapters/Methods.aux
-    inputs: []
+    inputs:
+      - file: Chapters/Methods.aux
+        type: default
     outputs:
       - file: Chapters/Methods.aux-ParsedLaTeXAuxilary
         type: default
@@ -5661,9 +5785,22 @@ rules:
     phase: execute
     parameters:
       - Chapters/Results.aux
-    inputs: []
+    inputs:
+      - file: Chapters/Results.aux
+        type: default
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
+        type: default
+  - name: ParseLaTeXLog
+    command: log
+    phase: execute
+    parameters:
+      - main.log
+    inputs:
+      - file: main.log
+        type: default
+    outputs:
+      - file: main.log-ParsedLaTeXLog
         type: default
   - name: BibTeX
     command: build
@@ -5672,6 +5809,8 @@ rules:
       - main.aux
       - main.aux-ParsedLaTeXAuxilary
     inputs:
+      - file: main.aux
+        type: default
       - file: main.aux-ParsedLaTeXAuxilary
         type: default
       - file: main.log-ParsedLaTeXLog
@@ -5681,12 +5820,16 @@ rules:
     outputs:
       - file: main.bbl
         type: default
+      - file: main.blg
+        type: default
   - name: ParseBibTeXLog
     command: build
     phase: execute
     parameters:
       - main.blg
-    inputs: []
+    inputs:
+      - file: main.blg
+        type: default
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
@@ -5695,7 +5838,9 @@ rules:
     phase: execute
     parameters:
       - main.blg
-    inputs: []
+    inputs:
+      - file: main.blg
+        type: default
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
