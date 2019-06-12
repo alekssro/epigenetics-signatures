@@ -187,3 +187,42 @@ A more robust approach suggests to take the smallest value of r at which the dec
 [11] H3K4me3, POLR2A, H3K4me1, CTCF, EP300, H3K27ac, H3K36me3, H3K9me3, H3K27me3, H2AFZ, H3K9ac
 
 **Possible cell lines:** HepG2, K562, A549, Hela-S3
+
+
+
+## Relating Signatures
+
+| Hela-S3 | K562 | HepG2 | Paper |
+| ------- | ---- | ----- | ----- |
+| 1       | 4    | 6     | 6     |
+| 2       | 3    | 2     | 7     |
+| 3       | 2    | 1     | 5     |
+| 4       | 7    | 5     | 2     |
+| 5       | 5    | 3     | 4     |
+| 6       | 1    | 7     | 3     |
+| 7       | 6    | 4     | 1     |
+
+new run
+
+| Hela-S3 | K562 | HepG2 | Paper |
+| ------- | ---- | ----- | ----- |
+| 1       | 6    | 4     |       |
+| 2       | 7    | 5     |       |
+| 3       | 1    | 7     |       |
+| 4       | 5    | 3     |       |
+| 5       | 2    | 1     |       |
+| 6       | 4    | 6     |       |
+| 7       | 3    | 2     |       |
+
+last 
+
+| Paper | Hela-S3 | K562 | HepG2 |
+| ----- | ------- | ---- | ----- |
+| 1     | 7       | 6    | 4     |
+| 2     | 4       | 4    | 5     |
+| 3     | 6       | 1    | 7     |
+| 4     | 5       | 5    | 3     |
+| 5     | 3       | 2    | 1     |
+| 6     | 1       | 7    | 6     |
+| 7     | 2       | 3    | 2     |
+

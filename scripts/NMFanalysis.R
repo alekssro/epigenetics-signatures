@@ -17,6 +17,7 @@ infile <- args[1]
 outfile <- args[2]
 n <- args[3]
 n <- 7
+set.seed(1234)
 
 order <- c("H3K27me3", "H3K9me3", "CTCF", "H3K27ac", "POLR2A", "H3K36me3", "H3K4me1", "H2A.Z", "H3K4me3", "H3K9ac", "EP300")
 
@@ -89,17 +90,35 @@ W_K562 <- nmf_K562@fit@W
 # Heatmap   ###
 ###############
 
-H <- H_HelaS3[, order]
-rownames(H) <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
-                 "Signature 5", "Signature 6", "Signature 7")
+generate_H_heatmap <- function(H, cell_type, epimark_order, sign_order) {
+    
+    signature_names <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
+                         "Signature 5", "Signature 6", "Signature 7")
+    
+    H <- H[, epimark_order]
+    rownames(H) <- signature_names
+    
+    H_m <- melt(H[sign_order,], varnames = c("Signature", "Mark"))
+    
+    p <- ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) + 
+        geom_tile(aes(fill = value), colour = "white") +
+        ggtitle(paste(cell_type, "H matrix", sep = " ")) +
+        theme(axis.text.x = element_text(face = "bold", angle = 45, hjust = 1)) +
+        scale_fill_gradient(low = "white", high = "steelblue")
+    
+    p
+    
+    ggsave(paste("plots/NMF/", cell_type, "_H_heatmap.png", sep = ""), p, width = 10, height = 6)
+    
+}
 
-heatmap(H, scale = "column", Rowv = NA, Colv = NA)
+# H heatmap
+generate_H_heatmap(H = H_HelaS3, cell_type = "Hela-S3", epimark_order = order, sign_order = rev(c(7,4,6,5,3,1,2)))
+generate_H_heatmap(H = H_K562, cell_type = "K562", epimark_order = order, sign_order = rev(c(6,4,1,5,2,7,3)))
+generate_H_heatmap(H = H_HepG2, cell_type = "HepG2", epimark_order = order, sign_order = rev(c(4,5,7,3,1,6,2)))
 
-H_m <- melt(H, varnames = c("Signature", "Mark"))
 
-ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) + 
-    geom_tile(aes(fill = value), colour = "white") +
-    scale_fill_gradient(low = "white", high = "steelblue")
+
 
 
 W <- W_HelaS3
