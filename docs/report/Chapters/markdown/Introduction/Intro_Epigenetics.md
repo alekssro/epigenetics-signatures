@@ -73,4 +73,4 @@ Yet, there are practical limitations essentially about the precondition to defin
 
 \medskip
 
-In the first case, the segments used as rows correspond to multiple regions of TSS-proximal gene bodies since they contain epigenetic traces of transcription initiation and elongation. In the second case, they use bins of 200-bp, similar to the case in ChromHMM, in an attempt to approximate a single nucleosome with each bin. In the present study, aspects from these papers were used, extending the analysis to multiple cancer cell lines. 
+In the first case, the segments used as rows correspond to multiple regions of TSS-proximal gene bodies since they contain epigenetic traces of transcription initiation and elongation. In the second case, they use bins of 200-bp, similar to the case in ChromHMM, in an attempt to approximate a single nucleosome with each bin. In this master thesis, aspects from these papers were used, extending the analysis to multiple cancer cell lines. 
