@@ -41,6 +41,11 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[
+	justification=justified,
+	format=plain
+]{caption}
+\captionsetup{font=footnotesize, width=0.9\textwidth}
 \usepackage{cite}
 
 \usepackage{mathpazo} % Use the Palatino font by default
@@ -129,9 +134,8 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=6cm]{Figures/AU_seal.png}
+\includegraphics[width=6cm]{Figures/AU_seal.png}\label{fig:AU_seal}
 % \caption[An Electron]{An electron (artist's impression).}
-\label{fig:AU_seal}
 \end{figure}
 
 \vfill
@@ -294,7 +298,7 @@ In order to achieve this, we need to map epigenetic modification reads (from Bis
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-\include{Appendices/AppendixA}
+% \include{Appendices/AppendixA}
 %\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
 

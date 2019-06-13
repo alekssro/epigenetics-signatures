@@ -5,12 +5,11 @@ A level-1 auxiliary file: Chapters/Introduction.aux
 A level-1 auxiliary file: Chapters/Methods.aux
 A level-1 auxiliary file: Chapters/Results.aux
 A level-1 auxiliary file: Chapters/Discussion.aux
-A level-1 auxiliary file: Appendices/AppendixA.aux
 The style file: apalike.bst
 Database file #1: mscthesis.bib
 You've used 63 entries,
             1935 wiz_defined-function locations,
-            822 strings with 15456 characters,
+            821 strings with 15432 characters,
 and the built_in function-call counts, 22241 in all, are:
 = -- 2076
 > -- 1240
