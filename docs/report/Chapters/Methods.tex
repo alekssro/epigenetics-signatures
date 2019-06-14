@@ -47,7 +47,7 @@ In order to apply NMF to the data we foremost need to choose a suitable \(k\) nu
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.7\linewidth]{Figures/select_n/error_by_n.png}
-    \caption[Reconstruction error by k value]{\textbf{Reconstruction error by k value}. Figure description. Lot of things. Lots of things. Lots of things. Lots of things. Lots of things.}
+    \caption[Reconstruction error by k value]{\textbf{Reconstruction error by k value}. The plot is used in order to choose the number of \(k\) signatures. For this purpose, the Residual Sum of Squares between the original values in \(V\) and the estimated values from \(W \times H\) were calculated for 30 iterations. The boxplots are constructed with every value from this 30 iterations and the lines represent the mean RSS value with every \(k\) value tested. Real data is represented in blue and random data is represented in red.}
     \label{fig:chooseK_error}
 \end{figure}
 
@@ -179,7 +179,7 @@ As mentioned, this is the most time-consuming step of the process. Figure~\ref{f
 \begin{figure}[h]
     \centering
     \includegraphics[height=8cm]{Figures/performance/performance_per_read.png}
-    \caption[Pre-processing performance by read]{\textbf{Pre-processing performance by read}. Figure description. Lots of things. Lots of things. Lots of things. Lots of things.Lots of things. Lots of things. Lots of things. Lots of things.Lots of things. Lots of things. Lots of things. Lots of things.}
+    \caption[Pre-processing performance by read]{\textbf{Pre-processing performance by read}. Multiple input sizes were used in order to time the execution of the pre-processing script. The figure summarise the results from those multiple runs. The x axis is in logarithmic scale, being the input size as \(\log(N)\). The data points shown are the result from dividing the time in seconds by the number of reads.}
     \label{fig:PreProcess}
 \end{figure}
 
@@ -192,7 +192,7 @@ The NMF analysis is the cornerstone of the presented master thesis. Considering 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Figures/performance/performance_nmf_join.png}
-    \caption[NMF performance]{\textbf{NMF performance}. Figure description. Lots of things. Lots of things. Lots of things. Lots of things.Lots of things. Lots of things. Lots of things. Lots of things.Lots of things. Lots of things. Lots of things. Lots of things.Lots of things. Lots of things. Lots of things. Lots of things.}
+    \caption[NMF performance]{\textbf{NMF performance}. Studying the performance of the NMF, we have to take into account two possible factors: \textbf{A}: Performance as time in seconds of the NMF algorithm for different number of signatures (\(k\)). \textbf{B}: Performance as time in seconds of the NMF algorithm for changing number of bins (\(N\))}
     \label{fig:NMF}
 \end{figure}
 

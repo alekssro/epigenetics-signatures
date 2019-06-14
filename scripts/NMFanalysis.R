@@ -10,6 +10,8 @@ suppressPackageStartupMessages(require(tidyverse, quietly = T, warn.conflicts = 
 suppressPackageStartupMessages(require(NMF, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(reshape2, quietly = T, warn.conflicts = F))
 suppressPackageStartupMessages(require(scales, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(karyoploteR, quietly = T, warn.conflicts = F))
+suppressPackageStartupMessages(require(Homo.sapiens, quietly = T, warn.conflicts = F))
 
 # Get arguments from terminal call
 args <- commandArgs(trailingOnly = T)       # trailingOnly = T, gets only arguments not the call
@@ -20,6 +22,8 @@ n <- 7
 set.seed(1234)
 
 order <- c("H3K27me3", "H3K9me3", "CTCF", "H3K27ac", "POLR2A", "H3K36me3", "H3K4me1", "H2A.Z", "H3K4me3", "H3K9ac", "EP300")
+signature_names <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
+                                              "Signature 5", "Signature 6", "Signature 7")
 
 ##########################################################
 # NFM on A549 V matrix
@@ -51,35 +55,35 @@ nmf_HelaS3 <- nmf(V, 7)
 H_HelaS3 <- nmf_HelaS3@fit@H
 W_HelaS3 <- nmf_HelaS3@fit@W
 
-##########################################################
-# NFM on HepG2 V matrix
-##########################################################
-
-infile <- "results/genomic_survey/HepG2/filteredV.csv"
-
-V_mat <- read.csv(infile, header = T)
-numeric_cols <- 1:(ncol(V_mat) - 2)
-V <- V_mat[, numeric_cols]
-
-nmf_HepG2 <- nmf(V, 7)
-
-H_HepG2 <- nmf_HepG2@fit@H
-W_HepG2 <- nmf_HepG2@fit@W
-
-##########################################################
-# NFM on K562 V matrix
-##########################################################
-
-infile <- "results/genomic_survey/K562/filteredV.csv"
-
-V_mat <- read.csv(infile, header = T)
-numeric_cols <- 1:(ncol(V_mat) - 2)
-V <- V_mat[, numeric_cols]
-
-nmf_K562 <- nmf(V, 7)
-
-H_K562 <- nmf_K562@fit@H
-W_K562 <- nmf_K562@fit@W
+# ##########################################################
+# # NFM on HepG2 V matrix
+# ##########################################################
+# 
+# infile <- "results/genomic_survey/HepG2/filteredV.csv"
+# 
+# V_mat <- read.csv(infile, header = T)
+# numeric_cols <- 1:(ncol(V_mat) - 2)
+# V <- V_mat[, numeric_cols]
+# 
+# nmf_HepG2 <- nmf(V, 7)
+# 
+# H_HepG2 <- nmf_HepG2@fit@H
+# W_HepG2 <- nmf_HepG2@fit@W
+# 
+# ##########################################################
+# # NFM on K562 V matrix
+# ##########################################################
+# 
+# infile <- "results/genomic_survey/K562/filteredV.csv"
+# 
+# V_mat <- read.csv(infile, header = T)
+# numeric_cols <- 1:(ncol(V_mat) - 2)
+# V <- V_mat[, numeric_cols]
+# 
+# nmf_K562 <- nmf(V, 7)
+# 
+# H_K562 <- nmf_K562@fit@H
+# W_K562 <- nmf_K562@fit@W
 
 #########################################################
 ###     PLOTS                                       #####
@@ -90,33 +94,98 @@ W_K562 <- nmf_K562@fit@W
 # Heatmap   ###
 ###############
 
-generate_H_heatmap <- function(H, cell_type, epimark_order, sign_order) {
+# generate_H_heatmap <- function(H, cell_type, epimark_order, sign_order) {
+#     
+#     signature_names <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
+#                          "Signature 5", "Signature 6", "Signature 7")
+#     
+#     H <- H[, epimark_order]
+#     rownames(H) <- signature_names
+#     
+#     H_m <- melt(H[sign_order,], varnames = c("Signature", "Mark"))
+#     
+#     p <- ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) + 
+#         geom_tile(aes(fill = value), colour = "white") +
+#         ggtitle(paste(cell_type, "H matrix", sep = " ")) +
+#         theme(axis.text.x = element_text(face = "bold", angle = 45, hjust = 1)) +
+#         scale_fill_gradient(low = "white", high = "steelblue")
+#     
+#     p
+#     
+#     ggsave(paste("plots/NMF/", cell_type, "_H_heatmap.png", sep = ""), p, width = 10, height = 6)
+#     
+# }
+# 
+# # H heatmap
+# generate_H_heatmap(H = H_HelaS3, cell_type = "Hela-S3", epimark_order = order, sign_order = rev(c(7,4,6,5,3,1,2)))
+# generate_H_heatmap(H = H_K562, cell_type = "K562", epimark_order = order, sign_order = rev(c(6,4,1,5,2,7,3)))
+# generate_H_heatmap(H = H_HepG2, cell_type = "HepG2", epimark_order = order, sign_order = rev(c(4,5,7,3,1,6,2)))
+
+
+
+# V_mat to GenomicRanges
+# 
+
+V_mat["end"] <- V_mat$binStart + 200
+V_mat["strand"] <- rep("*", nrow(V_mat))
+V_mat["max_per_bin"] <- apply(W_HelaS3, 1, which.max) # Get maximum load signature for each bin
+
+
+
+
+gr_HelaS3 <- makeGRangesFromDataFrame(V_mat[,12:16],
+                                    seqnames.field = "chr",
+                                    start.field = "binStart",
+                                    end.field = "end", 
+                                    keep.extra.columns = T)
+
+# plot density of the epigenetic modifications
+par(oma=c(4,1,1,1), xpd=TRUE)
+kp <- plotKaryotype(plot.type = 1, chromosomes = "chr4", bty='L')
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 1], r0=0, r1 = 0.2, col = "blue")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 2], r0=0.2, r1 = 0.4, col = "red")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 3], r0=0.4, r1 = 0.6, col = "green")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 4], r0=0.6, r1 = 0.8, col = "pink")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 5], r0=0.8, r1 = 1, col = "purple")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 6], r0=1, r1 = 1.2, col = "grey")
+kpPlotDensity(kp, data=gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 7], r0=1.2, r1 = 1.4, col = "black")
+legend("bottom", legend = signature_names, fill = c("blue", "red", "green", "pink", "purple", "grey", "black"),
+       xpd = TRUE, horiz = TRUE, inset = c(0.3,-0.5), col = 1:4, cex = 0.7, bty = "n")
+
+
+
+
+### ENRICHMENT STUDY
+
+human_genes_gr <- genes(TxDb.Hsapiens.UCSC.hg19.knownGene)
+geneid2symbol <- as.data.frame(org.Hs.egSYMBOL)
+
+get_genes_per_signature <- function(gr, human, tissue){
     
-    signature_names <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
-                         "Signature 5", "Signature 6", "Signature 7")
+    for (i in 1:7) {
+        sign_gr <- gr[mcols(gr)$max_per_bin == i]
+        countOverlaps(human_genes_gr, sign_gr)
+        
+    }
     
-    H <- H[, epimark_order]
-    rownames(H) <- signature_names
+    overlaps <- subsetByOverlaps(human, gr)
     
-    H_m <- melt(H[sign_order,], varnames = c("Signature", "Mark"))
     
-    p <- ggplot(data = H_m, aes(x=Mark, y=Signature, fill=value)) + 
-        geom_tile(aes(fill = value), colour = "white") +
-        ggtitle(paste(cell_type, "H matrix", sep = " ")) +
-        theme(axis.text.x = element_text(face = "bold", angle = 45, hjust = 1)) +
-        scale_fill_gradient(low = "white", high = "steelblue")
-    
-    p
-    
-    ggsave(paste("plots/NMF/", cell_type, "_H_heatmap.png", sep = ""), p, width = 10, height = 6)
     
 }
 
-# H heatmap
-generate_H_heatmap(H = H_HelaS3, cell_type = "Hela-S3", epimark_order = order, sign_order = rev(c(7,4,6,5,3,1,2)))
-generate_H_heatmap(H = H_K562, cell_type = "K562", epimark_order = order, sign_order = rev(c(6,4,1,5,2,7,3)))
-generate_H_heatmap(H = H_HepG2, cell_type = "HepG2", epimark_order = order, sign_order = rev(c(4,5,7,3,1,6,2)))
+sign1_gr <- gr_HelaS3[mcols(gr_HelaS3)$max_per_bin == 1]
 
+
+overlaps <- subsetByOverlaps(human_genes_gr, sign1)
+
+geneids <- names(countOverlaps(human_genes_gr, sign1_gr)[countOverlaps(human_genes_gr, sign1_gr) > 100])
+
+symbol_id <- as.data.frame(mapIds(org.Hs.eg.db, geneids, 'SYMBOL', 'ENTREZID'))
+
+write.table(symbol_id, file="results/genomic_survey/Hela-S3/enrichment_sign1.txt", quote = F, row.names = F, col.names = F)
+
+present_genes_symbol <- geneid2symbol[mcols(overlaps)$gene_id %in% geneid2symbol$gene_id,]
 
 
 
@@ -124,8 +193,6 @@ generate_H_heatmap(H = H_HepG2, cell_type = "HepG2", epimark_order = order, sign
 W <- W_HelaS3
 colnames(W) <- c("Signature 1", "Signature 2", "Signature 3", "Signature 4",
                  "Signature 5", "Signature 6", "Signature 7")
-
-heatmap(W, scale = "row", Rowv = NA, Colv = NA)
 
 W_m <- melt(W, varnames = c("Bin", "Signature"))
 

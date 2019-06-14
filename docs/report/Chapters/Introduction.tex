@@ -154,6 +154,17 @@ Although the number of identified signatures was five, further on this number go
 
 \subsection{NMF and epigenetics}
 
+\medskip
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/NMF/NMF_explanation.png}
+    \caption[NMF of epigenetic data]{\textbf{NMF of epigenetic data}. Scheme of the NMF algorithm principle applied to epigenetic data. This is an image used recurrently in previous papers dealing with Non-Negative Matrix Factorization applied to biological data. \textbf{a:} The data values in the V matrix (blue), are obtained by calculating the normalized counts of each epigenetic mark (column) in every loci. We consider the 200-bp bins as loci in the present analysis. \textbf{b:} Represents the NMF algorithm principle, in which the V matrix described in \textbf{a} is factorized into two matrices; a W matrix containing the codes or signature weights for every bin, and an H matrix with signature weights for every epigenetic mark. As is is shown, we can recontruct the V matrix by multiplication of W and H}
+    \label{fig:NMF_explanation}
+\end{figure}
+
+\medskip
+
 The epigenetic modeling techniques explained before have shown the possibility to find genome-wide chromatin states based on the partition of the DNA. Nevertheless, they make the assumption that a small set of these chromatin states would be sufficient to describe the genomic expression, whereas several hundreds chromatin states have been estimated even with a small set of epigenetic marks used \cite{Ucar2011}. In addition, chromatin modifications tend to be highly correlated, hampering the task of assessing the importance of the chromatin marks and relating them to the biological mechanisms. NMF can be used in order to overcome these downsides by identifying combinatorial patterns of chromatin states.
 
 \medskip

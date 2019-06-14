@@ -68,7 +68,7 @@ options:
   intermediatePostScript: false
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2019-06-13T10:23:59.795Z
+    timeStamp: 2019-06-14T10:03:12.368Z
     jobNames: []
     value:
       severity: info
@@ -124,20 +124,20 @@ files:
       intermediatePostScript: false
     type: ParsedYAML
   main.tex:
-    timeStamp: 2019-06-13T14:49:45.731Z
+    timeStamp: 2019-06-14T09:50:19.701Z
     jobNames: []
-    hash: pHrtK36uFj+/3uY9GvhmAP9L+BZYLYmV9wtLaOBgLAc=
+    hash: y2gzjxYhs19AjGZneYc4JKM50CniC91sn4UzB4K8Ykc=
     type: LaTeX
     subType: MastersDoctoralThesis
   /home/alekssro/.config/dicy/config.yaml:
-    timeStamp: 2019-06-13T10:23:59.799Z
+    timeStamp: 2019-06-14T10:03:12.378Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2019-06-13T15:24:12.675Z
+    timeStamp: 2019-06-14T09:32:10.221Z
     jobNames: []
     value:
       messages: []
@@ -164,9 +164,11 @@ files:
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
+        - /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmbb.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
         - /usr/share/texlive/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
@@ -215,6 +217,7 @@ files:
         - /usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo
         - /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
         - /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
         - /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
         - /usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
         - /usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
@@ -240,6 +243,7 @@ files:
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+        - /usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
         - /usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
         - /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
         - /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -301,6 +305,10 @@ files:
         - Chapters/Results.aux
         - Chapters/Results.tex
         - Figures/AU_seal.png
+        - Figures/NMF/NMF_explanation.png
+        - Figures/NMF/vert_comb.png
+        - Figures/cover/chr4.png
+        - Figures/cover/signatures_density.png
         - Figures/performance/performance_nmf_join.png
         - Figures/performance/performance_per_read.png
         - Figures/select_n/error_by_n.png
@@ -308,7 +316,6 @@ files:
         - main.aux
         - main.bbl
         - main.lof
-        - main.lot
         - main.out
         - main.tex
         - main.toc
@@ -320,14 +327,13 @@ files:
         - main.aux
         - main.lof
         - main.log
-        - main.lot
         - main.out
         - main.pdf
         - main.toc
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2019-06-13T17:31:50.042Z
+    timeStamp: 2019-06-14T09:32:13.019Z
     jobNames: []
     value:
       messages:
@@ -2550,14 +2556,34 @@ files:
               end: 1236
         - name: pdfTeX
           severity: info
+          text: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+          log:
+            file: main.log
+            range:
+              start: 1238
+              end: 1238
+        - name: pdfTeX
+          severity: info
+          text: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+          source:
+            file: /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+          log:
+            file: main.log
+            range:
+              start: 1240
+              end: 1240
+        - name: pdfTeX
+          severity: info
           text: 'mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS)'
           source:
             file: /usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty
           log:
             file: main.log
             range:
-              start: 1238
-              end: 1238
+              start: 1248
+              end: 1248
         - name: pdfTeX
           severity: info
           text: csquotes 2018/02/11 v5.2c context-sensitive quotations (JAW)
@@ -2566,8 +2592,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1241
-              end: 1241
+              start: 1251
+              end: 1251
         - severity: info
           name: pdfTeX
           category: Package csquotes
@@ -2579,8 +2605,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1252
-              end: 1253
+              start: 1262
+              end: 1263
         - severity: info
           name: pdfTeX
           category: Package csquotes
@@ -2590,8 +2616,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1257
-              end: 1257
+              start: 1267
+              end: 1267
         - name: pdfTeX
           severity: info
           text: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
@@ -2600,8 +2626,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1259
-              end: 1259
+              start: 1269
+              end: 1269
         - name: pdfTeX
           severity: info
           text: >-
@@ -2613,8 +2639,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1261
-              end: 1262
+              start: 1271
+              end: 1272
         - name: pdfTeX
           severity: info
           text: 'hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)'
@@ -2624,8 +2650,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1264
-              end: 1264
+              start: 1274
+              end: 1274
         - name: pdfTeX
           severity: info
           text: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
@@ -2635,8 +2661,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1265
-              end: 1265
+              start: 1275
+              end: 1275
         - name: pdfTeX
           severity: info
           text: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -2646,8 +2672,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1266
-              end: 1266
+              start: 1276
+              end: 1276
         - name: pdfTeX
           severity: info
           text: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
@@ -2657,8 +2683,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1267
-              end: 1267
+              start: 1277
+              end: 1277
         - name: pdfTeX
           severity: info
           text: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
@@ -2668,8 +2694,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1268
-              end: 1268
+              start: 1278
+              end: 1278
         - severity: info
           name: pdfTeX
           category: Package ifluatex
@@ -2680,8 +2706,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1269
-              end: 1269
+              start: 1279
+              end: 1279
         - severity: info
           name: pdfTeX
           category: Package hobsub
@@ -2692,8 +2718,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1270
-              end: 1270
+              start: 1280
+              end: 1280
         - name: pdfTeX
           severity: info
           text: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
@@ -2703,8 +2729,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1271
-              end: 1271
+              start: 1281
+              end: 1281
         - severity: info
           name: pdfTeX
           category: Package hobsub
@@ -2715,8 +2741,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1272
-              end: 1272
+              start: 1282
+              end: 1282
         - name: pdfTeX
           severity: info
           text: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
@@ -2726,8 +2752,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1273
-              end: 1273
+              start: 1283
+              end: 1283
         - severity: info
           name: pdfTeX
           category: Package etexcmds
@@ -2741,8 +2767,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1274
-              end: 1277
+              start: 1284
+              end: 1287
         - name: pdfTeX
           severity: info
           text: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
@@ -2752,8 +2778,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1278
-              end: 1278
+              start: 1288
+              end: 1288
         - name: pdfTeX
           severity: info
           text: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
@@ -2763,8 +2789,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1279
-              end: 1279
+              start: 1289
+              end: 1289
         - name: pdfTeX
           severity: info
           text: >-
@@ -2776,8 +2802,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1280
-              end: 1281
+              start: 1290
+              end: 1291
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -2788,8 +2814,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1282
-              end: 1282
+              start: 1292
+              end: 1292
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -2800,8 +2826,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1283
-              end: 1283
+              start: 1293
+              end: 1293
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -2812,8 +2838,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1284
-              end: 1284
+              start: 1294
+              end: 1294
         - severity: info
           name: pdfTeX
           category: Package pdftexcmds
@@ -2824,8 +2850,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1285
-              end: 1285
+              start: 1295
+              end: 1295
         - name: pdfTeX
           severity: info
           text: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
@@ -2835,8 +2861,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1286
-              end: 1286
+              start: 1296
+              end: 1296
         - name: pdfTeX
           severity: info
           text: >-
@@ -2848,8 +2874,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1287
-              end: 1288
+              start: 1297
+              end: 1298
         - name: pdfTeX
           severity: info
           text: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
@@ -2859,8 +2885,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1289
-              end: 1289
+              start: 1299
+              end: 1299
         - name: pdfTeX
           severity: info
           text: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
@@ -2870,8 +2896,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1290
-              end: 1290
+              start: 1300
+              end: 1300
         - severity: info
           name: pdfTeX
           category: Package hobsub
@@ -2882,8 +2908,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1292
-              end: 1292
+              start: 1302
+              end: 1302
         - name: pdfTeX
           severity: info
           text: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
@@ -2893,8 +2919,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1293
-              end: 1293
+              start: 1303
+              end: 1303
         - name: pdfTeX
           severity: info
           text: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
@@ -2904,8 +2930,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1294
-              end: 1294
+              start: 1304
+              end: 1304
         - name: pdfTeX
           severity: info
           text: xcolor-patch 2016/05/16 xcolor patch
@@ -2915,8 +2941,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1295
-              end: 1295
+              start: 1305
+              end: 1305
         - name: pdfTeX
           severity: info
           text: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
@@ -2926,8 +2952,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1296
-              end: 1296
+              start: 1306
+              end: 1306
         - name: pdfTeX
           severity: info
           text: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
@@ -2937,8 +2963,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1297
-              end: 1297
+              start: 1307
+              end: 1307
         - name: pdfTeX
           severity: info
           text: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
@@ -2948,8 +2974,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1298
-              end: 1298
+              start: 1308
+              end: 1308
         - name: pdfTeX
           severity: info
           text: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
@@ -2959,8 +2985,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1299
-              end: 1299
+              start: 1309
+              end: 1309
         - name: pdfTeX
           severity: info
           text: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
@@ -2969,8 +2995,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1301
-              end: 1301
+              start: 1311
+              end: 1311
         - name: pdfTeX
           severity: info
           text: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
@@ -2979,8 +3005,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1303
-              end: 1303
+              start: 1313
+              end: 1313
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -2993,8 +3019,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1317
-              end: 1317
+              start: 1327
+              end: 1327
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3007,8 +3033,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1318
-              end: 1318
+              start: 1328
+              end: 1328
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3021,8 +3047,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1319
-              end: 1319
+              start: 1329
+              end: 1329
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3035,8 +3061,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1320
-              end: 1320
+              start: 1330
+              end: 1330
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3049,8 +3075,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1321
-              end: 1321
+              start: 1331
+              end: 1331
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3060,8 +3086,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1322
-              end: 1322
+              start: 1332
+              end: 1332
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3074,8 +3100,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1323
-              end: 1323
+              start: 1333
+              end: 1333
         - name: pdfTeX
           severity: info
           text: 'url 2013/09/16 ver 3.4 Verb mode for urls, etc.'
@@ -3084,8 +3110,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1327
-              end: 1327
+              start: 1337
+              end: 1337
         - severity: info
           name: pdfTeX
           category: LaTeX
@@ -3098,8 +3124,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1329
-              end: 1329
+              start: 1339
+              end: 1339
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3112,8 +3138,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1334
-              end: 1334
+              start: 1344
+              end: 1344
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3126,8 +3152,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1335
-              end: 1335
+              start: 1345
+              end: 1345
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3140,8 +3166,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1336
-              end: 1336
+              start: 1346
+              end: 1346
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3154,8 +3180,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1337
-              end: 1337
+              start: 1347
+              end: 1347
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3168,8 +3194,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1338
-              end: 1338
+              start: 1348
+              end: 1348
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3182,8 +3208,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1339
-              end: 1339
+              start: 1349
+              end: 1349
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3196,8 +3222,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1340
-              end: 1340
+              start: 1350
+              end: 1350
         - severity: info
           name: pdfTeX
           category: LaTeX
@@ -3210,8 +3236,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1341
-              end: 1341
+              start: 1351
+              end: 1351
         - severity: info
           name: pdfTeX
           category: LaTeX
@@ -3224,8 +3250,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1342
-              end: 1342
+              start: 1352
+              end: 1352
         - severity: info
           name: pdfTeX
           category: Package scrhack
@@ -3235,13 +3261,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1347
-              end: 1349
+              start: 1357
+              end: 1359
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3251,8 +3277,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1350
-              end: 1350
+              start: 1360
+              end: 1360
         - name: pdfTeX
           severity: info
           text: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -3262,8 +3288,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1356
-              end: 1356
+              start: 1366
+              end: 1366
         - severity: info
           name: pdfTeX
           category: Package uniquecounter
@@ -3277,8 +3303,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1357
-              end: 1358
+              start: 1367
+              end: 1368
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3286,13 +3312,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1362
-              end: 1362
+              start: 1372
+              end: 1372
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3300,13 +3326,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1363
-              end: 1363
+              start: 1373
+              end: 1373
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3314,13 +3340,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1364
-              end: 1364
+              start: 1374
+              end: 1374
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3328,13 +3354,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1365
-              end: 1365
+              start: 1375
+              end: 1375
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3342,13 +3368,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1371
-              end: 1371
+              start: 1381
+              end: 1381
         - severity: info
           name: pdfTeX
           category: Package csquotes
@@ -3358,8 +3384,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1372
-              end: 1373
+              start: 1382
+              end: 1383
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3367,78 +3393,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1387
-              end: 1388
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for T1/cmr/m/n ... okay
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1389
-              end: 1390
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for OT1/cmr/m/n ... okay
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1391
-              end: 1392
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for OMS/cmsy/m/n ... okay
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1393
-              end: 1394
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for OMX/cmex/m/n ... okay
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1395
-              end: 1396
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Checking defaults for U/cmr/m/n ... okay
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
@@ -3447,12 +3403,12 @@ files:
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Checking defaults for PD1/pdf/m/n ... okay
+          text: Checking defaults for T1/cmr/m/n ... okay
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
@@ -3461,12 +3417,12 @@ files:
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Checking defaults for PU/pdf/m/n ... okay
+          text: Checking defaults for OT1/cmr/m/n ... okay
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
@@ -3475,17 +3431,87 @@ files:
         - severity: info
           name: pdfTeX
           category: LaTeX Font
-          text: Try loading font information for T1+ppl
+          text: Checking defaults for OMS/cmsy/m/n ... okay
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
               start: 1403
-              end: 1403
+              end: 1404
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for OMX/cmex/m/n ... okay
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1405
+              end: 1406
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for U/cmr/m/n ... okay
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1407
+              end: 1408
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for PD1/pdf/m/n ... okay
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1409
+              end: 1410
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Checking defaults for PU/pdf/m/n ... okay
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1411
+              end: 1412
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for T1+ppl
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1413
+              end: 1413
         - name: pdfTeX
           severity: info
           text: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -3494,8 +3520,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1500
-              end: 1500
+              start: 1510
+              end: 1510
         - name: pdfTeX
           severity: info
           text: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
@@ -3504,8 +3530,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1502
-              end: 1502
+              start: 1512
+              end: 1512
         - severity: info
           name: pdfTeX
           category: Package epstopdf-base
@@ -3518,8 +3544,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1504
-              end: 1505
+              start: 1514
+              end: 1515
         - severity: info
           name: pdfTeX
           category: Package grfext
@@ -3535,8 +3561,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1506
-              end: 1509
+              start: 1516
+              end: 1519
         - severity: info
           name: pdfTeX
           category: Package caption
@@ -3546,8 +3572,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1514
-              end: 1514
+              start: 1524
+              end: 1524
         - severity: info
           name: pdfTeX
           category: Package caption
@@ -3557,8 +3583,19 @@ files:
           log:
             file: main.log
             range:
-              start: 1515
-              end: 1515
+              start: 1525
+              end: 1525
+        - severity: info
+          name: pdfTeX
+          category: Package caption
+          text: rotating package is loaded.
+          source:
+            file: main.tex
+          log:
+            file: main.log
+            range:
+              start: 1526
+              end: 1526
         - severity: info
           name: pdfTeX
           category: Package caption
@@ -3568,8 +3605,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1516
-              end: 1516
+              start: 1527
+              end: 1527
         - severity: info
           name: pdfTeX
           category: Package scrlayer
@@ -3577,13 +3614,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1552
-              end: 1553
+              start: 1563
+              end: 1564
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3591,13 +3628,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1554
-              end: 1554
+              start: 1565
+              end: 1565
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3605,13 +3642,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1555
-              end: 1555
+              start: 1566
+              end: 1566
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3619,13 +3656,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1556
-              end: 1556
+              start: 1567
+              end: 1567
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3633,13 +3670,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1558
-              end: 1558
+              start: 1569
+              end: 1569
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3647,13 +3684,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1559
-              end: 1559
+              start: 1570
+              end: 1570
         - severity: info
           name: pdfTeX
           category: Package scrbase
@@ -3661,13 +3698,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1560
-              end: 1560
+              start: 1571
+              end: 1571
         - severity: info
           name: pdfTeX
           category: Package hyperref
@@ -3675,13 +3712,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1563
-              end: 1563
+              start: 1574
+              end: 1574
         - name: pdfTeX
           severity: info
           text: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -3690,8 +3727,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1565
-              end: 1565
+              start: 1576
+              end: 1576
         - name: pdfTeX
           severity: info
           text: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
@@ -3701,8 +3738,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1567
-              end: 1567
+              start: 1578
+              end: 1578
         - severity: info
           name: pdfTeX
           category: LaTeX
@@ -3710,13 +3747,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1571
-              end: 1571
+              start: 1582
+              end: 1582
         - severity: info
           name: pdfTeX
           category: LaTeX
@@ -3724,36 +3761,8 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1572
-              end: 1572
-        - severity: info
-          name: pdfTeX
-          category: LaTeX
-          text: Redefining \nameref
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
-          log:
-            file: main.log
-            range:
-              start: 1573
-              end: 1573
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: Try loading font information for OT1+ppl
-          source:
-            file: main.tex
-            range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
@@ -3761,18 +3770,46 @@ files:
               end: 1583
         - severity: info
           name: pdfTeX
+          category: LaTeX
+          text: Redefining \nameref
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1584
+              end: 1584
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OT1+ppl
+          source:
+            file: main.tex
+            range:
+              start: 98
+              end: 98
+          log:
+            file: main.log
+            range:
+              start: 1594
+              end: 1594
+        - severity: info
+          name: pdfTeX
           category: LaTeX Font
           text: Try loading font information for OML+zplm
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1587
-              end: 1587
+              start: 1598
+              end: 1598
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3780,13 +3817,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1592
-              end: 1592
+              start: 1603
+              end: 1603
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3794,13 +3831,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1597
-              end: 1597
+              start: 1608
+              end: 1608
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3808,13 +3845,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 97
-              end: 97
+              start: 98
+              end: 98
           log:
             file: main.log
             range:
-              start: 1602
-              end: 1602
+              start: 1613
+              end: 1613
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3824,13 +3861,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 117
-              end: 117
+              start: 118
+              end: 118
           log:
             file: main.log
             range:
-              start: 1609
-              end: 1610
+              start: 1620
+              end: 1621
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -3838,13 +3875,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 137
-              end: 137
+              start: 138
+              end: 138
           log:
             file: main.log
             range:
-              start: 1614
-              end: 1615
+              start: 1625
+              end: 1626
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3854,13 +3891,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 198
-              end: 198
+              start: 199
+              end: 199
           log:
             file: main.log
             range:
-              start: 1626
-              end: 1627
+              start: 1637
+              end: 1638
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3870,13 +3907,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 223
-              end: 223
+              start: 224
+              end: 224
           log:
             file: main.log
             range:
-              start: 1632
-              end: 1633
+              start: 1643
+              end: 1644
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3891,8 +3928,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1673
-              end: 1674
+              start: 1675
+              end: 1676
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3907,8 +3944,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1675
-              end: 1676
+              start: 1677
+              end: 1678
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3923,8 +3960,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1683
-              end: 1684
+              start: 1685
+              end: 1686
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3937,8 +3974,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1698
-              end: 1698
+              start: 1700
+              end: 1700
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3953,8 +3990,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1703
-              end: 1704
+              start: 1705
+              end: 1706
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3967,8 +4004,40 @@ files:
           log:
             file: main.log
             range:
-              start: 1705
-              end: 1706
+              start: 1707
+              end: 1708
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: >-
+            Figures/NMF/NMF_explanation.png used Requested size: 404.02908pt x
+            96.46538pt.
+          source:
+            file: Chapters/Introduction.tex
+            range:
+              start: 161
+              end: 161
+          log:
+            file: main.log
+            range:
+              start: 1715
+              end: 1717
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: >-
+            Font shape `T1/ppl/bx/n' in size <9> not available Font shape
+            `T1/ppl/b/n' tried instead.
+          source:
+            file: Chapters/Introduction.tex
+            range:
+              start: 162
+              end: 162
+          log:
+            file: main.log
+            range:
+              start: 1718
+              end: 1719
         - severity: info
           name: pdfTeX
           category: LaTeX Font
@@ -3981,8 +4050,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1722
-              end: 1722
+              start: 1734
+              end: 1734
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -3997,24 +4066,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1735
-              end: 1737
-        - severity: info
-          name: pdfTeX
-          category: LaTeX Font
-          text: >-
-            Font shape `T1/ppl/bx/n' in size <9> not available Font shape
-            `T1/ppl/b/n' tried instead.
-          source:
-            file: Chapters/Methods.tex
-            range:
-              start: 50
-              end: 50
-          log:
-            file: main.log
-            range:
-              start: 1738
-              end: 1739
+              start: 1747
+              end: 1749
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -4029,8 +4082,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1763
-              end: 1765
+              start: 1773
+              end: 1775
         - severity: warning
           name: pdfTeX
           category: LaTeX
@@ -4040,8 +4093,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1767
-              end: 1767
+              start: 1777
+              end: 1777
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -4056,8 +4109,67 @@ files:
           log:
             file: main.log
             range:
-              start: 1774
-              end: 1776
+              start: 1784
+              end: 1786
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: >-
+            Figures/NMF/vert_comb.png used Requested size: 323.22449pt x
+            581.80869pt.
+          source:
+            file: Chapters/Results.tex
+            range:
+              start: 15
+              end: 15
+          log:
+            file: main.log
+            range:
+              start: 1800
+              end: 1801
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: '`!h'' float specifier changed to `!ht''.'
+          source:
+            file: Chapters/Results.tex
+          log:
+            file: main.log
+            range:
+              start: 1803
+              end: 1803
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: >-
+            Figures/cover/chr4.png used Requested size: 404.02908pt x
+            204.20085pt.
+          source:
+            file: Chapters/Results.tex
+            range:
+              start: 36
+              end: 36
+          log:
+            file: main.log
+            range:
+              start: 1826
+              end: 1827
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: >-
+            Figures/cover/signatures_density.png used Requested size:
+            693.49821pt x 397.25093pt.
+          source:
+            file: Chapters/Results.tex
+            range:
+              start: 44
+              end: 44
+          log:
+            file: main.log
+            range:
+              start: 1831
+              end: 1833
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4065,13 +4177,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 318
-              end: 318
+              start: 336
+              end: 336
           log:
             file: main.log
             range:
-              start: 1834
-              end: 1834
+              start: 1878
+              end: 1878
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4079,13 +4191,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 318
-              end: 318
+              start: 336
+              end: 336
           log:
             file: main.log
             range:
-              start: 1836
-              end: 1836
+              start: 1880
+              end: 1880
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4093,13 +4205,13 @@ files:
           source:
             file: main.tex
             range:
-              start: 318
-              end: 318
+              start: 336
+              end: 336
           log:
             file: main.log
             range:
-              start: 1848
-              end: 1848
+              start: 1892
+              end: 1892
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -4107,38 +4219,38 @@ files:
           source:
             file: main.tex
             range:
-              start: 318
-              end: 318
+              start: 336
+              end: 336
           log:
             file: main.log
             range:
-              start: 1849
-              end: 1849
+              start: 1893
+              end: 1893
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            D9BA82B18C668A0C39E4F924495AE45D;4685.
+            5DBAF950018BCFF83D14BA4EA6D9F9A5;4704.
           source:
             file: main.tex
           log:
             file: main.log
             range:
-              start: 1850
-              end: 1851
+              start: 1894
+              end: 1895
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.pdf:
-    timeStamp: 2019-06-13T17:35:29.578Z
+    timeStamp: 2019-06-14T09:45:40.105Z
     jobNames: []
-    hash: ht8T+JBtsNBi/a4KS7nZ2+dMBXd6uFP+fSqPLUZZkOw=
+    hash: tkEfk/CEQn826saIzfodAokrP/ue6PnJP0gMVemwYD8=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-13T14:49:49.866Z
+    timeStamp: 2019-06-14T09:32:10.193Z
     jobNames: []
     value:
       commands:
@@ -4233,9 +4345,10 @@ files:
         - bibcite
         - bibcite
         - bibcite
+        - bibcite
     type: ParsedLaTeXAuxilary
   main.blg-ParsedBibTeXLog:
-    timeStamp: 2019-06-13T14:49:50.005Z
+    timeStamp: 2019-06-14T09:32:10.289Z
     jobNames: []
     value:
       messages: []
@@ -4709,24 +4822,24 @@ files:
     hash: Z/GVgCISowFZuJYvFBSDepEst/G+HXRCNP7wsxkqOfs=
     type: TeX
   Chapters/Discussion.tex:
-    timeStamp: 2019-05-20T19:45:20.756Z
+    timeStamp: 2019-06-14T09:45:34.103Z
     jobNames: []
-    hash: GWMjop05D3TojGyqaQDbeip0Vrbj3vbT9YA9lbEvQjQ=
+    hash: PPcE6IwsL8xyEOWYA1Qky0IJR43fPU8SMflhvpbu+TA=
     type: TeX
   Chapters/Introduction.tex:
-    timeStamp: 2019-06-12T20:57:31.261Z
+    timeStamp: 2019-06-14T08:38:16.297Z
     jobNames: []
-    hash: EKumLpQYiLAvChYJIzN3D8//HU6s7kN8sdOVHqfdlnY=
+    hash: o16KJrPpQWk8i5T79i+LZA6R/QQmwkLqJTTNfLvEueQ=
     type: TeX
   Chapters/Methods.tex:
-    timeStamp: 2019-06-13T17:35:19.853Z
+    timeStamp: 2019-06-14T08:56:36.519Z
     jobNames: []
-    hash: 1xC8y8P6wueELdRCENy3YWq+l30Ae7lRO1kfLKGrpUc=
+    hash: pJyHGZB1MLCYpLvll0OWWeTdsNcEsnHdNuVPCH5+llY=
     type: TeX
   Chapters/Results.tex:
-    timeStamp: 2019-05-20T19:42:35.226Z
+    timeStamp: 2019-06-14T09:14:24.985Z
     jobNames: []
-    hash: chqDGnqC4PnJYzzCMtl94MsiVW93pmQK0qZ6eFSq+Uw=
+    hash: 9GKZSRqMVgl6bN4B/MpdMF/s6L+B11MXeCCK3Yrm1Ws=
     type: TeX
   MastersDoctoralThesis.cls:
     timeStamp: 2019-05-17T17:20:19.126Z
@@ -4771,7 +4884,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Discussion.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-02T18:37:39.765Z
+    timeStamp: 2019-06-14T06:31:56.198Z
     jobNames: []
     value:
       commands:
@@ -4782,6 +4895,7 @@ files:
         - '@writefile'
         - newlabel
         - '@setckpt'
+        - setcounter
         - setcounter
         - setcounter
         - setcounter
@@ -4808,7 +4922,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Introduction.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-12T17:29:12.732Z
+    timeStamp: 2019-06-14T08:38:24.270Z
     jobNames: []
     value:
       commands:
@@ -4890,11 +5004,14 @@ files:
         - citation
         - citation
         - citation
-        - citation
         - '@writefile'
         - '@writefile'
+        - newlabel
         - citation
+        - citation
+        - '@writefile'
         - '@setckpt'
+        - setcounter
         - setcounter
         - setcounter
         - setcounter
@@ -4921,7 +5038,7 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Methods.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-13T14:45:08.869Z
+    timeStamp: 2019-06-14T08:46:12.266Z
     jobNames: []
     value:
       commands:
@@ -4965,6 +5082,7 @@ files:
         - '@writefile'
         - newlabel
         - '@setckpt'
+        - setcounter
         - setcounter
         - setcounter
         - setcounter
@@ -4991,20 +5109,29 @@ files:
         - setcounter
     type: ParsedLaTeXAuxilary
   Chapters/Results.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2019-06-02T18:37:39.775Z
+    timeStamp: 2019-06-14T09:07:18.798Z
     jobNames: []
     value:
       commands:
         - relax
         - providecommand
+        - citation
+        - citation
         - '@writefile'
         - '@writefile'
         - '@writefile'
         - newlabel
         - '@writefile'
         - '@writefile'
+        - newlabel
         - '@writefile'
+        - '@writefile'
+        - newlabel
+        - newlabel
+        - '@writefile'
+        - newlabel
         - '@setckpt'
+        - setcounter
         - setcounter
         - setcounter
         - setcounter
@@ -5035,9 +5162,9 @@ files:
     jobNames: []
     type: BibTeXStyle
   mscthesis.bib:
-    timeStamp: 2019-06-06T16:18:45.730Z
+    timeStamp: 2019-06-14T03:03:53.634Z
     jobNames: []
-    hash: LFleShOCVUpK9SB70vYpOYZBqzm4xlH9ey2XzsZina4=
+    hash: 09kftAGS9COprDIvGqsDG4kf22KEVraEXDAX1LIWwTo=
     type: BibTeXFile
   /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
     timeStamp: 2016-11-25T18:32:13.000Z
@@ -5046,9 +5173,9 @@ files:
     timeStamp: 2016-11-25T18:32:48.000Z
     jobNames: []
   main.bbl:
-    timeStamp: 2019-06-13T17:35:42.555Z
+    timeStamp: 2019-06-14T09:45:37.500Z
     jobNames: []
-    hash: WT+jKBSYU5jOPzJJnguI8h8Lm2ftm8ObxSGm2rYBujQ=
+    hash: ZZc0FodqD7usWia1wUKyuQ8NE9x0cUkkp0l/xoawA/s=
   /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmex10.tfm:
     timeStamp: 2016-11-25T18:31:41.000Z
     jobNames: []
@@ -5182,78 +5309,6 @@ files:
     timeStamp: 2019-06-07T17:28:40.402Z
     jobNames: []
     hash: JoHX8wRRQnofoCS3aZYaFIhNozaAYmdsCXpWbFSwXAc=
-  main.aux:
-    timeStamp: 2019-06-13T17:35:29.503Z
-    jobNames: []
-    hash: 0O+afnogFJMtFzvCagUcpiHnZvFXbfHglJXa615pUWs=
-    type: LaTeXAuxilary
-  main.fls:
-    timeStamp: 2019-06-13T17:35:29.568Z
-    jobNames: []
-    hash: u5MVEGNPXN3U2ppDm26G9Nc9DpKNy3ImHgkumcoquA0=
-    type: FileListing
-  main.log:
-    timeStamp: 2019-06-13T17:35:29.579Z
-    jobNames: []
-    hash: MVwPwrUxf8lSD/X8aoqqWxrH3vTu9qlEAVIxkWI7l4o=
-    type: LaTeXLog
-    subType: pdfTeX
-  main.synctex.gz:
-    timeStamp: 2019-06-13T17:35:29.578Z
-    jobNames: []
-    hash: 8E9WvxxPX7+F2+UhBSgrFYt4LcPU0BSfxnVumQFgw1Y=
-    type: SyncTeX
-  Appendices/AppendixA.aux:
-    timeStamp: 2019-06-13T14:48:54.932Z
-    jobNames: []
-    hash: yfGxQOMNzm65bqu1m9qbxLUtbaEbcew8Gf0xWT5PYIw=
-    type: LaTeXAuxilary
-  Chapters/Discussion.aux:
-    timeStamp: 2019-06-13T17:35:29.386Z
-    jobNames: []
-    hash: RpDd0YTaY/zlO2ciwrbimaD8M18rEUofE538SNXQsfc=
-    type: LaTeXAuxilary
-  Chapters/Introduction.aux:
-    timeStamp: 2019-06-13T17:35:28.308Z
-    jobNames: []
-    hash: xBUWeTXvinZeCeUShSSQEKoLM7/lHDCXikyS/y1rUnU=
-    type: LaTeXAuxilary
-  Chapters/Methods.aux:
-    timeStamp: 2019-06-13T17:35:29.350Z
-    jobNames: []
-    hash: TDqTX1jnKCrWeMenqHNjhBfI1XbtHR2pf5ck0aqq0R8=
-    type: LaTeXAuxilary
-  Chapters/Results.aux:
-    timeStamp: 2019-06-13T17:35:29.367Z
-    jobNames: []
-    hash: c1xuCtRlkEZoqHSrCJxtxz+NHS6BJZH8T5MMoDohwI4=
-    type: LaTeXAuxilary
-  main.out:
-    timeStamp: 2019-06-13T17:35:29.520Z
-    jobNames: []
-    hash: wGnNiq9XqgMwWoWNwgwF97LXb2BPwRB8bq/kSO2neXQ=
-    type: OUT
-  main.lof:
-    timeStamp: 2019-06-13T17:35:29.521Z
-    jobNames: []
-    hash: qX7BHUxG8NtCxSgS7U7JxL7m+G6R9XHPTNPdbbkGhWk=
-    type: ListOfFigures
-  main.lot:
-    timeStamp: 2019-06-13T17:35:29.521Z
-    jobNames: []
-    hash: uLue0AGTJJ7V1VDjOQ1rYUiJVrGXW7L8yPsd1rALnDA=
-    type: ListOfTables
-  main.toc:
-    timeStamp: 2019-06-13T17:35:29.521Z
-    jobNames: []
-    hash: bJHLgyww7agOMulUEMGczPIXCOVbDKqAWkEV2e1TtnY=
-    type: TableOfContents
-  main.blg:
-    timeStamp: 2019-06-13T17:35:42.555Z
-    jobNames: []
-    hash: TFp/l3fGPevXN0BXVRYftsrJRNnq8bfXEVvSyO73Klo=
-    type: BibTeXLog
-    subType: BibTeX
   Figures/performance/performance_per_read.png:
     timeStamp: 2019-06-13T11:07:26.750Z
     jobNames: []
@@ -5274,6 +5329,30 @@ files:
     timeStamp: 2019-06-13T16:59:54.975Z
     jobNames: []
     hash: GcUrRZM4fThz9zS5Pphpf8kPzv9FrDRVybSHiux+pig=
+  Figures/NMF/vert_comb.png:
+    timeStamp: 2019-06-14T01:37:23.962Z
+    jobNames: []
+    hash: FGlbVZo0Yl5JGcHv8J7L6Oa4LjhlwjrRgDDgdVysAI4=
+  Figures/cover/signatures_density.png:
+    timeStamp: 2019-06-14T05:12:56.992Z
+    jobNames: []
+    hash: o5ZfPVbPdPiYcBMcuRftZ7x6fvmPlFPrvwhSQI6RCnw=
+  /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty:
+    timeStamp: 2016-11-25T18:33:41.000Z
+    jobNames: []
+    type: LaTeXStyle
+  /usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty:
+    timeStamp: 2017-01-23T00:01:06.000Z
+    jobNames: []
+    type: LaTeXStyle
+  Figures/cover/chr4.png:
+    timeStamp: 2019-06-14T07:16:17.494Z
+    jobNames: []
+    hash: EBFdmI7eJyiOO2QI24ngLqAAz7cYpoeqwiKADKudmzc=
+  Figures/NMF/NMF_explanation.png:
+    timeStamp: 2019-06-14T08:01:17.607Z
+    jobNames: []
+    hash: W7pQ3SpJZHPH/NDU37uQoeOi65+menCtjWKEwKQj6hw=
 rules:
   - name: ApplyOptions
     command: load
@@ -5697,26 +5776,6 @@ rules:
         type: default
       - file: Figures/AU_seal.png
         type: default
-      - file: main.aux
-        type: default
-      - file: Appendices/AppendixA.aux
-        type: default
-      - file: Chapters/Discussion.aux
-        type: default
-      - file: Chapters/Introduction.aux
-        type: default
-      - file: Chapters/Methods.aux
-        type: default
-      - file: Chapters/Results.aux
-        type: default
-      - file: main.out
-        type: default
-      - file: main.lof
-        type: default
-      - file: main.lot
-        type: default
-      - file: main.toc
-        type: default
       - file: Figures/performance/performance_per_read.png
         type: default
       - file: Figures/performance/performance_nmf.png
@@ -5727,35 +5786,21 @@ rules:
         type: default
       - file: Figures/performance/performance_nmf_join.png
         type: default
+      - file: Figures/NMF/vert_comb.png
+        type: default
+      - file: Figures/cover/signatures_density.png
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+        type: default
+      - file: /usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
+        type: default
+      - file: Figures/cover/chr4.png
+        type: default
+      - file: Figures/NMF/NMF_explanation.png
+        type: default
     outputs:
       - file: main.pdf
         type: target
-      - file: main.aux
-        type: default
-      - file: main.fls
-        type: default
-      - file: main.log
-        type: default
-      - file: main.synctex.gz
-        type: target
-      - file: Appendices/AppendixA.aux
-        type: default
-      - file: Chapters/Discussion.aux
-        type: default
-      - file: Chapters/Introduction.aux
-        type: default
-      - file: Chapters/Methods.aux
-        type: default
-      - file: Chapters/Results.aux
-        type: default
-      - file: main.lof
-        type: default
-      - file: main.lot
-        type: default
-      - file: main.out
-        type: default
-      - file: main.toc
-        type: default
   - name: LogProducedTargets
     command: build
     phase: finalize
@@ -5812,9 +5857,7 @@ rules:
     phase: execute
     parameters:
       - main.aux
-    inputs:
-      - file: main.aux
-        type: default
+    inputs: []
     outputs:
       - file: main.aux-ParsedLaTeXAuxilary
         type: default
@@ -5823,9 +5866,7 @@ rules:
     phase: execute
     parameters:
       - main.fls
-    inputs:
-      - file: main.fls
-        type: default
+    inputs: []
     outputs:
       - file: main.fls-ParsedFileListing
         type: default
@@ -5834,9 +5875,7 @@ rules:
     phase: execute
     parameters:
       - main.log
-    inputs:
-      - file: main.log
-        type: default
+    inputs: []
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
@@ -5845,9 +5884,7 @@ rules:
     phase: execute
     parameters:
       - Appendices/AppendixA.aux
-    inputs:
-      - file: Appendices/AppendixA.aux
-        type: default
+    inputs: []
     outputs:
       - file: Appendices/AppendixA.aux-ParsedLaTeXAuxilary
         type: default
@@ -5856,9 +5893,7 @@ rules:
     phase: execute
     parameters:
       - Chapters/Discussion.aux
-    inputs:
-      - file: Chapters/Discussion.aux
-        type: default
+    inputs: []
     outputs:
       - file: Chapters/Discussion.aux-ParsedLaTeXAuxilary
         type: default
@@ -5867,9 +5902,7 @@ rules:
     phase: execute
     parameters:
       - Chapters/Introduction.aux
-    inputs:
-      - file: Chapters/Introduction.aux
-        type: default
+    inputs: []
     outputs:
       - file: Chapters/Introduction.aux-ParsedLaTeXAuxilary
         type: default
@@ -5878,9 +5911,7 @@ rules:
     phase: execute
     parameters:
       - Chapters/Methods.aux
-    inputs:
-      - file: Chapters/Methods.aux
-        type: default
+    inputs: []
     outputs:
       - file: Chapters/Methods.aux-ParsedLaTeXAuxilary
         type: default
@@ -5889,9 +5920,7 @@ rules:
     phase: execute
     parameters:
       - Chapters/Results.aux
-    inputs:
-      - file: Chapters/Results.aux
-        type: default
+    inputs: []
     outputs:
       - file: Chapters/Results.aux-ParsedLaTeXAuxilary
         type: default
@@ -5900,9 +5929,7 @@ rules:
     phase: execute
     parameters:
       - main.log
-    inputs:
-      - file: main.log
-        type: default
+    inputs: []
     outputs:
       - file: main.log-ParsedLaTeXLog
         type: default
@@ -5913,21 +5940,11 @@ rules:
       - main.aux
       - main.aux-ParsedLaTeXAuxilary
     inputs:
-      - file: main.aux
-        type: default
       - file: main.aux-ParsedLaTeXAuxilary
         type: default
       - file: main.log-ParsedLaTeXLog
         type: default
       - file: main.blg-ParsedBibTeXLog
-        type: default
-      - file: Chapters/Introduction.aux
-        type: default
-      - file: Chapters/Methods.aux
-        type: default
-      - file: Chapters/Results.aux
-        type: default
-      - file: Chapters/Discussion.aux
         type: default
       - file: /usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst
         type: default
@@ -5936,16 +5953,12 @@ rules:
     outputs:
       - file: main.bbl
         type: default
-      - file: main.blg
-        type: default
   - name: ParseBibTeXLog
     command: build
     phase: execute
     parameters:
       - main.blg
-    inputs:
-      - file: main.blg
-        type: default
+    inputs: []
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
@@ -5954,9 +5967,7 @@ rules:
     phase: execute
     parameters:
       - main.blg
-    inputs:
-      - file: main.blg
-        type: default
+    inputs: []
     outputs:
       - file: main.blg-ParsedBibTeXLog
         type: default
